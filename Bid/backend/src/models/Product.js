@@ -17,11 +17,11 @@ const productSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  price: {
-    type: Int32Array,
-    default: 0,
-    required: true,
-  },
+  // price: {
+  //   type: Int32Array,
+  //   default: 0,
+  //   required: true,
+  // },
 
   Date: {
     type: Date,
@@ -29,4 +29,4 @@ const productSchema = mongoose.Schema({
   },
 });
 
-export default mongoose.model("Todo", productSchema);
+export default mongoose.model("Product", productSchema);
