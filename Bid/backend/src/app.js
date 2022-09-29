@@ -1,11 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import { apiRoute, apiProtected } from "./routes/api.js";
+import AuthMiddleware from "./middleware/Authentication.js";
 
 import dotenv from "dotenv";
-
-import { apiRoute, apiProtected } from "./routes/api.js";
-import AuthMiddleware from "../middleware/Authentication.js";
 
 dotenv.config();
 
@@ -20,7 +19,7 @@ mongoose.connect(process.env.MONGOURL, { useNewUrlParser: true }, (e) =>
 app.use(cors());
 app.use(express.json());
 app.use("/api/", apiRoute);
-//app.use("/api/", AuthMiddleware, apiProtected);
+app.use("/api/", AuthMiddleware, apiProtected);
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);

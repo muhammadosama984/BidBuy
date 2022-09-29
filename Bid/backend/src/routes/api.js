@@ -10,4 +10,4 @@ export const apiProtected = express.Router();
 
 apiRoute.post("/register", RegisterSchema, Register);
 apiRoute.post("/login", LoginSchema, Login);
-apiRoute.get("/getprofile", getuser);
+apiProtected.get("/getprofile", getuser);

@@ -1,6 +1,6 @@
-import statusCode from "../utils/constants.js";
 import { jsonGenerate } from "../utils/helpers.js";
 import Jwt from "jsonwebtoken";
+import { statusCode } from "../utils/constant.js";
 
 const AuthMiddleware = (req, res, next) => {
   if (req.headers["auth"] === undefined) {
