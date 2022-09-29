@@ -23,7 +23,7 @@ export const getuser = async (req, res) => {
       return res.json(
         jsonGenerate(
           statusCode.UNPROCESSABLE_ENTITY,
-          "Error is displaying todo list",
+          "Error is displaying profile",
           error
         )
       );

@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import User from "../models/User.js";
 import { jsonGenerate } from "../utils/helpers.js";
 import { statusCode } from "../utils/constant.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 export const Login = async (req, res) => {
   const errors = validationResult(req);
@@ -30,10 +32,13 @@ export const Login = async (req, res) => {
         )
       );
     }
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_TOKEN_SECRET, {
+      expiresIn: "1h",
+    });
     return res.json(
       jsonGenerate(statusCode.SUCCESS, "Login Succesfull", {
         userId: user._id,
-        //token: token,
+        token: token,
       })
     );
   }

@@ -4,7 +4,8 @@ import cors from "cors";
 
 import dotenv from "dotenv";
 
-import { apiRoute } from "./routes/api.js";
+import { apiRoute, apiProtected } from "./routes/api.js";
+import AuthMiddleware from "../middleware/Authentication.js";
 
 dotenv.config();
 
