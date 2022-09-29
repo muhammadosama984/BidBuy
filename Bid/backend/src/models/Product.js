@@ -17,11 +17,11 @@ const productSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // price: {
-  //   type: Int32Array,
-  //   default: 0,
-  //   required: true,
-  // },
+  price: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
 
   Date: {
     type: Date,
