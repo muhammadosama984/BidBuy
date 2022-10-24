@@ -1,8 +1,8 @@
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
-import User from "../models/User.js";
-import { jsonGenerate } from "../utils/helpers.js";
-import { statusCode } from "../utils/constant.js";
+import User from "../../models/User.js";
+import { jsonGenerate } from "../../utils/helpers.js";
+import { statusCode } from "../../utils/constant.js";
 
 export const getuser = async (req, res) => {
   const errors = validationResult(req);

@@ -27,6 +27,10 @@ const productSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  active: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 export default mongoose.model("Product", productSchema);
