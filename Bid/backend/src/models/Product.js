@@ -22,6 +22,14 @@ const productSchema = mongoose.Schema({
     default: 0,
     required: true,
   },
+  category: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
 
   Date: {
     type: Date,
