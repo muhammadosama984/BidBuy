@@ -31,3 +31,5 @@ const AddProduct = async (req, res) => {
     }
   }
 };
+
+export default AddProduct;
