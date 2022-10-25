@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const productSchema = mongoose.Schema({
-  product_id: {
+  // product_id: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   required: true,
+  // },
+  user_id: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },

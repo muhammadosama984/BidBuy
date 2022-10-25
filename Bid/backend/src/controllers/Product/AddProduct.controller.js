@@ -11,13 +11,16 @@ const AddProduct = async (req, res) => {
   const error = validationResult(req);
 
   if (error.isEmpty()) {
-    const { name, description, price } = req.body;
-
+    const { name, description, price, category, location } = req.body;
+    console.log(req.userId);
     try {
       const result = await Product.create({
+        user_id: req.userId,
         name: name,
         description: description,
         price: price,
+        category: category,
+        location: location,
       });
 
       res.json(
@@ -30,6 +33,7 @@ const AddProduct = async (req, res) => {
       console.log(error);
     }
   }
+  console.log(error);
 };
 
 export default AddProduct;

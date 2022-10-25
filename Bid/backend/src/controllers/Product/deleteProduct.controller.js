@@ -14,21 +14,28 @@ const deleteProduct = async (req, res) => {
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      category: req.body.category,
+      location: req.body.location,
     };
-    try {
-      const deleted = await User.findByIdAndUpdate(
-        req.product_id,
+    const userExist = await User.findOne({
+      $and: [
         {
-          active: false,
+          name: req.body.name,
         },
         {
-          new: true,
-          runValidators: true,
-          useFindAndModify: false,
-        }
-      );
+          description: req.body.description,
+        },
+        {
+          price: req.body.price,
+        },
+      ],
+    });
+    try {
+      const deleted = await Product.findOneAndUpdate(newUser, {
+        active: false,
+      });
       return res.json(
-        jsonGenerate(statusCode.SUCCESS, "Profile of the User Deleted", deleted)
+        jsonGenerate(statusCode.SUCCESS, "Product is Deleted", deleted)
       );
     } catch (error) {
       return res.json(
