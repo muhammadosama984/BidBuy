@@ -23,7 +23,7 @@ const ordersCompleted = mongoose.Schema({
   },
   payment: [
     {
-      type: {
+      paymentType: {
         type: String,
         required: true,
         enum: {
@@ -34,6 +34,7 @@ const ordersCompleted = mongoose.Schema({
       payment_date: {
         type: Date,
         required: true,
+        default: Date.now(),
       },
     },
   ],
