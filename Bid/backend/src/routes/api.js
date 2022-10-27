@@ -4,6 +4,9 @@ import getAllBiddings from "../controllers/Biddings/getAllBiddings.controller.js
 import getSingleBidding from "../controllers/Biddings/getSingleBidding.controller.js";
 import startBidding from "../controllers/Biddings/startBidding.controller.js";
 import updateBidding from "../controllers/Biddings/updateBidding.controller.js";
+import getAllOrdersCompleted from "../controllers/Orders/getAllOrdersCompleted.controller.js";
+import getSingleorder from "../controllers/Orders/getSingleOrder.controller.js";
+import postOrderCompleted from "../controllers/Orders/postOrderCompleted.controller.js";
 import AddProduct from "../controllers/Product/AddProduct.controller.js";
 import deleteProduct from "../controllers/Product/deleteProduct.controller.js";
 import getAllProducts from "../controllers/Product/getAllProducts.controller.js";
@@ -41,3 +44,8 @@ apiProtected.post("/updatebidding", updateBidding);
 apiProtected.post("/cancelbidding", cancelBiddings);
 apiProtected.get("/getallbiddings", getAllBiddings);
 apiProtected.get("/getsinglebidding", getSingleBidding);
+
+// orders
+apiProtected.post("/ordercompleted", postOrderCompleted);
+apiProtected.get("/getsingleorder", getSingleorder);
+apiProtected.get("/getallordercompleted", getAllOrdersCompleted);
