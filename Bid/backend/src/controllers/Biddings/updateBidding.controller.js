@@ -7,4 +7,13 @@ import User from "../../models/User.js";
 import { statusCode } from "../../utils/constant.js";
 import { jsonGenerate } from "../../utils/helpers.js";
 
-// everytime new bid is posted
+const updateBidding = async (req, res) => {
+  const error = validationResult(req);
+
+  if (error.isEmpty()) {
+    try {
+    } catch (error) {}
+  }
+};
+
+export default updateBidding;

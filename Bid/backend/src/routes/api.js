@@ -1,4 +1,5 @@
 import express from "express";
+import startBidding from "../controllers/Biddings/startBidding.controller.js";
 import AddProduct from "../controllers/Product/AddProduct.controller.js";
 import deleteProduct from "../controllers/Product/deleteProduct.controller.js";
 import getAllProducts from "../controllers/Product/getAllProducts.controller.js";
@@ -16,13 +17,19 @@ import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
 
+//users
 apiRoute.post("/register", RegisterSchema, Register);
 apiRoute.post("/login", LoginSchema, Login);
 apiProtected.get("/getprofile", getuser);
 apiProtected.post("/updateprofile", updateProfile);
 apiProtected.post("/deleteprofile", deleteProfile);
+
+//Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);
 apiProtected.post("/deleteproduct", deleteProduct);
 apiProtected.get("/getallproducts", getAllProducts);
 apiProtected.get("/getsingleproduct", getSingleProduct);
 apiProtected.get("/myproduct", myProducts);
+
+// biddings
+apiProtected.post("/startbidding", startBidding);

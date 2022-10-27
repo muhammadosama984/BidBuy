@@ -6,3 +6,12 @@ import User from "../../models/User.js";
 
 import { statusCode } from "../../utils/constant.js";
 import { jsonGenerate } from "../../utils/helpers.js";
+
+const getAllBiddings = async (req, res) => {
+  const error = validationResult(req);
+
+  if (error.isEmpty()) {
+  }
+};
+
+export default getAllBiddings;

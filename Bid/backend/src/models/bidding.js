@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const biddingSchema = mongoose.Schema({
-  bidding_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
   product_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
