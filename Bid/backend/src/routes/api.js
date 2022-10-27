@@ -1,5 +1,9 @@
 import express from "express";
+import cancelBiddings from "../controllers/Biddings/cancelBidding.controller.js";
+import getAllBiddings from "../controllers/Biddings/getAllBiddings.controller.js";
+import getSingleBidding from "../controllers/Biddings/getSingleBidding.controller.js";
 import startBidding from "../controllers/Biddings/startBidding.controller.js";
+import updateBidding from "../controllers/Biddings/updateBidding.controller.js";
 import AddProduct from "../controllers/Product/AddProduct.controller.js";
 import deleteProduct from "../controllers/Product/deleteProduct.controller.js";
 import getAllProducts from "../controllers/Product/getAllProducts.controller.js";
@@ -33,3 +37,7 @@ apiProtected.get("/myproduct", myProducts);
 
 // biddings
 apiProtected.post("/startbidding", startBidding);
+apiProtected.post("/updatebidding", updateBidding);
+apiProtected.post("/cancelbidding", cancelBiddings);
+apiProtected.get("/getallbiddings", getAllBiddings);
+apiProtected.get("/getsinglebidding", getSingleBidding);

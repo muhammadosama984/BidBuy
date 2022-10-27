@@ -14,6 +14,25 @@ const startBidding = async (req, res) => {
   // new Date(Date.now()).getHours()
 
   if (error.isEmpty()) {
+    const bidExist = await bidding.findOne({
+      $or: [
+        {
+          product_id: req.query.product_id,
+        },
+      ],
+    });
+    if (new Date(req.body.end_time) < Date.now()) {
+      res.json(
+        jsonGenerate(statusCode.SUCCESS, "End time not correct", {
+          // bidding_id: bid._id,
+        })
+      );
+    }
+    if (bidExist) {
+      return res.json(
+        jsonGenerate(statusCode.UNPROCESSABLE_ENTITY, "Bid already Exists")
+      );
+    }
     try {
       const bid = await bidding.create({
         product_id: req.query.product_id,
@@ -21,17 +40,10 @@ const startBidding = async (req, res) => {
         highestBidder: req.userId,
         start_price: req.body.start_price,
         end_price: req.body.end_price,
-        current_price: new Date(req.body.start_price),
-        end_time: req.body.end_time,
+        current_price: req.body.start_price,
+        end_time: new Date(req.body.end_time),
       });
 
-      if (end_time < Date.now()) {
-        res.json(
-          jsonGenerate(statusCode.SUCCESS, "End time not correct", {
-            // bidding_id: bid._id,
-          })
-        );
-      }
       res.json(
         jsonGenerate(statusCode.SUCCESS, "Bidding Added", {
           bidding_id: bid._id,
