@@ -38,6 +38,11 @@ const ordersCompleted = mongoose.Schema({
       },
     },
   ],
+  active: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
 });
 
 export default mongoose.model("OrdersCompleted", ordersCompleted);
