@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const ordersCompleted = mongoose.Schema({
-  order_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
   bidding_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "bidding",

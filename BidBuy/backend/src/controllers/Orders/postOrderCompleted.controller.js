@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
 import Jwt from "jsonwebtoken";
+import bidding from "../../models/bidding.js";
 import Product from "../../models/Product.js";
 import User from "../../models/User.js";
 
@@ -12,6 +13,9 @@ const postOrderCompleted = async (req, res) => {
 
   if (error.isEmpty()) {
     try {
+      const list = bidding
+        .findById(req.query.bidding_id)
+        .select("seller_id, highestBidder");
     } catch (error) {}
   }
 };
