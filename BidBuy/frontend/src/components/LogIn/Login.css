@@ -1,8 +1,62 @@
-.sign-in{
-    background-color: #CF3D2F;
+/* DIV BOXES */
+.div_main{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 900px;
 }
-.red-container{
-    width: 200;
-    height: 40;
+
+.div_signIn{
+    flex: 1 0 65%;
+    height: 900px;
+    
+}
+
+.div_redContainer{
     background-color: #CF3D2F;
+    height: 900px;
+    flex: 1 0 35%;
+    background-image: url(../../../images/bg_red.png);
+    background-repeat: no-repeat;
+    
+
+
+}
+
+
+/* BUTTONS */
+
+.btn_signIn{
+    width: 472px;
+    height: 65px;
+    background-color: #CF3D2F;
+    border-radius: 9px;
+    color: green;
+}
+
+
+/* HEADINGS */
+.welcome_heading{
+    font-size: 36px;
+    font-family: "microsoft yahei" ;
+    color: #CF3D2F;
+    text-align: center;
+}
+
+.newHere_heading{
+    margin-top: 50%;
+    font-size: 48px;
+    font-family: "microsoft yahei" ;
+    color: white;
+    text-align: center;
+}
+
+
+/* TEXT PARAGRAPH */
+.txt_startSelling{
+    margin-top: 05%;
+    font-size: 16px;
+    font-family: "microsoft yahei" ;
+    color: white;
+    text-align: center;
 }
