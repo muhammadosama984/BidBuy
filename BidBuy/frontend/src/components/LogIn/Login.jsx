@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Card,
@@ -11,9 +11,22 @@ import {
 } from '@mui/material';
 import './Login.css';
 import { textAlign } from '@mui/system';
+import Logo from '../Logo/Logo.jsx';
   
 
+
 function Login() {
+  const [emailAddress, setemailAddress] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailAddress = (event) => {
+      setemailAddress(event.target.value);
+      console.log(emailAddress);
+  }
+  const handlePassword = (event) => {
+    setemailAddress(event.target.value);
+    console.log(emailAddress);
+}
   return (
 
 
@@ -22,25 +35,7 @@ function Login() {
       <div className='div_signIn'>
 
         {/* logo */}
-        <div className='div_flex'>
-
-          <div className='div_flexed'>
-            <h1 className='red_txt'>B</h1>
-          </div>
-
-          <div className='div_flexed'>
-            <h1 className='black_txt'>id</h1>
-          </div>
-
-          <div className='div_flexed'>
-            <h1 className='red_txt'>B</h1>
-          </div>
-
-          <div className='div_flexed'>
-            <h1 className='black_txt'>uy</h1>
-          </div>
-
-        </div>
+        <Logo/>
 
 
         {/* SIGNIN FORM */}
@@ -51,7 +46,6 @@ function Login() {
             <h4 className='welcome_signInTo'>  Sign in to your account</h4>
 
             <div>
-              
               <Box
                 sx={{
                   width: '50%',
@@ -64,7 +58,7 @@ function Login() {
                   textAlign: 'center',
                   
                 }}/> */}
-                <TextField fullWidth label="Email Address" id="fullWidth" />
+                <TextField fullWidth onChange={handleEmailAddress} label="Email Address" id="fullWidth" />
               </Box>
 
               <Box
@@ -79,13 +73,13 @@ function Login() {
                   textAlign: textAlign.center,
                   
                 }}/> */}
-                <TextField fullWidth label="Password" id="fullWidth" />
+                <TextField fullWidth onChange={handlePassword} label="Password" id="fullWidth" />
               </Box>
 
              
             </div>
             <div className='btn_forgot'>
-            <Button variant="text" style={{ color: 'black', fontWeight: "bold", fontSize: "14px",fontFamily: "microsoft yahei", textTransform: 'none' }}>Forgot Password?</Button>
+            <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "14px",fontFamily: "microsoft yahei", textTransform: 'none' }}>Forgot Password?</Button>
             </div>
 
             <div>
