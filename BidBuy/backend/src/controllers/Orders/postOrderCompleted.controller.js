@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
 import Jwt from "jsonwebtoken";
 import bidding from "../../models/bidding.js";
+import OrdersCompleted from "../../models/OrdersCompleted.js";
 import Product from "../../models/Product.js";
 import User from "../../models/User.js";
 
@@ -13,10 +14,27 @@ const postOrderCompleted = async (req, res) => {
 
   if (error.isEmpty()) {
     try {
-      const list = bidding
+      const list = await bidding
         .findById(req.query.bidding_id)
         .select("seller_id, highestBidder");
-    } catch (error) {}
+
+      // console.log(req.body.payment);
+
+      const result = await OrdersCompleted.create({
+        bidding_id: req.query.bidding_id,
+        seller_id: list.seller_id,
+        buyer_id: list.highestBidder,
+        price_soldIn: req.body.price_soldIn,
+        payment: req.body.payment,
+      });
+      res.json(
+        jsonGenerate(statusCode.SUCCESS, "Order Added", {
+          order_id: result._id,
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
