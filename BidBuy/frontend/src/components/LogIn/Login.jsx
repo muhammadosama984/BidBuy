@@ -58,7 +58,7 @@ function Login() {
                   textAlign: 'center',
                   
                 }}/> */}
-                <TextField fullWidth onChange={handleEmailAddress} label="Email Address" id="fullWidth" />
+                <TextField fullWidth onChange={handleEmailAddress} label="" id="fullWidth" InputProps={{ sx: { height: "8vh" , textAlign: 'right' } }} placeholder="Email Address" />
               </Box>
 
               <Box
@@ -73,14 +73,20 @@ function Login() {
                   textAlign: textAlign.center,
                   
                 }}/> */}
-                <TextField fullWidth onChange={handlePassword} label="Password" id="fullWidth" />
+                {/* <p style={{ color: 'black', fontSize: "2vh", fontFamily: "microsoft yahei", textAlign: 'left'}}>Password</p> */}
+                <TextField fullWidth onChange={handlePassword} label="" id="fullWidth" InputProps={{ sx: { height: "8vh" , textAlign: 'right' } }} placeholder="Password" />
+                <div className='btn_forgot'>
+                 <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "1.5vh",fontFamily: "microsoft yahei", textTransform: 'none'}}>Forgot Password?</Button>
+                </div>
               </Box>
 
              
             </div>
-            <div className='btn_forgot'>
-            <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "14px",fontFamily: "microsoft yahei", textTransform: 'none' }}>Forgot Password?</Button>
+
+            <div style={{height: "4vh"}}>
+
             </div>
+            
 
             <div>
             <button className='btn_SignIn'>Sign In</button>
@@ -97,7 +103,7 @@ function Login() {
               {/* <Button style={{ color: 'black', fontWeight: "bold", fontSize: "16px",fontFamily: "microsoft yahei", textTransform: 'none', backgroundImage: "url(../../../images/bg_red.png)"}}>Sign in with Google</Button> */}
             </div>
             <div>
-              <p style={{ color: 'black', fontSize: "16px", fontFamily: "microsoft yahei"}}>Dont have an account? <Button variant="text" style={{ color: '#CF3D2F', padding: "0", fontSize: "14px",fontFamily: "microsoft yahei", fontWeight: "bold" ,textTransform: 'none' }}>Sign Up</Button></p>
+              <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei"}}>Dont have an account? <Button variant="text" style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh",fontFamily: "microsoft yahei", fontWeight: "bold" ,textTransform: 'none', marginBottom: "0.5vh" }}>Sign Up</Button></p>
             </div>
           </div>
         </center>
