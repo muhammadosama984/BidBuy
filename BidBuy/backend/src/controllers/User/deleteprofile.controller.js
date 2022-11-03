@@ -18,10 +18,20 @@ export const deleteProfile = async (req, res) => {
       email: req.body.email,
       active: false,
     };
+    const isAdmin = await User.findById(req.userId).select("userRole");
+    //console.log(isAdmin);
+    if (isAdmin.userRole === "User") {
+      return res.json(
+        jsonGenerate(
+          statusCode.SUCCESS,
+          "You are not authorised to delete profile"
+        )
+      );
+    }
 
     try {
       const deleted = await User.findByIdAndUpdate(
-        req.userId,
+        req.query.user_id,
         {
           active: false,
         },
