@@ -41,6 +41,11 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  userRole: {
+    type: String,
+    required: true,
+    default: "User",
+  },
 });
 
 export default mongoose.model("User", userSchema);
