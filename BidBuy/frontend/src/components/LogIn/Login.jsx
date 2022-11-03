@@ -12,6 +12,7 @@ import {
 import './Login.css';
 import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
+
   
 
 
@@ -41,7 +42,7 @@ function Login() {
         {/* SIGNIN FORM */}
         <center>
           <div>
-            <h2 className='welcome_heading'> Welcome Back 👋🏼</h2>
+            <h2 className='welcome_heading'> Welcome Back 👋🏼 </h2>
 
             <h4 className='welcome_signInTo'>  Sign in to your account</h4>
 
