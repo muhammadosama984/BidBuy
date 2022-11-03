@@ -27,6 +27,22 @@ function Login() {
     setemailAddress(event.target.value);
     console.log(emailAddress);
 }
+const styles = {
+  'input-label': {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    width: '100%',
+    color: 'red'
+  },
+
+  'input': {
+    '&::placeholder': {
+      textOverflow: 'ellipsis !important',
+      color: 'blue'
+    }
+  }
+};
   return (
 
 
@@ -51,6 +67,7 @@ function Login() {
                   width: '50%',
                   maxWidth: '100%',
                   marginBottom: 3,
+                 
                 }}
               >
                 {/* <TextField id="standard-basic" label="Email Address" variant="standard" sx={{
@@ -58,7 +75,12 @@ function Login() {
                   textAlign: 'center',
                   
                 }}/> */}
-                <TextField fullWidth onChange={handleEmailAddress} label="" id="fullWidth" InputProps={{ sx: { height: "8vh" , textAlign: 'right' } }} placeholder="Email Address" />
+                <TextField fullWidth onChange={handleEmailAddress} type="String" label="" id="fullWidth" 
+                inputProps={
+                  { sx: { height: "4vh" , textAlign: 'left', fontSize:17 , color: 'blue'} }
+             
+              
+              } placeholder="Email Address" />
               </Box>
 
               <Box
@@ -74,7 +96,7 @@ function Login() {
                   
                 }}/> */}
                 {/* <p style={{ color: 'black', fontSize: "2vh", fontFamily: "microsoft yahei", textAlign: 'left'}}>Password</p> */}
-                <TextField fullWidth onChange={handlePassword} label="" id="fullWidth" InputProps={{ sx: { height: "8vh" , textAlign: 'right' } }} placeholder="Password" />
+                <TextField fullWidth onChange={handlePassword} label="" id="fullWidth" inputProps={{ sx: { height: "4vh" , textAlign: 'left' , fontSize:17} }} placeholder="Password" />
                 <div className='btn_forgot'>
                  <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "1.5vh",fontFamily: "microsoft yahei", textTransform: 'none'}}>Forgot Password?</Button>
                 </div>
