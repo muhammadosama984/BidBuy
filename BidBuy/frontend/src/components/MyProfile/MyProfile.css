@@ -1,0 +1,116 @@
+.div_Navmain{
+    width: 100%;
+    max-width: 1400px;
+    height: 15vh;
+    border-bottom: 1px solid #e0e0e0;
+    /* border-style: solid; */
+    /* border-color: black; */
+    /* background-color: aqua; */
+}
+
+.search{
+    width: 20vw;
+    height: 40px;
+    color: black;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 40px;
+    outline-color: black;
+    outline-width: 1px solid black;
+    background-image: url(../../../images/search.png);
+    background-size: 8%;
+    background-position: 98%;
+    background-repeat: no-repeat;
+    margin-left: 35px;
+    border-radius: 6px;
+    
+}
+
+search:focus{
+    border: 1px solid grey;
+}
+
+.btn_search{
+    width: 40px;
+    height: 40px;
+    padding-top: 25px;
+    margin-top: 0px;
+    background-color: aqua;
+}
+
+.btn_cat{
+    width: 137px;
+    height: 40px;
+    color: white;
+    background-color: #CF3D2F;
+    border: 0;
+    font-family: "microsoft yahei" ;
+    font-size: 15px;
+    padding: 8px 16px 8px 16px;
+    border-radius: 6px;
+}
+
+.btn_trans{
+    width: 137px;
+    height: 40px;
+    color: black;
+    background-color: rgba(255,255,255,0);
+    border: 0;
+    font-family: "microsoft yahei" ;
+    font-size: 15px;
+    padding: 8px 16px 8px 16px;
+    border-radius: 6px;
+}
+.btn_trans2{
+    width: 185px;
+    height: 40px;
+    color: black;
+    background-color: rgba(255,255,255,0);
+    border: 0;
+    font-family: "microsoft yahei" ;
+    font-size: 15px;
+    padding: 8px 16px 8px 16px;
+    border-radius: 6px;
+}
+
+divBtn_flex{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+ul {
+    width: 100%;
+    font-size: 15px;
+    max-width: 1400px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0);
+  }
+  
+  li {
+    float: left;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    font-family: "microsoft yahei";
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #e0e0e0;
+  }
+  
+  
+  
