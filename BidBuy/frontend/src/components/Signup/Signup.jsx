@@ -34,14 +34,20 @@ function Signup() {
                   component="form"
                   sx={{
                     '& .MuiTextField-root': { m: 1, width: '25ch' },
-                     }} noValidate autoComplete="off" >
-
+                     }} noValidate autoComplete="off" 
+                     >
+            <div>
             <TextField  required id="outlined-required" label="First Name" />
             <TextField  required id="outlined-required" label="Username"  />
+            </div>
+            <div>
             <TextField  required id="outlined-required" label="Last Name" />
             <TextField  required id="outlined-required" label="Email Address" />
+            </div>
+            <div>
             <TextField  required id="outlined-required" label="Phone Number" />
             <TextField  required id="outlined-required" label="Password" />
+            </div>
     
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
@@ -59,6 +65,10 @@ function Signup() {
 
             <div>
             <button className='btn_SignUp'>Sign Up</button>
+            </div>
+            <div>
+              <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei"}}>Already have an account?
+               <Button variant="text" style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh",fontFamily: "microsoft yahei", fontWeight: "bold" ,textTransform: 'none', marginBottom: "0.5vh" }}>Sign In</Button></p>
             </div>
 
          </center> 
