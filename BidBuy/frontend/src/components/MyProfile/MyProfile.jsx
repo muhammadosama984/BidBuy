@@ -14,11 +14,6 @@ import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 import NavBar from '../NavBar/NavBar'
 
-// import { BiSearch } from "@react-icons/bi";
-import { BsSearch } from "react-icons/bs";
-import { GiCube } from "react-icons/gi";
-import { HiCube } from "react-icons/hi";
-
 function Header() {
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +28,7 @@ function Header() {
   }
   return (
     <div>
+      <div className='div_topGap'></div>
     <NavBar/>
 
     <center>

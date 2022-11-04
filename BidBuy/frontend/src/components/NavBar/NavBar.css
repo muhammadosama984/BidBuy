@@ -1,8 +1,9 @@
 .div_Navmain{
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     height: 15vh;
     border-bottom: 1px solid #e0e0e0;
+    /* margin-left: 100; */
     /* border-style: solid; */
     /* border-color: black; */
     /* background-color: aqua; */
@@ -86,7 +87,7 @@ divBtn_flex{
 ul {
     width: 100%;
     font-size: 15px;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -96,8 +97,8 @@ ul {
   
   li {
     float: left;
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
+    /* width: 9%; */
+   
   }
   
   li a {
@@ -105,7 +106,7 @@ ul {
     color: black;
     text-align: center;
     font-family: "microsoft yahei";
-    padding: 14px 16px;
+    padding: 0;
     text-decoration: none;
   }
   

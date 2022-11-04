@@ -1,0 +1,108 @@
+  <!-- {/* <Logo /> */}
+
+      {/* <table> */}
+        <th><Logo /></th>
+        <th>
+          <button className='btn_cat'>Categories</button>
+        </th>
+        <th>
+          <form>
+            <input type="text" className='search' placeholder="Search"></input>
+          </form>
+
+        </th>
+        {/* <th> */}
+        {/* <div className='btn_search'><BsSearch size={30} color='gray'/></div> */}
+
+        {/* </th> */}
+        <th>
+          <Stack direction="row" spacing={2}>
+
+            <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: 'red' }} fontSize='small' />} style={{ color: 'black' }}>
+              Orders
+            </Button>
+            <Button startIcon={<FavoriteIcon style={{ color: 'red' }} />} style={{ color: 'black' }}>
+              Favourites
+            </Button>
+            <Button startIcon={<ShoppingCartIcon style={{ color: 'red' }} />} style={{ color: 'black' }}>
+              Cart
+            </Button>
+          </Stack>
+          {/* <div className='divBtn_flex'>
+        <div style={{flex:'0 0 50vw'}}>
+        <HiCube color='red' size={30}/>
+        </div>
+        <div style={{flex:'0 0 50vw'}}>
+        <button className='btn_trans'>Orders</button>
+        </div>
+      </div>
+       */}
+
+          {/* <button className='btn_trans'>Orders</button>
+    </th>
+    <th>
+    <button className='btn_trans'>Favourites</button>
+    </th>
+
+    <th>
+    <button className='btn_trans'>Cart</button> */}
+        </th>
+        <th>
+          <button className='btn_cat'>Sign Out</button>
+        </th>
+
+      {/* </table> */}
+
+
+      {/* <ul> */}
+        <li>
+          <a href="#home">
+            <Button startIcon={<LocationOnIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize: '12px', }}>
+              Karachi
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }}>
+              Home
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }}>
+              My Profile
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }}>
+              My Auctions
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }}>
+              My Bids
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }}>
+              Contact Us
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            <Button style={{ color: 'black', fontSize: '12px', }} size="small">
+              Sell Now
+            </Button>
+          </a>
+        </li>
+
+      {/* </ul> */} -->
