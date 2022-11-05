@@ -42,8 +42,8 @@ function Header() {
     <div className='div_Navmain'>
     
 
-      <Stack direction="row" spacing={2} >
-        <Logo />
+      <Stack direction="row" spacing={2} justifyContent='space-evenly' >
+       <Logo />
         <button className='btn_cat'>Categories</button>
         <form>
           <input type="text" className='search' placeholder="Search"></input>
@@ -59,12 +59,12 @@ function Header() {
         </Button>
         <button className='btn_cat'>Sign Out</button>
 
-
-
       </Stack>
 
+      <div style={{padding: '5px'}}></div>
 
-      <Stack direction="row" spacing={12} >
+
+      <Stack direction="row" spacing={12} justifyContent='space-evenly' alignItems={'center'} >
 
         <Button startIcon={<LocationOnIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize: '12px', }}>
           Karachi
@@ -89,7 +89,7 @@ function Header() {
           Contact Us
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', }} size="small">
+        <Button style={{ color: 'black', fontSize: '12px', paddingRight: '10px' }} size="small">
           Sell Now
         </Button>
 

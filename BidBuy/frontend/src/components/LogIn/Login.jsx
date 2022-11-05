@@ -52,7 +52,9 @@ const styles = {
       <div className='div_signIn'>
 
         {/* logo */}
-        <Logo/>
+        <div style={{paddingLeft: '20px', paddingTop: '10px'}}>
+          <Logo/>
+        </div>
 
 
         {/* SIGNIN FORM */}

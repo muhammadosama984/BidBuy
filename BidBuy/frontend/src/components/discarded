@@ -106,3 +106,76 @@
         </li>
 
       {/* </ul> */} -->
+
+
+
+
+
+      {/* // <div> */}
+        //   <div className='div_topGap'></div>
+        //   <NavBar />
+    
+        //   <div>
+    
+        //     {/* <Stack direction="column" spacing={2}>
+              
+        //       <h2>Muhammad Ahmed</h2>
+        //     </Stack> */}
+    
+        //     <Grid container spacing={2}>
+        //       <Grid container
+        //         direction="row"
+        //         justifyContent="space-evenly"
+        //         alignItems="center"
+        //         sx={{ marginTop: 0, marginBottom: 0 }}>
+        //         <Grid item  >
+        //           <Grid item display='flex'>
+        //             <h1>My Profile</h1>
+                    
+        //           </Grid>
+        //           <Grid item display='flex'>
+        //             <h2>My Profile</h2>
+        //           </Grid>
+        //           <Box
+        //               component="form"
+        //               sx={{
+        //                 '& .MuiTextField-root': { m: 1, width: '25ch' },
+        //                  }} noValidate autoComplete="off" 
+        //                  >
+        //         <div>
+        //         <TextField  required id="outlined-required" label="First Name" />
+        //         <TextField  required id="outlined-required" label="Username"  />
+        //         </div>
+        //         <div>
+        //         <TextField  required id="outlined-required" label="Last Name" />
+        //         <TextField  required id="outlined-required" label="Email Address" />
+        //         </div>
+        //         <div>
+        //         <TextField  required id="outlined-required" label="Phone Number" />
+        //         <TextField  required id="outlined-required" label="Password" />
+        //         </div>
+        
+        //         <TextField  required id="outlined-required" label="Confirm Password" />
+    
+        //         </Box>
+    
+        //         </Grid>
+        //         <Item></Item>
+    
+        //       </Grid>
+    
+    
+        //       {/* <Grid xs={6} md={6}>
+        //           <Item><h1>My Pic</h1></Item>
+        //         </Grid>
+        //         <Grid xs={6} md={6}>
+        //           <Item><h2>Muhammad Ahmed</h2></Item>
+        //         </Grid> */}
+        //     </Grid>
+        //     {/* ? */}
+    
+    
+        //   </div>
+    
+    
+        // </div>
