@@ -35,7 +35,7 @@ apiProtected.post("/deleteprofile", deleteProfile);
 //Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);
 apiProtected.post("/deleteproduct", deleteProduct);
-apiProtected.get("/getallproducts", getAllProducts);
+apiRoute.get("/getallproducts", getAllProducts);
 apiProtected.get("/getsingleproduct", getSingleProduct);
 apiProtected.get("/myproduct", myProducts);
 

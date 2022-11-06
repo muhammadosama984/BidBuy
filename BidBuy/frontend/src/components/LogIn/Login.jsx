@@ -12,6 +12,7 @@ import {
 import './Login.css';
 import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
+import axios from 'axios';
 
   
 
@@ -78,7 +79,7 @@ const styles = {
                   textAlign: 'center',
                   
                 }}/> */}
-                <TextField fullWidth onChange={handleEmailAddress} type="String" label="" id="fullWidth" 
+                <TextField fullWidth value = {emailAddress} onChange={handleEmailAddress} type="String" label="" id="fullWidth" 
                 inputProps={
                   { sx: { height: "2vh" , textAlign: 'left', fontSize:'2.5vh' , color: 'black', opacity: "1"} }
              
@@ -99,7 +100,7 @@ const styles = {
                   
                 }}/> */}
                 {/* <p style={{ color: 'black', fontSize: "2vh", fontFamily: "microsoft yahei", textAlign: 'left'}}>Password</p> */}
-                <TextField fullWidth onChange={handlePassword} label="" id="fullWidth" inputProps={{ sx: { height: "2vh" , textAlign: 'left' , fontSize:'2.5vh', color: 'black'} }} placeholder="Password" />
+                <TextField fullWidth alue = {password} onChange={handlePassword} label="" id="fullWidth" inputProps={{ sx: { height: "2vh" , textAlign: 'left' , fontSize:'2.5vh', color: 'black'} }} placeholder="Password" />
                 <div className='btn_forgot'>
                  <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "1.5vh",fontFamily: "microsoft yahei", textTransform: 'none'}}>Forgot Password?</Button>
                 </div>
