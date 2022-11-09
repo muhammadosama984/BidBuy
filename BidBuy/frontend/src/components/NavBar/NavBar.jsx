@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Card,
-  Grid,
-  Typography,
-  TextField,
-  InputAdornment,
-  Divider,
-  Button,
-} from '@mui/material';
+import { Button, 
+         TextField,
+         IconButton,
+         InputAdornment,
+        } from '@mui/material';
 import './NavBar.css';
-import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 
-// import { BiSearch } from "@react-icons/bi";
-// import { BsSearch } from "react-icons/bs";
-// import { GiCube } from "react-icons/gi";
-// import { HiCube } from "react-icons/hi";
+
+import MenuIcon from '@mui/icons-material/Menu';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import ListAltIcon from '@mui/icons-material/ListAlt';
 import FeaturedPlayListRoundedIcon from '@mui/icons-material/FeaturedPlayListRounded';
+
+// import IconButton from "@material-ui/core/IconButton";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from '@mui/icons-material/Search';
 
 import Stack from '@mui/material/Stack';
 
@@ -40,28 +35,45 @@ function Header() {
   return (
 
     <div className='div_Navmain'>
-    
 
-      <Stack direction="row" spacing={2} justifyContent='space-evenly' >
-       <Logo />
-        <button className='btn_cat'>Categories</button>
-        <form>
-          <input type="text" className='search' placeholder="Search"></input>
-        </form>
-        <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: 'red' }} fontSize='small' />} style={{ color: 'black' }}>
+
+      <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"} >
+        <Logo/>
+        <Button startIcon={<MenuIcon style={{ color: 'white' }}/>} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px' }}>
+          Categories
+        </Button>
+        {/* <button className='btn_cat'>Categories</button> */}
+        <TextField
+          label=""
+          InputProps={{
+            sx: { height: "35px", width:"350px", fontSize: '12px', margin: 0, textAlign: 'start', p:0},
+            placeholder: "Search",
+            endAdornment: (
+              <InputAdornment>
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
+        />
+        <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Orders
         </Button>
-        <Button startIcon={<FavoriteIcon style={{ color: 'red' }} />} style={{ color: 'black' }}>
+        <Button startIcon={<FavoriteIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Favourites
         </Button>
-        <Button startIcon={<ShoppingCartIcon style={{ color: 'red' }} />} style={{ color: 'black' }}>
+        <Button startIcon={<ShoppingCartIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Cart
         </Button>
-        <button className='btn_cat'>Sign Out</button>
+        <Button style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px' }}>
+          Sign Out
+        </Button>
+        {/* <button className='btn_cat'>Sign Out</button> */}
 
       </Stack>
 
-      <div style={{padding: '5px'}}></div>
+      <div style={{ padding: '5px' }}></div>
 
 
       <Stack direction="row" spacing={12} justifyContent='space-evenly' alignItems={'center'} >
