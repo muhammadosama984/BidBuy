@@ -15,6 +15,7 @@ import { textTransform } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 import SignUpTextField from './SignUpTextField';
 import DateTextField from './DateTextField';
+import BigRedbtn from '../BigRedbtn/BigRedbtn';
 
 function Signup() {
   const [value, setValue] = React.useState(null);
@@ -63,8 +64,8 @@ function Signup() {
 
         </Box>
           <br></br>
-        <div>
-          <button className='btn_SignUp'>Sign Up</button>
+        <div style={{width: "800px"}}>
+        <BigRedbtn name="Sign Up"/>
         </div>
         <div>
           <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei" }}>Already have an account?
