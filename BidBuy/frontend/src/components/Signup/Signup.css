@@ -10,3 +10,16 @@
     font-family: "microsoft yahei";
     background-color: #CF3D2F;
 }
+
+.welcome_heading{
+    font-size: 26px;
+    margin-bottom: 0px;
+}
+
+
+.create_new{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+
+}

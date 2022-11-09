@@ -53,7 +53,7 @@ const styles = {
       <div className='div_signIn'>
 
         {/* logo */}
-        <div style={{paddingLeft: '20px', paddingTop: '10px'}}>
+        <div >
           <Logo/>
         </div>
 
@@ -99,6 +99,7 @@ const styles = {
                   textAlign: textAlign.center,
                   
                 }}/> */}
+                
                 {/* <p style={{ color: 'black', fontSize: "2vh", fontFamily: "microsoft yahei", textAlign: 'left'}}>Password</p> */}
                 <TextField fullWidth alue = {password} onChange={handlePassword} label="" id="fullWidth" inputProps={{ sx: { height: "2vh" , textAlign: 'left' , fontSize:'2.5vh', color: 'black'} }} placeholder="Password" />
                 <div className='btn_forgot'>
