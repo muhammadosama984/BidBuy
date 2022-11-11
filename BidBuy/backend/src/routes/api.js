@@ -33,7 +33,7 @@ apiProtected.post("/updateprofile", updateProfile);
 apiProtected.post("/deleteprofile", deleteProfile);
 
 //Products
-apiProtected.post("/addproduct", addProductSchema, AddProduct);
+apiRoute.post("/addproduct", addProductSchema, AddProduct);
 apiProtected.post("/deleteproduct", deleteProduct);
 apiRoute.get("/getallproducts", getAllProducts);
 apiProtected.get("/getsingleproduct", getSingleProduct);
