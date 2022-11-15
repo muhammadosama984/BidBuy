@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
   Box,
   Card,
@@ -19,7 +19,11 @@ import BigRedbtn from '../BigRedbtn/BigRedbtn';
 
 function Signup() {
   const [value, setValue] = React.useState(null);
-
+  const [user, setuser] = useState({})
+  const handleSignUp = async (key, value)=>{
+    setuser({key: value})
+    return(<></>);
+  }
   return (
     <div className="div_signup">
       <Logo />
@@ -39,7 +43,7 @@ function Signup() {
         >
           <div>
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
-              <SignUpTextField name="First Name*" />
+              <SignUpTextField name="First Name*" signup = {handleSignUp}/>
               <SignUpTextField name="Last Name*" />
             </Stack>
           </div>
