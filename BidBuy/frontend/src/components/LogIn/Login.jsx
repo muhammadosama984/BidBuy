@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingIcons from 'react-loading-icons'
 import {
   Box,
   Card,
@@ -27,20 +28,24 @@ import { api } from '../../App.jsx';
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setshowError] = useState(false);
+  const [showLoading, setshowLoading] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   let navigate = useNavigate();
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignIn = async ()=>{
+    setshowLoading(true);
    await api.post('/login', {
       username: emailAddress, 
       password: password
     })
     .then(function (response) {
+      setshowLoading(false);
       console.log(response.data);
-      localStorage.setItem('token', response.data.data.token);
+     
       if(response.data.statusCode === 200){
+        localStorage.setItem('token', response.data.data.token);
       navigate('/profile');
     }
     if(response.data.statusCode !== 200){
@@ -132,7 +137,8 @@ function Login() {
             
             <h6 className='show-login-error'>{showError ? "Please write correct Email and Password": <></>}</h6>
             <div>
-            <button onClick={handleSignIn} className='btn_SignIn'>Sign In</button>
+            <button onClick={handleSignIn} className='btn_SignIn'>{showLoading?  <center><div className="loading-spinner">
+      </div></center>: "Sign In"}</button>
               {/* <BigRedbtn onClick={handleSignIn} name="Sign In"/> */}
             {/* <button className='btn_SignIn'>Sign In</button> */}
             </div>

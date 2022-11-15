@@ -140,6 +140,14 @@
 .show-login-error{
     color:#CF3D2F;
 }
+.loading-spinner {
+    width: 7px;
+    height: 7px;
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid black; /* Black */
+    border-radius: 50%;
+    animation: spinner 0.03s linear infinite;
+  }
 
 
 /* TEXT PARAGRAPH */
