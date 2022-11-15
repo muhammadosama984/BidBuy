@@ -36,7 +36,7 @@ function MainPage() {
   return (
     <div>
       <NavBar/>
-        <Button onClick={postProducts}>  Herllo</Button>
+        <Button onClick={getProducts}>Hello</Button>
         <h3>{products.length === 0? <></>: products[0].name}</h3>
        
      

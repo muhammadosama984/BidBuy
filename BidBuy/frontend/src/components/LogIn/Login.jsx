@@ -45,7 +45,7 @@ function Login() {
       console.log(response.data);
      
       if(response.data.statusCode === 200){
-        localStorage.setItem('token', response.data.data.token);
+      localStorage.setItem('token', response.data.data.token);
       navigate('/profile', {name: "Osama"});
     }
     if(response.data.statusCode !== 200){
