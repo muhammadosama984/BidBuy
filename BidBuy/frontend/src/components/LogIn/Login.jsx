@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Card,
@@ -8,43 +9,50 @@ import {
   InputAdornment,
   Divider,
   Button,
+  IconButton,
+  Visibility,
+  VisibilityOff
 } from '@mui/material';
+
 import './Login.css';
 import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 import axios from 'axios';
 import BigRedbtn from '../BigRedbtn/BigRedbtn';
+import Signup from '../Signup/Signup.jsx';
+import { api } from '../../App.jsx';
   
 
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  let navigate = useNavigate();
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmailAddress = (event) => {
-      setemailAddress(event.target.value);
-      console.log(emailAddress);
-  }
-  const handlePassword = (event) => {
-    setemailAddress(event.target.value);
-    console.log(emailAddress);
-}
-const styles = {
-  'input-label': {
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    width: '100%',
-    color: 'red'
-  },
+  const handleSignIn = async ()=>{
+   await api.post('/login', {
+      username: emailAddress, 
+      password: password
+    })
+    .then(function (response) {
+      console.log(response.data);
+      navigate('/profile')
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
 
-  'input': {
-    '&::placeholder': {
-      textOverflow: 'ellipsis !important',
-      color: 'blue'
-    }
-  }
-};
+//   const handleEmailAddress = (event) => {
+//       setemailAddress(event.target.value);
+//       console.log(emailAddress);
+//   }
+//   const handlePassword = (event) => {
+//     setemailAddress(event.target.value);
+//     console.log(emailAddress);
+// }
   return (
 
 
@@ -79,7 +87,7 @@ const styles = {
                   textAlign: 'center',
                   
                 }}/> */}
-                <TextField fullWidth value = {emailAddress} onChange={handleEmailAddress} type="String" label="" id="fullWidth" 
+                <TextField fullWidth value = {emailAddress} onChange={(event)=>{setemailAddress(event.target.value)}} type="String" label="" id="fullWidth" 
                 inputProps={
                   { sx: { height: "2vh" , textAlign: 'left', fontSize:'2.5vh' , color: 'black', opacity: "1"} }
              
@@ -94,16 +102,17 @@ const styles = {
                   height: '65px'
                 }}
               >
-                {/* <TextField id="standard-basic" label="Password" variant="standard" sx={{
-                  width: 450,
-                  textAlign: textAlign.center,
-                  
-                }}/> */}
+           
                 
-                {/* <p style={{ color: 'black', fontSize: "2vh", fontFamily: "microsoft yahei", textAlign: 'left'}}>Password</p> */}
-                <TextField fullWidth alue = {password} onChange={handlePassword} label="" id="fullWidth" inputProps={{ sx: { height: "2vh" , textAlign: 'left' , fontSize:'2.5vh', color: 'black'} }} placeholder="Password" />
+               
+                <TextField fullWidth alue = {password} type={showPassword ? "text" : "password"} onChange={(event)=>{setPassword(event.target.value)}} label="" id="fullWidth" inputProps={{ 
+                  sx: { height: "2vh" , textAlign: 'left' , fontSize:'2.5vh', color: 'black'},
+               
+
+
+                  }} placeholder="Password" />
                 <div className='btn_forgot'>
-                 <Button variant="text" href='' style={{ color: 'black', fontWeight: "bold", fontSize: "1.5vh",fontFamily: "microsoft yahei", textTransform: 'none'}}>Forgot Password?</Button>
+                 <Button variant="text" href='' onClick={()=> {navigate('/signup')}} style={{ color: 'black', fontWeight: "bold", fontSize: "1.5vh",fontFamily: "microsoft yahei", textTransform: 'none'}}>Forgot Password?</Button>
                 </div>
               </Box>
 
@@ -116,7 +125,7 @@ const styles = {
             
 
             <div>
-              <BigRedbtn name="Sign In"/>
+              <BigRedbtn onClick={handleSignIn} name="Sign In"/>
             {/* <button className='btn_SignIn'>Sign In</button> */}
             </div>
 
@@ -131,7 +140,7 @@ const styles = {
               {/* <Button style={{ color: 'black', fontWeight: "bold", fontSize: "16px",fontFamily: "microsoft yahei", textTransform: 'none', backgroundImage: "url(../../../images/bg_red.png)"}}>Sign in with Google</Button> */}
             </div>
             <div>
-              <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei"}}>Dont have an account? <Button variant="text" style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh",fontFamily: "microsoft yahei", fontWeight: "bold" ,textTransform: 'none', marginBottom: "0.5vh" }}>Sign Up</Button></p>
+              <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei"}}>Dont have an account? <Button variant="text" onClick={()=> {navigate('/signup')}} style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh",fontFamily: "microsoft yahei", fontWeight: "bold" ,textTransform: 'none', marginBottom: "0.5vh" }}>Sign Up</Button></p>
             </div>
           </div>
         </center>
@@ -149,7 +158,7 @@ const styles = {
           <h1 className='newHere_heading'>New Here?</h1>
           <p className='txt_startSelling'>Sign up and start selling!</p>
           <center>
-            <button id="btn_signUp">Sign Up</button>
+            <button onClick={()=> {navigate('/signup')}} id="btn_signUp">Sign Up</button>
           </center>
         </div>
       </div>
