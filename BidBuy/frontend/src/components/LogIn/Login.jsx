@@ -26,6 +26,7 @@ import { api } from '../../App.jsx';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showError, setshowError] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   let navigate = useNavigate();
   const [emailAddress, setemailAddress] = useState("");
@@ -38,7 +39,13 @@ function Login() {
     })
     .then(function (response) {
       console.log(response.data);
-      navigate('/profile')
+      localStorage.setItem('token', response.data.data.token);
+      if(response.data.statusCode === 200){
+      navigate('/profile');
+    }
+    if(response.data.statusCode !== 200){
+      setshowError(true);
+    }
     })
     .catch(function (error) {
       console.log(error);
@@ -123,9 +130,10 @@ function Login() {
 
             </div>
             
-
+            <h6 className='show-login-error'>{showError ? "Please write correct Email and Password": <></>}</h6>
             <div>
-              <BigRedbtn onClick={handleSignIn} name="Sign In"/>
+            <button onClick={handleSignIn} className='btn_SignIn'>Sign In</button>
+              {/* <BigRedbtn onClick={handleSignIn} name="Sign In"/> */}
             {/* <button className='btn_SignIn'>Sign In</button> */}
             </div>
 
