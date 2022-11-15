@@ -31,7 +31,7 @@ const Item = styled(Paper)(({ theme }) => ({
   //color: theme.palette.text.secondary,
 }));
 
-function Header() {
+function Header(props) {
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
 
@@ -81,7 +81,7 @@ function Header() {
                 </Stack>
                 
               <Box sx={{ height: '10px' }}></Box>
-                <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2 }}>Muhammad Ahmed</Typography>
+                <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2 }}>{props.name}</Typography>
                 {/* <Box sx={{ height: '10px' }}></Box> */}
               </Stack>
             </Stack>
