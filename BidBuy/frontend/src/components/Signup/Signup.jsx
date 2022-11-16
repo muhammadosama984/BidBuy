@@ -16,6 +16,7 @@ import Logo from '../Logo/Logo.jsx';
 import SignUpTextField from './SignUpTextField';
 import DateTextField from './DateTextField';
 import BigRedbtn from '../BigRedbtn/BigRedbtn';
+import PasswordTextField from './PasswordTextField'
 
 function Signup() {
   const [value, setValue] = React.useState(null);
@@ -38,7 +39,8 @@ function Signup() {
         <Box
           component="form"
           sx={{
-            '& .MuiTextField-root': { m: 1, width: '300px' },
+            // '& .MuiTextField-root': {width: '300px', marginLeft: "0px" },
+            // '& .MuiOutlinedInput-root' : {width:'300px', m: 1, paddingRight: "0px"}
           }} noValidate autoComplete="off"
         >
           <div>
@@ -55,12 +57,12 @@ function Signup() {
           </div>
           <div>
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
-              <SignUpTextField name="Create Password*" />
-              <SignUpTextField name="Confirm Password*" />
+              <PasswordTextField name="Create Password*" />
+              <PasswordTextField  name="Confirm Password*" />
             </Stack>
           </div>
           <div>
-          <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
+          <Stack direction="row" spacing={6} justifyContent='center' alignItems={'left'} >
               <DateTextField name="Date of Birth*"/>
               <SignUpTextField name="Mobile Number*" />
             </Stack>
