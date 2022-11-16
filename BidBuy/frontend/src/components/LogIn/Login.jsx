@@ -35,6 +35,7 @@ function Login() {
   });
 
   const handleChange = (prop) => (event) => {
+    setPassword(event.target.value);
     setValues({ ...values, [prop]: event.target.value });
   };
 
@@ -73,8 +74,9 @@ function Login() {
         console.log(response.data);
 
         if (response.data.statusCode === 200) {
-          localStorage.setItem('token', response.data.data.token);
-          navigate('/profile', { name: "Osama" });
+          console.log(response.data);
+          //localStorage.setItem('token', response.data.data.token);
+          navigate( '/profile', { name: "Osama" });
         }
         if (response.data.statusCode !== 200) {
           setshowError(true);

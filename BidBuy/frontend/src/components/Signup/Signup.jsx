@@ -21,6 +21,13 @@ import PasswordTextField from './PasswordTextField'
 function Signup() {
   const [value, setValue] = React.useState(null);
   const [user, setuser] = useState({})
+  const [firstname, setfirstname] = useState("")
+  const [lastname, setlastname] = useState("")
+  const [emailAddress, setemailAddress] = useState("")
+  const [username, setusername] = useState("")
+  const [createpassword, setcreatepassword] = useState("")
+  const [confirmpassword, setconfirmpassword] = useState("");
+  const [mobilenumber, setmobilenumber] = useState("")
   const handleSignUp = async (key, value)=>{
     setuser({key: value})
     return(<></>);
@@ -45,8 +52,8 @@ function Signup() {
         >
           <div>
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
-              <SignUpTextField name="First Name*" signup = {handleSignUp}/>
-              <SignUpTextField name="Last Name*" />
+              <SignUpTextField name="First Name*" signup = {(firstn)=>{setfirstname(firstn)}}/>
+              <SignUpTextField name="Last Name*" signup = {(lastn)=>{setlastname(lastn)}}/>
             </Stack>
           </div>
           <div>
@@ -59,6 +66,7 @@ function Signup() {
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
               <PasswordTextField name="Create Password*" />
               <PasswordTextField  name="Confirm Password*" />
+
             </Stack>
           </div>
           <div>
