@@ -9,11 +9,12 @@ import {
     CardMedia,
     IconButton,
     Stack,
-    styled
+    styled,
+    Fab
 
 } from '@mui/material';
 import myImage from '../../images/ip14.jpg';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
@@ -28,7 +29,7 @@ function CardProduct(props) {
 
     });
     return (
-        <Card elevation={0} sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' , maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+        <Card elevation={0} sx={{ padding: 1, borderRadius: 0, border: "1px solid #e1e1e1", backgroundColor: '#FEFEFd', maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
                 component="img"
@@ -37,37 +38,37 @@ function CardProduct(props) {
                 // image={props.image}
                 image={myImage}
             /> */}
-            <CardMedia>
-                <Img src = {myImage}></Img>
+            <CardMedia sx = {{position: 'relative'}}>
+                <FavoriteIcon sx = {{position: 'absolute', marginLeft: '90%', color: '#CF3D2F'}} />
+                <Img src={myImage}  >
+
+                </Img>
+
 
             </CardMedia>
             <CardContent>
-                {/* <CardActions sx={{alignItems: 'end'}}>
-                    <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton>
-                </CardActions> */}
-                <Typography variant="body2" color="black" sx= {{ '&. MuiTypography-root': {color: 'black', padding: 2}}} fontSize={14}>
+
+
+                {/* <FavoriteIcon style={{ color: 'red' }} /> */}
+                <Typography variant="body2" color="black" sx={{ '&. MuiTypography-root': { color: 'black', padding: 2 } }} fontSize={14}>
                     Iphone 14 Pro Max
                 </Typography>
+
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                    $739
-                </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    3 Bids
-                </Typography>
+                    <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
+                        $739
+                    </Typography>
+                    <Typography variant="body2" color="black" fontSize={12}>
+                        3 Bids
+                    </Typography>
                 </Stack>
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    $39 Shipping
-                </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    2d 3h
-                </Typography>
+                    <Typography variant="body2" color="black" fontSize={12}>
+                        $39 Shipping
+                    </Typography>
+                    <Typography variant="body2" color="black" fontSize={12}>
+                        2d 3h
+                    </Typography>
                 </Stack>
             </CardContent>
         </Card>
