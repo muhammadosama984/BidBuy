@@ -13,6 +13,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 function PasswordTextField(props) {
+ 
+  const onChange = (event)=>{
+      settext(event.target.value)
+      props.signup(text);
+    }
 
   // hide password
   const [values, setValues] = React.useState({
@@ -22,6 +27,7 @@ function PasswordTextField(props) {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    props.signup(values.password);
   };
 
   const handleClickShowPassword = () => {

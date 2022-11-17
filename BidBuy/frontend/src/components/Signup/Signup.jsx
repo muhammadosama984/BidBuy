@@ -17,6 +17,8 @@ import SignUpTextField from './SignUpTextField';
 import DateTextField from './DateTextField';
 import BigRedbtn from '../BigRedbtn/BigRedbtn';
 import PasswordTextField from './PasswordTextField'
+import { api } from '../../App.jsx';
+
 
 function Signup() {
   const [value, setValue] = React.useState(null);
@@ -28,9 +30,27 @@ function Signup() {
   const [createpassword, setcreatepassword] = useState("")
   const [confirmpassword, setconfirmpassword] = useState("");
   const [mobilenumber, setmobilenumber] = useState("")
-  const handleSignUp = async (key, value)=>{
-    setuser({key: value})
-    return(<></>);
+  const handleSignUp = async ()  =>{
+     console.log(firstname+ " " + lastname)
+     console.log(username)
+     console.log(confirmpassword)
+     console.log(emailAddress)
+   await api.post('/register', {
+      name: firstname + " " + lastname,
+      username: username,
+      password: confirmpassword,
+      email: emailAddress,
+      userRole: "User",
+    })
+      .then(function (response) {
+        console.log("Hello response");
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      console.log("Hello");
+   
   }
   return (
     <div className="div_signup">
@@ -58,28 +78,28 @@ function Signup() {
           </div>
           <div>
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
-              <SignUpTextField name="Email Address*" />
-              <SignUpTextField name="Username*" />
+              <SignUpTextField name="Email Address*" signup = {(emaila)=>{setemailAddress(emaila)}} />
+              <SignUpTextField name="Username*" signup = {(usern)=>{setusername(usern)}} />
             </Stack>
           </div>
           <div>
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
-              <PasswordTextField name="Create Password*" />
-              <PasswordTextField  name="Confirm Password*" />
+              <PasswordTextField name="Create Password*" signup = {(createp)=>{setcreatepassword(createp)}}/>
+              <PasswordTextField  name="Confirm Password*" signup = {(confirmp)=>{setconfirmpassword(confirmp)}} />
 
             </Stack>
           </div>
           <div>
           <Stack direction="row" spacing={6} justifyContent='center' alignItems={'left'} >
-              <DateTextField name="Date of Birth*"/>
-              <SignUpTextField name="Mobile Number*" />
+              <DateTextField name="Date of Birth*" signup = {(e)=>{}} />
+              <SignUpTextField name="Mobile Number*" signup = {(mobilenum)=>{setmobilenumber(mobilenum)}}/>
             </Stack>
           </div>
 
         </Box>
           <br></br>
         <div style={{width: "800px"}}>
-        <BigRedbtn name="Sign Up"/>
+        <BigRedbtn onClick = {handleSignUp} name="Sign Up"/>
         </div>
         <div>
           <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei" }}>Already have an account?
