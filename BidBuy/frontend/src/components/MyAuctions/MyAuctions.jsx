@@ -8,7 +8,7 @@ import Heading from '../Text/Heading.jsx'
 import myImage from '../../images/ip14.jpg'
 import { Stack } from '@mui/system'
 
-function MainPage() {
+function MyAuctions() {
   const [products, setproducts] = useState([])
   let double = [];
   const getProducts = () => {
@@ -43,11 +43,11 @@ function MainPage() {
       <NavBar />
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
-      <Heading first = "My" second = "Favorites" />
+      <Heading first = "My" second = "Auctions" />
       <CardGrid/>
 
     </div>
   )
 }
 
-export default MainPage
+export default MyAuctions

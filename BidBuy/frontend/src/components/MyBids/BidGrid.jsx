@@ -12,40 +12,40 @@ import {
     styled
 
 } from '@mui/material';
-import CardProduct from './CardProduct';
+import BidCard from './BidCard';
 import myImage from '../../images/ip14.jpg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
-function CardGrid(props) {
+function BidGrid(props) {
     
     return (
         <Stack direction="column" spacing={0} alignItems={"center"}>
         
         <Stack direction="row" spacing={0} alignItems={"center"}>
           {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
         </Stack>
         <Stack direction="row" spacing={0} alignItems={"center"}>
           {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
         </Stack>
         <Stack direction="row" spacing={0} alignItems={"center"}>
           {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
+          <BidCard image={myImage} />
         </Stack>
       </Stack>
        )
 }
 
-export default CardGrid
+export default BidGrid
