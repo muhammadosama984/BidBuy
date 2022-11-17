@@ -8,7 +8,8 @@ import {
     Button,
     CardMedia,
     IconButton,
-    Stack
+    Stack,
+    styled
 
 } from '@mui/material';
 import myImage from '../../images/ip14.jpg'
@@ -17,15 +18,25 @@ import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
 function CardProduct(props) {
+    const Img = styled('img')({
+        alignItems: "center",
+        maxwidth: "100%",
+        height: 150,
+        padding: 0,
+        marginLeft: '20%'
+        // paddingLeft: "25%"
+
+    });
     return (
-        <Card sx={{ maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 200 }}>
-            <CardMedia
+        <Card sx={{ maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+            <Img  src = {myImage}/>
+            {/* <CardMedia
                 component="img"
-                height="150"
+                height="150px"
+                width="100px"
                 // image={props.image}
                 image={myImage}
-                    
-            />
+            /> */}
             <CardContent>
                 {/* <CardActions sx={{alignItems: 'end'}}>
                     <IconButton aria-label="add to favorites">
