@@ -42,10 +42,11 @@ function Signup() {
         userRole: "User",
       
     }
+    console.log("Osama")
    await api.post('/register', sendData
      )
     .then(function (response) {
-      console.log(response);
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);

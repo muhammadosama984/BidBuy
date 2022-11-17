@@ -52,6 +52,7 @@ function Header() {
         auth: localStorage.getItem("token")
       }
     }).then(res => {
+      console.log(res.data);
       setuserProfile(res.data.data);
 
 
@@ -113,11 +114,11 @@ function Header() {
               }} noValidate autoComplete="off"
             >
               <div>
-                <TextField required id="outlined-required" label="First Name" />
+                <TextField value={userProfile.name} required id="outlined-required"  />
                 <TextField required id="outlined-required" label="Last Name" />
               </div>
               <div>
-                <TextField required id="outlined-required" label="Email Address" />
+                <TextField value={userProfile.email} required id="outlined-required" />
                 <TextField required id="outlined-required" label="Password" />
               </div>
               <div>
