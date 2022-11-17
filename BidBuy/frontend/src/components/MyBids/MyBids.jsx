@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
-import CardGrid from '../ProductGrid/CardGrid.jsx'
+import BidGrid from '../MyBids/BidGrid'
 import Heading from '../Text/Heading.jsx'
 import myImage from '../../images/ip14.jpg'
 import { Stack } from '@mui/system'
@@ -44,7 +44,7 @@ function MyBids() {
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
       <Heading first = "My" second = "Bids" />
-      <CardGrid/>
+      <BidGrid/>
 
     </div>
   )
