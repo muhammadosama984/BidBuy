@@ -22,6 +22,7 @@ function CardGrid(props) {
     
     return (
         <Stack direction="column" spacing={2} alignItems={"center"}>
+        
         <Stack direction="row" spacing={2} alignItems={"center"}>
           {/* Image Not using props currently*/}
           <CardProduct image={myImage} />
