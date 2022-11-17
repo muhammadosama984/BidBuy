@@ -28,7 +28,7 @@ function CardProduct(props) {
 
     });
     return (
-        <Card sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' , maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+        <Card elevation={0} sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' , maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
                 component="img"
