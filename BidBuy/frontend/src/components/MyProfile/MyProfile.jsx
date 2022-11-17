@@ -1,4 +1,4 @@
-import React, { useState, Fragment, } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import {
   Box,
   Card,
@@ -19,6 +19,7 @@ import './MyProfile.css';
 import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 import NavBar from '../NavBar/NavBar'
+import { api } from '../../App.jsx';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -35,6 +36,7 @@ function Header() {
   
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [userProfile, setuserProfile] = useState({})
 
   const handleEmailAddress = (event) => {
     setemailAddress(event.target.value);
@@ -44,6 +46,23 @@ function Header() {
     setemailAddress(event.target.value);
     console.log(emailAddress);
   }
+  const getProfile = () => {
+    api.get('/getprofile', {
+      headers:{
+        auth: localStorage.getItem("token")
+      }
+    }).then(res => {
+      setuserProfile(res.data.data);
+
+
+    })
+  }
+  useEffect(() => {
+    
+   getProfile();
+    
+  }, [])
+  
   return (
     <>
       <div style={{ height: '20px' }}></div>
@@ -82,7 +101,7 @@ function Header() {
                 </Stack>
                 
               <Box sx={{ height: '10px' }}></Box>
-                <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2 }}>oooo</Typography>
+                <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2 }}>{userProfile.name}</Typography>
                 {/* <Box sx={{ height: '10px' }}></Box> */}
               </Stack>
             </Stack>

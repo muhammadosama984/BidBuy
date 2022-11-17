@@ -18,6 +18,7 @@ import DateTextField from './DateTextField';
 import BigRedbtn from '../BigRedbtn/BigRedbtn';
 import PasswordTextField from './PasswordTextField'
 import { api } from '../../App.jsx';
+import axios from 'axios';
 
 
 function Signup() {
@@ -30,26 +31,27 @@ function Signup() {
   const [createpassword, setcreatepassword] = useState("")
   const [confirmpassword, setconfirmpassword] = useState("");
   const [mobilenumber, setmobilenumber] = useState("")
+  
   const handleSignUp = async ()  =>{
-     console.log(firstname+ " " + lastname)
-     console.log(username)
-     console.log(confirmpassword)
-     console.log(emailAddress)
-   await api.post('/register', {
-      name: firstname + " " + lastname,
-      username: username,
-      password: confirmpassword,
-      email: emailAddress,
-      userRole: "User",
+    var sendData = {
+      
+        name: firstname + " " + lastname,
+        username: username,
+        password: confirmpassword,
+        email: emailAddress,
+        userRole: "User",
+      
+    }
+   await api.post('/register', sendData
+     )
+    .then(function (response) {
+      console.log(response);
     })
-      .then(function (response) {
-        console.log("Hello response");
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      console.log("Hello");
+    .catch(function (error) {
+      console.log(error);
+    });
+ 
+    console.log("hello");
    
   }
   return (
