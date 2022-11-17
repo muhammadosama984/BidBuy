@@ -41,8 +41,8 @@ function MainPage() {
   return (
     <div>
       <NavBar />
-      <Button onClick={getProducts}>Hello</Button>
-      <h3>{products.length === 0 ? <></> : products[0].name}</h3>
+      {/* <Button onClick={getProducts}>Hello</Button>
+      <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
 
       <Stack direction="column" spacing={0} alignItems={"center"}>
         <Stack direction="row" spacing={0} alignItems={"center"}>
