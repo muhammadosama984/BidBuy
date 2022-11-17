@@ -12,8 +12,8 @@ import {
     styled
 
 } from '@mui/material';
-import myImage from '../../images/ip14.jpg'
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import myImage from '../../images/ip14.jpg';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
@@ -38,7 +38,8 @@ function CardProduct(props) {
                 image={myImage}
             /> */}
             <CardMedia>
-            <Img  src = {myImage}/>
+                <Img src = {myImage}></Img>
+
             </CardMedia>
             <CardContent>
                 {/* <CardActions sx={{alignItems: 'end'}}>

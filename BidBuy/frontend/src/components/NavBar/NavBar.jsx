@@ -35,7 +35,7 @@ function Header() {
   return (
 
     <div className='div_Navmain'>
-
+    <div style={{ height: '20px' }}></div>
 
       <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"} >
         <Logo/>
@@ -106,7 +106,6 @@ function Header() {
         </Button>
 
       </Stack>
-
     </div>
 
   )

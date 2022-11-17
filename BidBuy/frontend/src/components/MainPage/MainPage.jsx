@@ -3,8 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
-import CardProduct from '../ProductGrid/CardProduct.jsx'
-
+import CardGrid from '../ProductGrid/CardGrid.jsx'
 import myImage from '../../images/ip14.jpg'
 import { Stack } from '@mui/system'
 
@@ -44,29 +43,8 @@ function MainPage() {
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
       <h1>sdf</h1>
-      <Stack direction="column" spacing={2} alignItems={"center"}>
-        <Stack direction="row" spacing={2} alignItems={"center"}>
-          {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-        </Stack>
-        <Stack direction="row" spacing={2} alignItems={"center"}>
-          {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-        </Stack>
-        <Stack direction="row" spacing={2} alignItems={"center"}>
-          {/* Image Not using props currently*/}
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-          <CardProduct image={myImage} />
-        </Stack>
-      </Stack>
+      <CardGrid/>
+
     </div>
   )
 }
