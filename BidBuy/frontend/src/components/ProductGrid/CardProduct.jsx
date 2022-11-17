@@ -29,7 +29,7 @@ function CardProduct(props) {
     });
     return (
         <Card sx={{ maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
-            <Img  src = {myImage}/>
+            {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
                 component="img"
                 height="150px"
@@ -37,6 +37,9 @@ function CardProduct(props) {
                 // image={props.image}
                 image={myImage}
             /> */}
+            <CardMedia>
+            <Img  src = {myImage}/>
+            </CardMedia>
             <CardContent>
                 {/* <CardActions sx={{alignItems: 'end'}}>
                     <IconButton aria-label="add to favorites">
