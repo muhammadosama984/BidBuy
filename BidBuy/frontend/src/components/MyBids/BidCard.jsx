@@ -17,7 +17,7 @@ import myImage from '../../images/ip14.jpg';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
-function CardProduct(props) {
+function BidCard(props) {
     const Img = styled('img')({
         alignItems: "center",
         maxwidth: "100%",
@@ -28,7 +28,7 @@ function CardProduct(props) {
 
     });
     return (
-        <Card elevation={0} sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' , maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+        <Card elevation={0} sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' ,maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
                 component="img"
@@ -50,28 +50,29 @@ function CardProduct(props) {
                         <ShareIcon />
                     </IconButton>
                 </CardActions> */}
-                <Typography variant="body2" color="black" sx= {{ '&. MuiTypography-root': {color: 'black', padding: 2}}} fontSize={14}>
-                    Iphone 14 Pro Max
+                <Typography variant="body2" fontSize={12} color="black" sx= {{ '&. MuiTypography-root': {color: 'black'}}}>
+                    Iphone 14
                 </Typography>
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                    $739
+                <Typography variant="body2" color="#CF3D2F" fontWeight={"bold"}>
+                    Your Bid
                 </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    3 Bids
+                <Typography variant="body2" color="#CF3D2F" fontSize={13} fontWeight={"bold"}>
+                    $530
                 </Typography>
                 </Stack>
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    $39 Shipping
+                <Typography variant="body2" color="black" fontSize={13} fontWeight={"500"}>
+                    Current Bid
                 </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    2d 3h
+                <Typography variant="body2" color="black" fontSize={13} fontWeight={"500"}>
+                    $830
                 </Typography>
                 </Stack>
+                
             </CardContent>
         </Card>
     )
 }
 
-export default CardProduct
+export default BidCard

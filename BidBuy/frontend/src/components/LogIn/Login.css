@@ -16,7 +16,7 @@
     background-color: #CF3D2F;
     height: 100vh;
     flex: 0 0 35vw;
-    background-image: url(/Users/usamaasif/Documents/GitHub/BiddingWebsite/BidBuy/frontend/src/images/bg_red.png);
+    background-image: url(../../images/bg_red.png);
     background-repeat: repeat;
     background-position: center;
     background-size: cover;
@@ -84,7 +84,7 @@
     border: 0;
     font-family: "microsoft yahei";
     background-color: white;
-    background-image: url(/Users/usamaasif/Documents/GitHub/BiddingWebsite/BidBuy/frontend/src/images/google.png);
+    background-image: url(../../images/google.png);
     background-repeat: no-repeat;
     background-position: 8vw;
     background-size: 5vw;

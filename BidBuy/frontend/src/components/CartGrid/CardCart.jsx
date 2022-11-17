@@ -17,18 +17,19 @@ import myImage from '../../images/ip14.jpg';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
-function CardProduct(props) {
+function CardCart(props) {
     const Img = styled('img')({
         alignItems: "center",
         maxwidth: "100%",
-        height: 150,
-        padding: 0,
-        marginLeft: '20%'
+        height: 75,
+        padding: 5,
+        paddingLeft:'10%'
         // paddingLeft: "25%"
 
     });
     return (
-        <Card elevation={0} sx={{padding: 1, borderRadius: 0, border: "1px solid #e1e1e1",  backgroundColor: '#FEFEFd' , maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+        <Card sx={{ maxWidth: 350, backgroundColor: 'white', justifyContent:'space-around' , maxHeight: 240, width: 350, display: 'flex'}}>
+            
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
                 component="img"
@@ -39,9 +40,11 @@ function CardProduct(props) {
             /> */}
             <CardMedia>
                 <Img src = {myImage}></Img>
-
             </CardMedia>
-            <CardContent>
+
+            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+
+            <CardContent >
                 {/* <CardActions sx={{alignItems: 'end'}}>
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon />
@@ -50,28 +53,33 @@ function CardProduct(props) {
                         <ShareIcon />
                     </IconButton>
                 </CardActions> */}
-                <Typography variant="body2" color="black" sx= {{ '&. MuiTypography-root': {color: 'black', padding: 2}}} fontSize={14}>
+                
+                <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={13} sx= {{ '&. MuiTypography-root': {color: 'black'}}}>
                     Iphone 14 Pro Max
                 </Typography>
-                <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                    $739
+                <Typography variant="body2" color="black" fontSize={12} >
+                    Shipping Fee
                 </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    3 Bids
+                <Typography variant="body2" color="grey" fontSize={11}>
+                    3 Days Remaining
                 </Typography>
-                </Stack>
-                <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    $39 Shipping
-                </Typography>
-                <Typography variant="body2" color="black" fontSize={12}>
-                    2d 3h
-                </Typography>
-                </Stack>
             </CardContent>
+
+            <CardContent> 
+                <Typography variant="body2" color="black" fontSize={13} fontWeight={"bold"}>
+                        $739
+                    </Typography>
+                    <Typography variant="body2" color="black" fontSize={12}>
+                        $39
+                    </Typography>   
+                    <Typography variant="body2" color="#CF3D2F" fontSize={11} fontWeight={"bold"}>
+                        Pay Now
+                    </Typography>
+            </CardContent>
+
+            </Box>
         </Card>
     )
 }
 
-export default CardProduct
+export default CardCart

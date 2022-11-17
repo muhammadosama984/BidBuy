@@ -35,7 +35,7 @@ function Header() {
   return (
 
     <div className='div_Navmain'>
-
+    <div style={{ height: '20px' }}></div>
 
       <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"} >
         <Logo/>
@@ -66,10 +66,14 @@ function Header() {
         <Button startIcon={<ShoppingCartIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Cart
         </Button>
-        <Button style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px' }}>
+        <div style={{paddingRight: '20px'}}>
+        <Button style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
           Sign Out
         </Button>
+        </div>
         {/* <button className='btn_cat'>Sign Out</button> */}
+        {/* <div style={{padding: '0px' }}></div> */}
+
 
       </Stack>
 
@@ -106,6 +110,7 @@ function Header() {
         </Button>
 
       </Stack>
+      {/* <div style={{ height: '20px' }}></div> */}
 
     </div>
 

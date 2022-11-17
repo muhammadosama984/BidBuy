@@ -3,12 +3,12 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
-import CardGrid from '../ProductGrid/CardGrid.jsx'
+import BidGrid from '../MyBids/BidGrid'
 import Heading from '../Text/Heading.jsx'
 import myImage from '../../images/ip14.jpg'
 import { Stack } from '@mui/system'
 
-function MainPage() {
+function MyBids() {
   const [products, setproducts] = useState([])
   let double = [];
   const getProducts = () => {
@@ -43,11 +43,11 @@ function MainPage() {
       <NavBar />
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
-      <Heading first = "My" second = "Favorites" />
-      <CardGrid/>
+      <Heading first = "My" second = "Bids" />
+      <BidGrid/>
 
     </div>
   )
 }
 
-export default MainPage
+export default MyBids

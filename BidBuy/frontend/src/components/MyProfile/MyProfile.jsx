@@ -65,7 +65,7 @@ function Header() {
   
   return (
     <>
-      <div style={{ height: '20px' }}></div>
+      
       <NavBar />
       <Grid  display='flex'  container direction='column' sx={{ p: 5 }} xs={12}>
 

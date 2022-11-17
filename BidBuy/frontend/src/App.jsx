@@ -6,6 +6,8 @@ import Signup from './components/Signup/Signup';
 import NavBar from './components/NavBar/NavBar';
 import MyProfile from './components/MyProfile/MyProfile';
 import MainPage from './components/MainPage/MainPage.jsx';
+import MyAuctions from './components/MyAuctions/MyAuctions';
+import MyBids from './components/MyBids/MyBids';
 import axios from 'axios';
 import Cart from './components/Cart/cart';
 
@@ -23,6 +25,8 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/navbar" element={<NavBar />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/myauctions" element={<MyAuctions />} />
+      <Route path="/mybids" element={<MyBids />} />
       <Route path="/profile" element={<MyProfile name= "osama"/>} />
       
      
