@@ -35,14 +35,16 @@ function Signup() {
   const handleSignUp = async ()  =>{
     var sendData = {
       
-        name: firstname + " " + lastname,
+        name: firstname,
         username: username,
         password: confirmpassword,
-        email: emailAddress,
-        userRole: "User",
+         email: emailAddress,
+        userRole: 'User'
       
     }
-    console.log("Osama")
+    console.log(sendData.email)
+   console.log("Osama")
+   
    await api.post('/register', sendData
      )
     .then(function (response) {
