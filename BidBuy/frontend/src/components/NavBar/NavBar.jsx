@@ -6,7 +6,7 @@ import { Button,
         } from '@mui/material';
 import './NavBar.css';
 import Logo from '../Logo/Logo.jsx';
-
+import { useNavigate } from 'react-router-dom'; 
 
 import MenuIcon from '@mui/icons-material/Menu';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -21,6 +21,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
 
 function Header() {
+  let navigate = useNavigate();
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
 
@@ -59,14 +60,14 @@ function Header() {
         <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Orders
         </Button>
-        <Button startIcon={<FavoriteIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
+        <Button onClick={() => { navigate('/myfavs') }} startIcon={<FavoriteIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Favourites
         </Button>
-        <Button startIcon={<ShoppingCartIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
+        <Button onClick={() => { navigate('/cart') }} startIcon={<ShoppingCartIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Cart
         </Button>
         <div style={{paddingRight: '20px'}}>
-        <Button style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
+        <Button onClick={() => { navigate('/login') }} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
           Sign Out
         </Button>
         </div>
@@ -84,19 +85,19 @@ function Header() {
         <Button startIcon={<LocationOnIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize: '12px', }}>
           Karachi
         </Button>
-        <Button style={{ color: 'black', fontSize: '12px', }}>
+        <Button onClick={() => { navigate('/') }} style={{ color: 'black', fontSize: '12px', }}>
           Home
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', }}>
+        <Button onClick={() => { navigate('/profile') }} style={{ color: 'black', fontSize: '12px', }}>
           My Profile
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', }}>
+        <Button onClick={() => { navigate('/myauctions') }} style={{ color: 'black', fontSize: '12px', }}>
           My Auctions
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', }}>
+        <Button onClick={() => { navigate('/mybids') }} style={{  color: 'black', fontSize: '12px', }}>
           My Bids
         </Button>
 

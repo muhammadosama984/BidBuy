@@ -1,38 +1,14 @@
+import { Button } from '@mui/material'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
 import CardGrid from '../ProductGrid/CardGrid.jsx'
 import Heading from '../Text/Heading.jsx'
-import bannerOne from '../../images/banner1.png'
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-  Button,
-  CardMedia,
-  IconButton,
-  Stack,
-  styled,
-  Fab
+import myImage from '../../images/ip14.jpg'
+import { Stack } from '@mui/system'
 
-} from '@mui/material';
-
-function MainPage() {
-
-  const Banner = styled('img')({
-    alignItems: "center",
-    maxwidth: "80%",
-    width: 900,
-    height: 250,
-    padding: 0,
-    marginTop: 40,
-    // paddingLeft: "25%"
-
-  });
-
+function MyFavorites() {
   const [products, setproducts] = useState([])
   let double = [];
   const getProducts = () => {
@@ -67,14 +43,11 @@ function MainPage() {
       <NavBar />
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
-      <Stack direction='column' alignItems={'center'}>
-        <Banner src={bannerOne}  >
-
-        </Banner>
-      </Stack>
+      <Heading first = "My" second = "Favorites" />
+      <CardGrid/>
 
     </div>
   )
 }
 
-export default MainPage
+export default MyFavorites
