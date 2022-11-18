@@ -59,14 +59,10 @@ function Header() {
     })
   }
   useEffect(() => {
-    
    getProfile();
-    
   }, [])
-  
   return (
     <>
-      
       <NavBar />
       <Grid  display='flex'  container direction='column' sx={{ p: 5 }} xs={12}>
 
@@ -128,24 +124,12 @@ function Header() {
               <div>
                 <TextField required id="outlined-required" label="City" />
                 <TextField required id="outlined-required" label="Country" />
-
               </div>
-
-
-
             </Box>
-
-
           </Box>
         </Grid>
-
-
       </Grid>
-
     </>
-
-
-
   )
 }
 

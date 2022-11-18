@@ -31,7 +31,7 @@ function App() {
       <Route path="/myauctions" element={<MyAuctions />} />
       <Route path="/mybids" element={<MyBids />} />
       <Route path="/myfavs" element={<MyFavorites />} />
-      <Route path="/profile" element={<MyProfile name= "osama"/>} />
+      <Route path="/profile" element={<MyProfile/>} />
       
      
     </Routes>

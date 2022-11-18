@@ -78,7 +78,7 @@ function Login() {
           //console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('userID', response.data.data.userId);
-          navigate( '/profile', { name: "Osama" });
+          navigate( '/profile');
         }
         if (response.data.statusCode !== 200) {
           setshowError(true);

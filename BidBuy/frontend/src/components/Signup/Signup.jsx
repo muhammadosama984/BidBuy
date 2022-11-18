@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Card,
@@ -22,6 +23,7 @@ import axios from 'axios';
 
 
 function Signup() {
+  let navigate = useNavigate();
   const [value, setValue] = React.useState(null);
   const [user, setuser] = useState({})
   const [firstname, setfirstname] = useState("")
@@ -34,13 +36,11 @@ function Signup() {
   
   const handleSignUp = async ()  =>{
     var sendData = {
-      
         name: firstname,
         username: username,
         password: confirmpassword,
          email: emailAddress,
         userRole: 'User'
-      
     }
     console.log(sendData.email)
    console.log("Osama")
@@ -108,7 +108,7 @@ function Signup() {
         </div>
         <div>
           <p style={{ color: 'black', fontSize: "1.5vh", fontFamily: "microsoft yahei" }}>Already have an account?
-            <Button variant="text" style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh", fontFamily: "microsoft yahei", fontWeight: "bold", textTransform: 'none', marginBottom: "0.5vh" }}>Sign In</Button></p>
+            <Button variant="text" onClick={()=>{navigate('/login')}} style={{ color: '#CF3D2F', padding: "0", fontSize: "1.5vh", fontFamily: "microsoft yahei", fontWeight: "bold", textTransform: 'none', marginBottom: "0.5vh" }}>Sign In</Button></p>
         </div>
       </center>
     </div>
