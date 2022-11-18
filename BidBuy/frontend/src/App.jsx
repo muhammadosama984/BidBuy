@@ -11,6 +11,7 @@ import MyBids from './components/MyBids/MyBids';
 import MyFavorites from './components/MyFavorites/MyFavorites';
 import axios from 'axios';
 import Cart from './components/Cart/cart';
+import CartAddress from './components/CartAddress/CartAddress';
 
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
@@ -26,6 +27,7 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/navbar" element={<NavBar />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/address" element={<CartAddress />} />
       <Route path="/myauctions" element={<MyAuctions />} />
       <Route path="/mybids" element={<MyBids />} />
       <Route path="/myfavs" element={<MyFavorites />} />

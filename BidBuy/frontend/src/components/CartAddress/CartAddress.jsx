@@ -10,29 +10,27 @@ import {
   Button,
   Stack,
 } from '@mui/material';
-import './cart.css';
+
 import Logo from '../Logo/Logo.jsx';
 import NavBar from '../NavBar/NavBar';
-import CardCart from '../CartGrid/CardCart';
 import Heading from '../Text/Heading';
-import CardBill from '../Billing/CardBill';
+import CardBill from '../Billing/CardBill.jsx';
 
-function Cart(){
-
+function CartAddress(){
 
 return(
   <>
       <NavBar/>
       <div style={{ height: '70px' }}>
       </div>
-      <Heading first = "My" second = "Cart" />
+      <Heading first = "Your" second = "Address" />
       <Stack direction="row" spacing={10} alignItems={"center"} justifyContent={"space-around"}>
         <div>
         <div style={{ height: '100px' }} alignItems={"flex-start"} >
-        <CardCart/>
+        Hello
         </div>
         <div>
-        <CardCart/>
+        Hello
         </div>
         </div>
         <div>
@@ -45,5 +43,4 @@ return(
 
 }
 
-export default Cart
-
+export default CartAddress
