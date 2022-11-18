@@ -42,7 +42,6 @@ function Header() {
         <Button startIcon={<MenuIcon style={{ color: 'white' }}/>} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px' }}>
           Categories
         </Button>
-        {/* <button className='btn_cat'>Categories</button> */}
         <TextField
           label=""
           InputProps={{
@@ -57,13 +56,13 @@ function Header() {
             )
           }}
         />
-        <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
+        <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Orders
         </Button>
-        <Button startIcon={<FavoriteIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
+        <Button startIcon={<FavoriteIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Favourites
         </Button>
-        <Button startIcon={<ShoppingCartIcon style={{ color: 'red' }} />} style={{ color: 'black', fontSize:'10px' }}>
+        <Button startIcon={<ShoppingCartIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Cart
         </Button>
         <div style={{paddingRight: '20px'}}>

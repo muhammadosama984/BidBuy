@@ -65,6 +65,7 @@ function Login() {
 
   const handleSignIn = async () => {
     setshowLoading(true);
+   
     await api.post('/login', {
       username: emailAddress,
       password: password
@@ -74,8 +75,9 @@ function Login() {
         console.log(response.data);
 
         if (response.data.statusCode === 200) {
-          console.log(response.data);
-          //localStorage.setItem('token', response.data.data.token);
+          //console.log(response.data);
+          localStorage.setItem('token', response.data.data.token);
+          localStorage.setItem('userID', response.data.data.userId);
           navigate( '/profile', { name: "Osama" });
         }
         if (response.data.statusCode !== 200) {
