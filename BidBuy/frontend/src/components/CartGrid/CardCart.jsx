@@ -28,7 +28,7 @@ function CardCart(props) {
 
     });
     return (
-        <Card sx={{ maxWidth: 350, backgroundColor: 'white', justifyContent:'space-around' , maxHeight: 240, width: 350, display: 'flex'}}>
+        <Card elevation={0} sx={{ maxWidth: 350, backgroundColor: 'white', justifyContent:'space-around' , maxHeight: 240, width: 350, display: 'flex'}}>
             
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
