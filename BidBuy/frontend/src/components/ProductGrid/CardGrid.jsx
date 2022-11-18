@@ -21,23 +21,23 @@ import { maxHeight } from '@mui/system';
 function CardGrid(props) {
     
     return (
-        <Stack direction="column" spacing={0} alignItems={"center"}>
+        <Stack direction="column" spacing={1} alignItems={"center"}>
         
-        <Stack direction="row" spacing={0} alignItems={"center"}>
+        <Stack direction="row" spacing={1} alignItems={"center"}>
           {/* Image Not using props currently*/}
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
         </Stack>
-        <Stack direction="row" spacing={0} alignItems={"center"}>
+        <Stack direction="row" spacing={1} alignItems={"center"}>
           {/* Image Not using props currently*/}
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
         </Stack>
-        <Stack direction="row" spacing={0} alignItems={"center"}>
+        <Stack direction="row" spacing={1} alignItems={"center"}>
           {/* Image Not using props currently*/}
           <CardProduct image={myImage} />
           <CardProduct image={myImage} />
