@@ -4,7 +4,7 @@ import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
 import CardGrid from '../ProductGrid/CardGrid.jsx'
 import Heading from '../Text/Heading.jsx'
-import bannerOne from '../../images/banner1.png'
+import bannerOne from '../../images/iphone-x-banner.png'
 import {
   Box,
   Card,
@@ -25,10 +25,12 @@ function MainPage() {
   const Banner = styled('img')({
     alignItems: "center",
     maxwidth: "80%",
-    width: 900,
-    height: 250,
+    width: "80%",
+    height: '300px',
     padding: 0,
-    marginTop: 40,
+    marginTop: 0,
+    objectPosition: '80% 20%',
+    objectFit: 'contain'
     // paddingLeft: "25%"
 
   });

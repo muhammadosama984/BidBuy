@@ -3,21 +3,17 @@ import { Button,
          TextField,
          IconButton,
          InputAdornment,
+         Divider,
         } from '@mui/material';
 import './NavBar.css';
 import Logo from '../Logo/Logo.jsx';
 import { useNavigate } from 'react-router-dom'; 
-
 import MenuIcon from '@mui/icons-material/Menu';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FeaturedPlayListRoundedIcon from '@mui/icons-material/FeaturedPlayListRounded';
-
-// import IconButton from "@material-ui/core/IconButton";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from '@mui/icons-material/Search';
-
 import Stack from '@mui/material/Stack';
 
 function Header() {
@@ -110,6 +106,7 @@ function Header() {
         </Button>
 
       </Stack>
+      <Divider sx={{marginTop: '10px'}} />
       {/* <div style={{ height: '20px' }}></div> */}
 
     </div>
