@@ -54,8 +54,6 @@ function Header() {
     }).then(res => {
       console.log(res.data);
       setuserProfile(res.data.data);
-
-
     })
   }
   useEffect(() => {
@@ -65,44 +63,32 @@ function Header() {
     <>
       <NavBar />
       <Grid  display='flex'  container direction='column' sx={{ p: 5 }} xs={12}>
-
         <Grid display='flex' sx={{ flexDirection: 'column', p: 1, marginLeft: 7 }} xs={8}>
           <Box container display='flex'
             component="form"
             sx={{
               '& .MuiTextField-root': { m: 1, },
-
-
               flexDirection: 'column',
-
             }}
             noValidate
             autoComplete="off"
           >
             <Stack direction="row">
-
-
               <Box
               sx={{ height: '100px', width: '100px', backgroundColor: '#e0e0e0', borderRadius: '10vw' }}
               >
               </Box>
-
               <Stack direction="column">
               <Box sx={{ height: '15px' }}></Box>
-              
                 <Stack direction="row" spacing={1}>
                   <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2, color: '#CF3D2F' }}>My</Typography>
                   <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold' }}>Profile</Typography>
-
-
                 </Stack>
-                
               <Box sx={{ height: '10px' }}></Box>
                 <Typography variant='h5' sx={{ fontFamily: 'microsoft yahei', fontWeight: 'bold', marginLeft: 1.2 }}>{userProfile.name}</Typography>
                 {/* <Box sx={{ height: '10px' }}></Box> */}
               </Stack>
             </Stack>
-
             <Box
               component="form"
               sx={{

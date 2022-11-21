@@ -20,6 +20,7 @@ import BigRedbtn from '../BigRedbtn/BigRedbtn';
 import PasswordTextField from './PasswordTextField'
 import { api } from '../../App.jsx';
 import axios from 'axios';
+import { Register } from '../../AxiosActions/User/userActions.js';
 
 
 function Signup() {
@@ -42,13 +43,20 @@ function Signup() {
          email: emailAddress,
         userRole: 'User'
     }
-    console.log(sendData.email)
+    //console.log(sendData.email)
    console.log("Osama")
    
+
+  //  var response = Register(sendData);
+  //  console.log(response.message)
    await api.post('/register', sendData
      )
     .then(function (response) {
       console.log(response.data);
+
+      if (response.data.statusCode !== 200){
+        console.log("there error ")
+      }
     })
     .catch(function (error) {
       console.log(error);
