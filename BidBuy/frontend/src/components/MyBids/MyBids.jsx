@@ -43,7 +43,7 @@ function MyBids() {
       <NavBar />
       {/* <Button onClick={getProducts}>Hello</Button>
       <h3>{products.length === 0 ? <></> : products[0].name}</h3> */}
-      <Heading first = "My" second = "Bids" />
+      <Heading first = "My" second = "Bids"/>
       <BidGrid/>
 
     </div>
