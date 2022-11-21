@@ -47,18 +47,46 @@ function MainPage() {
     })
   }
   const postProducts = () => {
-    api.post('/login', {
-      username: "MuhammadOsamaAsif9844",
-      password: "osama123456"
+    api.post('/addproduct', {
+      name: "OLPplpl", 
+      description:"This is best of the best",
+      price:"3000",
+      category: "mobile",
+      location:  "karachi"
+    },
+    {
+      headers:{
+        auth: localStorage.getItem("token")
+      }
     })
       .then(function (response) {
-        console.log(response.data.data.token);
+        console.log(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
+  const getSingleProduct = (id) => {
+    api.get(`/getsingleproduct?id=${id}`, {
+      name: "OLPplpl", 
+      description:"This is best of the best",
+      price:"3000",
+      category: "mobile",
+      location:  "karachi"
+    },
+    {
+      headers:{
+        auth: localStorage.getItem("token")
+      }
+    })
+      .then(function (response) {
+        console.log(response.data.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   // useEffect(() => {
   //  getProducts()
   // }, [])
