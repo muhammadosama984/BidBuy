@@ -32,7 +32,6 @@ function MainPage() {
     objectPosition: '80% 20%',
     objectFit: 'contain'
     // paddingLeft: "25%"
-
   });
 
   const [products, setproducts] = useState([])
