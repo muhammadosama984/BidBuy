@@ -87,6 +87,7 @@ function Signup() {
             <Stack direction="row" spacing={8} justifyContent='center' alignItems={'left'} >
               <SignUpTextField name="First Name*" signup = {(firstn)=>{setfirstname(firstn)}}/>
               <SignUpTextField name="Last Name*" signup = {(lastn)=>{setlastname(lastn)}}/>
+              
             </Stack>
           </div>
           <div>

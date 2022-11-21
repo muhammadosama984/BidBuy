@@ -12,6 +12,7 @@ import {
   Divider,
   Button,
   IconButton,
+  CircularProgress
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -65,7 +66,7 @@ function Login() {
 
   const handleSignIn = async () => {
     setshowLoading(true);
-   
+
     await api.post('/login', {
       username: emailAddress,
       password: password
@@ -78,7 +79,7 @@ function Login() {
           //console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('userID', response.data.data.userId);
-          navigate( '/profile');
+          navigate('/profile');
         }
         if (response.data.statusCode !== 200) {
           setshowError(true);
@@ -149,7 +150,7 @@ function Login() {
               >
 
 
-{/* 
+                {/* 
                 <TextField fullWidth alue={password}
                   type={showPassword ? "text" : "password"} 
                   onChange={(event) => { setPassword(event.target.value) }}
@@ -187,7 +188,7 @@ function Login() {
 
                   }} placeholder="Password"
                   label=""
-                  fullWidth= "true"
+                  fullWidth="true"
                 />
 
                 {/* new */}
@@ -209,8 +210,14 @@ function Login() {
 
             <h6 className='show-login-error'>{showError ? "Please write correct Email and Password" : <></>}</h6>
             <div>
-              <button onClick={handleSignIn} className='btn_SignIn'>{showLoading ? <center><div className="loading-spinner">
-              </div></center> : "Sign In"}</button>
+              <button onClick={handleSignIn} className='btn_SignIn'>{
+                showLoading ?
+                  <center>
+                    <CircularProgress color="inherit" />
+                    {/* <div className="loading-spinner">
+                    </div> */}
+                  </center> : "Sign In"}
+              </button>
               {/* <BigRedbtn onClick={handleSignIn} name="Sign In"/> */}
               {/* <button className='btn_SignIn'>Sign In</button> */}
             </div>
