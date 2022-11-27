@@ -12,6 +12,7 @@ import MyFavorites from './components/MyFavorites/MyFavorites';
 import axios from 'axios';
 import Cart from './components/Cart/cart';
 import CartAddress from './components/CartAddress/CartAddress';
+import UploadFile from './components/Upload/upload.jsx';
 
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
@@ -32,6 +33,7 @@ function App() {
       <Route path="/mybids" element={<MyBids />} />
       <Route path="/myfavs" element={<MyFavorites />} />
       <Route path="/profile" element={<MyProfile/>} />
+      <Route path="/upload" element={<UploadFile/>} />
       
      
     </Routes>
