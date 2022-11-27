@@ -47,8 +47,7 @@ function Signup() {
    console.log("Osama")
    
 
-  //  var response = Register(sendData);
-  //  console.log(response.message)
+ 
    await api.post('/register', sendData
      )
     .then(function (response) {

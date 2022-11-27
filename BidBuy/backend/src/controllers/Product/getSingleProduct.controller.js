@@ -18,6 +18,7 @@ const getSingleProduct = async (req, res) => {
         "price",
         "category",
         "location",
+        "image",
       ]);
       if (!data) {
         return res.json(

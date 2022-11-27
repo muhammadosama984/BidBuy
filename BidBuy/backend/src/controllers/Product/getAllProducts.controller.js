@@ -18,6 +18,7 @@ const getAllProducts = async (req, res) => {
         "price",
         "category",
         "location",
+        "image",
       ]);
       return res.json(jsonGenerate(statusCode.SUCCESS, "All products", list));
     } catch (error) {

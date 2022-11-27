@@ -25,14 +25,18 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: "Email already exists",
   },
-  //   myFavourites: [
-  //     {
-  //       product_id: {
-  //         type: Int32Array,
-  //         ref: Product
-  //       },
-  //     },
-  //   ],
+  image: {
+    type: String,
+    default: "",
+  },
+  myFavourites: [
+    {
+      product_id: {
+        type: Int32Array,
+        ref: Product,
+      },
+    },
+  ],
   date: {
     type: Date,
     default: Date.now,

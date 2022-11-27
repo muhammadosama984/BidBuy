@@ -11,7 +11,7 @@ const AddProduct = async (req, res) => {
   const error = validationResult(req);
 
   if (error.isEmpty()) {
-    const { name, description, price, category, location } = req.body;
+    const { name, description, price, category, location, image } = req.body;
     console.log(req.userId);
     try {
       const result = await Product.create({
@@ -21,6 +21,7 @@ const AddProduct = async (req, res) => {
         price: price,
         category: category,
         location: location,
+        image: image,
       });
 
       res.json(
