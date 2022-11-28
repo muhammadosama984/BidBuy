@@ -14,6 +14,7 @@ export const updateProfile = async (req, res) => {
       username: req.body.username,
       password: hashPassword,
       email: req.body.email,
+      image: req.body.image,
     };
 
     try {
