@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import phone from '../../images/ip14.png'
 
+import { useNavigate } from 'react-router-dom'; 
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 
 function CategoryCircle() {
@@ -18,13 +19,13 @@ function CategoryCircle() {
         objectFit: 'contain'
         // paddingLeft: "25%"
       });
-
+      let navigate = useNavigate();
     return (
         <div>
             
             <Stack direction='row' spacing={5} justifyContent='space-around'>
                     <Box sx={{ bgcolor: '#EEDC9A', height: '200px', width: '200px' }} borderRadius="200px">
-                        <IconButton  sx={{width:'200px', height:'200px'}}>
+                        <IconButton onClick={() => { navigate('/product') }}  sx={{width:'200px', height:'200px'}}>
                             <Img src={phone}/>
                         </IconButton>
                     </Box>
