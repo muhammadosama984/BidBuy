@@ -11,11 +11,11 @@ import MyBids from './components/MyBids/MyBids';
 import MyFavorites from './components/MyFavorites/MyFavorites';
 import axios from 'axios';
 import Cart from './components/Cart/cart';
-import CartAddress from './components/CartAddress/CartAddress';
+import Address from './components/Address/Address';
 import UploadFile from './components/Upload/upload.jsx';
 import ProductPage from './components/Product/ProductPage';
 import UploadProduct from './components/Product/UploadProduct';
-
+import Forgot from './components/Forgot/Forgot';
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
 })
@@ -30,7 +30,7 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/navbar" element={<NavBar />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/address" element={<CartAddress />} />
+      <Route path="/address" element={<Address />} />
       <Route path="/myauctions" element={<MyAuctions />} />
       <Route path="/mybids" element={<MyBids />} />
       <Route path="/myfavs" element={<MyFavorites />} />
@@ -38,6 +38,7 @@ function App() {
       <Route path="/upload" element={<UploadFile/>} />
       <Route path="/product" element={<ProductPage/>} />
       <Route path="/uploadprod" element={<UploadProduct/>} />
+      <Route path="/forgot" element={<Forgot/>}/>
       
      
     </Routes>

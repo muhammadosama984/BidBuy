@@ -19,7 +19,7 @@ function UploadFile() {
     }
   return (
     <div>
-        <input type = 'file' onChange={(event)=>{setimageSelected(event.target.files[0])}} />
+        <input type = 'file' accept='image/*' onChange={(event)=>{setimageSelected(event.target.files[0])}} />
         <button onClick={uploadImage}>Upload Image</button>
         <Image 
         style = {{width: 200}}

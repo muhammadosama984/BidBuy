@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Card,
@@ -13,35 +13,33 @@ import {
 import './cart.css';
 import Logo from '../Logo/Logo.jsx';
 import NavBar from '../NavBar/NavBar';
-import CardCart from '../CartGrid/CardCart';
+import CardCart from './CardCart';
 import Heading from '../Text/Heading';
-import CardBill from '../Billing/CardBill';
+import CardBill from './CardBill';
 
-function Cart(){
+function Cart() {
 
 
-return(
-  <>
-      <NavBar/>
-      <div style={{ height: '70px' }}>
-      </div>
-      <Heading first = "My" second = "Cart" />
-      <Stack direction="row" spacing={10} alignItems={"center"} justifyContent={"space-around"}>
-        <div>
-        <div style={{ height: '100px' }} alignItems={"flex-start"} >
-        <CardCart/>
-        </div>
-        <div>
-        <CardCart/>
-        </div>
-        </div>
-        <div>
-          <CardBill/>
-        </div>
+  return (
+    <>
+      <NavBar />
+      <Heading first="My" second="Cart" />
+      <Stack direction="row" spacing={0} alignItems={"center"} justifyContent={'space-evenly'}>
+
+        <Stack spacing={4} direction={'column'}>
+          <CardCart />
+          <CardCart />
+          <CardCart />
+        
+        </Stack>
+
+
+        <CardBill/>
+
       </Stack>
-      
-      </>
-)
+
+    </>
+  )
 
 }
 
