@@ -32,7 +32,7 @@ const userSchema = mongoose.Schema({
   myFavourites: [
     {
       product_id: {
-        type: Int32Array,
+        type: mongoose.Schema.Types.ObjectId,
         ref: Product,
       },
     },

@@ -51,12 +51,12 @@ function CardProduct(props) {
 
                 {/* <FavoriteIcon style={{ color: 'red' }} /> */}
                 <Typography variant="body2" color="black" sx={{ '&. MuiTypography-root': { color: 'black', padding: 2 } }} fontSize={14}>
-                    Iphone 14 Pro Max
+                    {props.product.name}
                 </Typography>
 
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
                     <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                        $739
+                    {props.product.price}
                     </Typography>
                     <Typography variant="body2" color="black" fontSize={12}>
                         3 Bids
@@ -64,7 +64,7 @@ function CardProduct(props) {
                 </Stack>
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
                     <Typography variant="body2" color="black" fontSize={12}>
-                        $39 Shipping
+                    {props.product.description}
                     </Typography>
                     <Typography variant="body2" color="black" fontSize={12}>
                         2d 3h
