@@ -105,7 +105,7 @@ function Header() {
           Contact Us
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', paddingRight: '10px' }} size="small">
+        <Button onClick={() => { navigate('/uploadprod') }} style={{ color: 'black', fontSize: '12px', paddingRight: '10px' }} size="small">
           Sell Now
         </Button>
 
