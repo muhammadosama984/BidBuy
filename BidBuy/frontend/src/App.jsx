@@ -6,6 +6,7 @@ import Signup from './components/Signup/Signup';
 import NavBar from './components/NavBar/NavBar';
 import MyProfile from './components/MyProfile/MyProfile';
 import MainPage from './components/MainPage/MainPage.jsx';
+import HomePage from './components/HomePage/HomePage';
 import MyAuctions from './components/MyAuctions/MyAuctions';
 import MyBids from './components/MyBids/MyBids';
 import MyFavorites from './components/MyFavorites/MyFavorites';
@@ -28,6 +29,7 @@ function App() {
       <Route path="/signup" element={<Signup/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/" element={<MainPage />} />
+      <Route path="/home" element={<HomePage/>} />
       <Route path="/navbar" element={<NavBar />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/address" element={<Address />} />

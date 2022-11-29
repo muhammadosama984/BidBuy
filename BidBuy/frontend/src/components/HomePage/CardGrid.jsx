@@ -12,10 +12,11 @@ import {
   styled,
   ImageList,
   ImageListItem,
-  itemData
+  CircularProgress,
 
 } from '@mui/material';
 import CardProduct from './CardProduct';
+import IndividualFilteredProduct from './IndividualFilteredProduct';
 import myImage from '../../images/ip14.jpg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
@@ -41,31 +42,42 @@ function CardGrid(props) {
     getProducts();
   }, [])
 
+//filtered product state
+const [filteredProducts, setFillteredProducts] = useState([]);
+
+
   return (
     <>
       <Stack direction="column" spacing={1} alignItems={"center"}>
 
         <Stack direction="row" spacing={1} alignItems={"center"}>
-        <ImageList sx={{padding: '50px'}} cols={4} rowHeight={164}>
-        {products.map((product) => (
+         
+          {filteredProducts.length > 0&&(
+            <IndividualFilteredProduct/>
+          )}
+          {filteredProducts.length < 1&&(
+            <>
+            {products.length > 0&&(
+              <ImageList sx={{ padding: '50px' }} cols={4} rowHeight={164}>
+              {products.map((product) => (
+  
+                <CardProduct product={product} />
+  
+              ))}
+            </ImageList>
 
-          <CardProduct product={product} />
-
-        ))}
-      </ImageList>
-
-        </Stack>
-        <Stack direction="row" spacing={1} alignItems={"center"}>
-   
-   
-        </Stack>
-        <Stack direction="row" spacing={1} alignItems={"center"}>
-     
-       
+            )}
+            {products.length<1&&(
+              <CircularProgress color="inherit" />
+            )}
+            </>
+          )}
+         
+          
         </Stack>
       </Stack>
 
-      
+
 
     </>
   )
