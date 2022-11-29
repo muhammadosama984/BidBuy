@@ -23,7 +23,7 @@ function Contact() {
     
       <Stack direction='row' alignItems={'center'}>
         <Typography>Rembered Something?</Typography>
-        <Button sx={{textTransform: 'unset', color: 'red', fontWeight: 'bold'}}>Sign In</Button>
+        <Button onClick={() => { navigate('/login') }} sx={{textTransform: 'unset', color: 'red', fontWeight: 'bold'}}>Sign In</Button>
       </Stack>
     </Stack>
     </>

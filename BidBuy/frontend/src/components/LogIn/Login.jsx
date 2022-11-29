@@ -66,7 +66,8 @@ function Login() {
 
   const handleSignIn = async () => {
     setshowLoading(true);
-
+console.log(emailAddress)
+console.log(password)
     await api.post('/login', {
       username: emailAddress,
       password: password

@@ -12,7 +12,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGOURL, { useNewUrlParser: true }, (e) =>
+mongoose.connect("mongodb+srv://osama:osama123@cluster0.xwgpbcb.mongodb.net/bid?retryWrites=true&w=majority", { useNewUrlParser: true }, (e) =>
   console.log(e)
 );
 

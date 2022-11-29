@@ -26,19 +26,19 @@ import { api } from '../../App.jsx';
 function ProductPage() {
     const [userProfile, setuserProfile] = useState({})
     
-    const getProfile = () => {
-        api.get('/getprofile', {
-          headers:{
-            auth: localStorage.getItem("token")
-          }
-        }).then(res => {
-          console.log(res.data);
-          setuserProfile(res.data.data);
-        })
-      }
-      useEffect(() => {
-       getProfile();
-      }, [])
+    // const getProfile = () => {
+    //     api.get('/getprofile', {
+    //       headers:{
+    //         auth: localStorage.getItem("token")
+    //       }
+    //     }).then(res => {
+    //       console.log(res.data);
+    //       setuserProfile(res.data.data);
+    //     })
+    //   }
+    //   useEffect(() => {
+    //    getProfile();
+    //   }, [])
 
 
     const fontColor = {

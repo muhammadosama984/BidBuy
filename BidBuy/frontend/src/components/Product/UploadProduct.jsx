@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
+import UploadFile from '../Upload/upload';
 import {
     TextField,
     Typography,
@@ -10,11 +11,10 @@ import {
     IconButton,
     Stack,
     styled,
-    Grid,
-    Item,
-    Fab,
-    Divider,
-    FilledInput,
+    FormControl,
+    MenuItem,
+    Select,
+    InputLabel,
     OutlinedInput
 
 } from '@mui/material';
@@ -29,19 +29,19 @@ import { api } from '../../App.jsx';
 function UploadProduct() {
     const [userProfile, setuserProfile] = useState({})
 
-    const getProfile = () => {
-        api.get('/getprofile', {
-            headers: {
-                auth: localStorage.getItem("token")
-            }
-        }).then(res => {
-            console.log(res.data);
-            setuserProfile(res.data.data);
-        })
-    }
-    useEffect(() => {
-        getProfile();
-    }, [])
+    // const getProfile = () => {
+    //     api.get('/getprofile', {
+    //         headers: {
+    //             auth: localStorage.getItem("token")
+    //         }
+    //     }).then(res => {
+    //         console.log(res.data);
+    //         setuserProfile(res.data.data);
+    //     })
+    // }
+    // useEffect(() => {
+    //     getProfile();
+    // }, [])
 
 
     const fontColor = {
@@ -75,7 +75,8 @@ function UploadProduct() {
             <Stack direction={'row'} justifyContent={'center'} >
                 <Stack width={'50%'} justifyContent={'center'} >
                     <Box width="100%" height={'600px'} sx={{ padding: '2% 0% 0% 20%' }} >
-                        <ProductImg />
+                        {/* <ProductImg /> */}
+                        <UploadFile/>
                     </Box>
                 </Stack>
                 <Stack paddingLeft={"5%"} width={'50%'} height={'700px'} direction={'column'} spacing={5} justifyContent={'center'} >
@@ -90,6 +91,42 @@ function UploadProduct() {
                         }}
                         sx={{ width: '50%', '& .MuiTextField-root': { color: 'red' } }}
                     />
+                    <Stack direction={'row'} spacing={17}>
+                        <Box sx={{ minWidth: 160 }}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Location</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    // value={age}
+                                    label="Location"
+                                    // onChange={handleChange}
+                                >
+                                    <MenuItem value={'karachi'}>Karachi</MenuItem>
+                                    <MenuItem value={'lahore'}>Lahore</MenuItem>
+                                    <MenuItem value={'islamabad'}>Islamabad</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                        <Box sx={{ minWidth: 160 }}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    // value={age}
+                                    label="Location"
+                                    // onChange={handleChange}
+                                >
+                                    <MenuItem value={'mobile'}>Mobile</MenuItem>
+                                    <MenuItem value={'camera'}>Camera</MenuItem>
+                                    <MenuItem value={'laptop'}>Laptop</MenuItem>
+                                    <MenuItem value={'computerhardware'}>PC</MenuItem>
+                                    <MenuItem value={'speaker'}>Speaker</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Stack>
                     <Typography variant='body1' fontWeight={'bold'}>Description</Typography>
                     <TextField
                         id="outlined-multiline-static"
@@ -106,7 +143,7 @@ function UploadProduct() {
                     />
 
                     <Stack width={'50%'} direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-                        <Typography fontWeight={'bold'}>Bid Starting Price</Typography>
+                        <Typography fontWeight={'bold'}>Starting Price</Typography>
                         <OutlinedInput
                             id="outlined-adornment-amount"
                             // value={values.amount}

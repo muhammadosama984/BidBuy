@@ -37,7 +37,7 @@ export const Login = async (req, res) => {
         jsonGenerate(statusCode.UNPROCESSABLE_ENTITY, "Username is deleted")
       );
     }
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_TOKEN_SECRET, {
+    const token = jwt.sign({ userId: user._id }, "sdsdsjcdfef", {
       expiresIn: "1h",
     });
     return res.json(

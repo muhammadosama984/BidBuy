@@ -1,18 +1,18 @@
 import React from 'react'
 import {
-    Box,
-    Card,
-    CardActions,
-    CardContent,
-    Typography,
-    Button,
-    CardMedia,
-    IconButton,
-    Stack,
-    styled,
-    ImageList,
-    ImageListItem,
-    itemData
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+  Button,
+  CardMedia,
+  IconButton,
+  Stack,
+  styled,
+  ImageList,
+  ImageListItem,
+  itemData
 
 } from '@mui/material';
 import CardProduct from './CardProduct';
@@ -36,45 +36,45 @@ function CardGrid(props) {
 
     })
   }
-    
+
   useEffect(() => {
     getProducts();
   }, [])
-  
-    return (
-      <ImageList sx={{ width: 10000, height: 450 }} cols={4} rowHeight={164}>
-  {products.map((product) => (
-   
-      <CardProduct  product = {product} />
-    
-  ))}
-</ImageList>
-      //   <Stack direction="column" spacing={1} alignItems={"center"}>
-        
-      //   <Stack direction="row" spacing={1} alignItems={"center"}>
-      //     {/* Image Not using props currently*/}
-          
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //   </Stack>
-      //   <Stack direction="row" spacing={1} alignItems={"center"}>
-      //     {/* Image Not using props currently*/}
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //   </Stack>
-      //   <Stack direction="row" spacing={1} alignItems={"center"}>
-      //     {/* Image Not using props currently*/}
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //     <CardProduct image={myImage} />
-      //   </Stack>
-      // </Stack>
-       )
+
+  return (
+    <ImageList sx={{ width: 10000, height: 450 }} cols={4} rowHeight={164}>
+      {products.map((product) => (
+
+        <CardProduct product={product} />
+
+      ))}
+    </ImageList>
+    //   <Stack direction="column" spacing={1} alignItems={"center"}>
+
+    //   <Stack direction="row" spacing={1} alignItems={"center"}>
+    //     {/* Image Not using props currently*/}
+
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //   </Stack>
+    //   <Stack direction="row" spacing={1} alignItems={"center"}>
+    //     {/* Image Not using props currently*/}
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //   </Stack>
+    //   <Stack direction="row" spacing={1} alignItems={"center"}>
+    //     {/* Image Not using props currently*/}
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //     <CardProduct image={myImage} />
+    //   </Stack>
+    // </Stack>
+  )
 }
 
 export default CardGrid

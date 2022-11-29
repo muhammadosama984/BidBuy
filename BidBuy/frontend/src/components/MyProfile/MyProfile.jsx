@@ -47,7 +47,7 @@ function Header() {
     console.log(emailAddress);
   }
   const getProfile = () => {
-    api.get('/getprofile', {
+     api.get('/getprofile', {
       headers:{
         auth: localStorage.getItem("token")
       }
@@ -56,7 +56,7 @@ function Header() {
       setuserProfile(res.data.data);
     })
   }
-  useEffect(() => {
+  useEffect(()  => {
    getProfile();
   }, [])
   return (
