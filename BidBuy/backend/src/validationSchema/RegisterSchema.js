@@ -1,7 +1,14 @@
 import { check } from "express-validator";
 
 export const RegisterSchema = [
-  check("name").trim().isAlpha().withMessage("Name should be alphabets only"),
+  check("firstname")
+    .trim()
+    .isAlpha()
+    .withMessage("Name should be alphabets only"),
+  check("lastname")
+    .trim()
+    .isAlpha()
+    .withMessage("Name should be alphabets only"),
 
   check("username", "username is required")
     .exists()

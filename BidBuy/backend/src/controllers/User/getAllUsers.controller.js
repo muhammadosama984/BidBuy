@@ -11,7 +11,8 @@ export const getAllUsers = async (req, res) => {
   if (errors.isEmpty()) {
     try {
       const list = await User.find({ active: true }).select([
-        "name",
+        "firstname",
+        "lastname",
         "username",
         "email",
         "date",

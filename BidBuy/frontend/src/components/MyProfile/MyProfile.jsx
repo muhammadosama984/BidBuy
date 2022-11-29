@@ -34,6 +34,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Header() {
   
+  const [FirstName, setFirstName] = useState("")
+  const [lastname, setLastName] = useState("")
   const [emailAddress, setemailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [userProfile, setuserProfile] = useState({})
@@ -51,6 +53,34 @@ function Header() {
   useEffect(()  => {
    getProfile();
   }, [])
+
+  const handleEdit = async () => {
+
+    await api.post('/updateprofile', {
+     // name: name, 
+     firstname: FirstName,
+     lastname: lastname,
+     email: emailAddress,
+     password: password
+
+    },
+    {
+      headers:{
+        auth: localStorage.getItem("token")
+      }
+    })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      console.log("done");
+  }
+  const handleDelete = () => {
+    
+  }
   return (
     <>
       <NavBar />
@@ -88,25 +118,32 @@ function Header() {
               }} noValidate autoComplete="off"
             >
               <div>
-                <TextField value={userProfile.name} required id="outlined-required"  />
-                <TextField required id="outlined-required" label="Last Name" />
+                <TextField onChange={(FirstName)=>{setFirstName(FirstName.target.value)}} value={userProfile.name} required id="outlined-required"  />
+                <TextField onChange={(lastName)=>{setLastName(lastName.target.value)}} required id="outlined-required" />
               </div>
               <div>
-                <TextField value={userProfile.email} required id="outlined-required" />
-                <TextField required id="outlined-required" label="Password" />
+                <TextField onChange={(email)=>{setemailAddress(email.target.value)}} value={userProfile.email} required id="outlined-required" />
+                <TextField onChange={(password)=>{setPassword(password.target.value)}} value={userProfile.password} required id="outlined-required"  />
               </div>
               <div>
-                <TextField required id="outlined-required" label="Phone Number" />
-                <TextField required id="outlined-required" label="Address" />
+                <TextField disabled={true} value={userProfile.userRole} required id="outlined-required"  />
+                {/* <TextField required id="outlined-required" label="User Role" /> */}
               </div>
-              <div>
+              {/* <div>
                 <TextField required id="outlined-required" label="City" />
                 <TextField required id="outlined-required" label="Country" />
-              </div>
+              </div> */}
             </Box>
           </Box>
         </Grid>
       </Grid>
+
+      <Button onClick={handleEdit}>
+        Update Information
+      </Button>
+      <Button onClick={handleDelete}>
+        Delete 
+      </Button>
     </>
   )
 }
