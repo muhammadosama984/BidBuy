@@ -10,7 +10,7 @@ const AuthMiddleware = (req, res, next) => {
   const token = req.headers["auth"];
 
   try {
-    const decoded = Jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    const decoded = Jwt.verify(token, "sdsdsjcdfef");
     console.log(decoded);
 
     req.userId = decoded.userId;

@@ -27,7 +27,7 @@ import image2 from '../../images/bg_red.png'
 import { api } from '../../App.jsx';
 
 function UploadProduct() {
-    const [userProfile, setuserProfile] = useState({})
+ 
 
     // const getProfile = () => {
     //     api.get('/getprofile', {
@@ -133,7 +133,7 @@ function UploadProduct() {
                         label=""
                         multiline
                         rows={5}
-                        value={userProfile.name}
+                     
                         // disabled = 'true'
                         inputProps={fontColor}
                         InputProps={{

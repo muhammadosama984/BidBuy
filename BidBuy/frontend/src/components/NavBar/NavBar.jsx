@@ -29,6 +29,10 @@ function Header() {
     setemailAddress(event.target.value);
     console.log(emailAddress);
   }
+  const handleSignOut = () => {
+   localStorage.clear();
+   navigate('/login');
+  }
   return (
 
     <div className='div_Navmain'>
@@ -63,7 +67,7 @@ function Header() {
           Cart
         </Button>
         <div style={{paddingRight: '20px'}}>
-        <Button onClick={() => { navigate('/login') }} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
+        <Button onClick={handleSignOut} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
           Sign Out
         </Button>
         </div>

@@ -38,14 +38,6 @@ function Header() {
   const [password, setPassword] = useState("");
   const [userProfile, setuserProfile] = useState({})
 
-  const handleEmailAddress = (event) => {
-    setemailAddress(event.target.value);
-    console.log(emailAddress);
-  }
-  const handlePassword = (event) => {
-    setemailAddress(event.target.value);
-    console.log(emailAddress);
-  }
   const getProfile = () => {
      api.get('/getprofile', {
       headers:{
