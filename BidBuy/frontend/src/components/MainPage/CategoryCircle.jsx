@@ -25,7 +25,7 @@ function CategoryCircle() {
             
             <Stack direction='row' spacing={5} justifyContent='space-around'>
                     <Box sx={{ bgcolor: '#EEDC9A', height: '200px', width: '200px' }} borderRadius="200px">
-                        <IconButton onClick={() => { navigate('/product') }}  sx={{width:'200px', height:'200px'}}>
+                        <IconButton onClick={() => { navigate('/home') }}  sx={{width:'200px', height:'200px'}}>
                             <Img src={phone}/>
                         </IconButton>
                     </Box>
