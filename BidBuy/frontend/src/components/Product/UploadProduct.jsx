@@ -1,6 +1,7 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
 import UploadFile from '../Upload/upload';
+import axios from 'axios'
 import {
     TextField,
     Typography,
@@ -29,19 +30,12 @@ import { api } from '../../App.jsx';
 function UploadProduct() {
  
 
-    // const getProfile = () => {
-    //     api.get('/getprofile', {
-    //         headers: {
-    //             auth: localStorage.getItem("token")
-    //         }
-    //     }).then(res => {
-    //         console.log(res.data);
-    //         setuserProfile(res.data.data);
-    //     })
-    // }
-    // useEffect(() => {
-    //     getProfile();
-    // }, [])
+    const [imageSelected, setimageSelected] = useState("");
+    const [name, setname] = useState("");
+    const [description, setDescription] = useState("")
+    const [location, setlocation] = useState("")
+    const [category, setcategory] = useState("")
+    const [price, setprice] = useState("")
 
 
     const fontColor = {
@@ -65,9 +59,53 @@ function UploadProduct() {
     }
 
     const timeLeft = '2';
-    const price = '45';
+  
     // String descrip = 'PTA Approved Very Good Excellent';
+    const handleUploadProduct = async () => {
+        let cloudinaryLink = "";
+        const formData = new FormData();
+        formData.append("file", imageSelected);
+        formData.append("upload_preset", "drb3j96q");
+    
+        await axios.post(
+            "https://api.cloudinary.com/v1_1/dumnaigxr/image/upload",
+            formData
+        ).then((response)=>{
+            console.log(response.data.url);
+            cloudinaryLink = response.data.url;
+        })
 
+        // data to database 
+
+        await api.post('/addproduct', {
+            name: name, 
+            description:description,
+            price:price,
+            category: category,
+            location: location,
+            image: cloudinaryLink
+          },
+          {
+            headers:{
+              auth: localStorage.getItem("token")
+            }
+          })
+            .then(function (response) {
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+            console.log("upload done")
+    }
+    // useEffect(() => {
+    //   console.log(name);
+    //   console.log(price);
+    //   console.log(location);
+    //   console.log(category);
+    //   console.log(description);
+    // }, [name, price, location, category, description])
+    
     return (
         <div>
             <NavBar />
@@ -76,12 +114,15 @@ function UploadProduct() {
                 <Stack width={'50%'} justifyContent={'center'} >
                     <Box width="100%" height={'600px'} sx={{ padding: '2% 0% 0% 20%' }} >
                         {/* <ProductImg /> */}
-                        <UploadFile/>
+                        
+                        <input type = 'file' accept='image/*' onChange={(event)=>{setimageSelected(event.target.files[0])}}  />
                     </Box>
                 </Stack>
                 <Stack paddingLeft={"5%"} width={'50%'} height={'700px'} direction={'column'} spacing={5} justifyContent={'center'} >
                     <Typography variant='h5' fontWeight={'bold'}>Title</Typography>
                     <TextField
+                    onChange={(title)=>{ setname(title.target.value)}}
+                    value={name}
                         id="OutlinedInput"
                         // value={values.amount}
                         // onChange={handleChange('amount')}
@@ -101,6 +142,7 @@ function UploadProduct() {
                                     // value={age}
                                     label="Location"
                                     // onChange={handleChange}
+                                    onChange={(location)=>{ setlocation(location.target.value)}}
                                 >
                                     <MenuItem value={'karachi'}>Karachi</MenuItem>
                                     <MenuItem value={'lahore'}>Lahore</MenuItem>
@@ -117,6 +159,7 @@ function UploadProduct() {
                                     // value={age}
                                     label="Location"
                                     // onChange={handleChange}
+                                    onChange={(category)=>{ setcategory(category.target.value)}}
                                 >
                                     <MenuItem value={'mobile'}>Mobile</MenuItem>
                                     <MenuItem value={'camera'}>Camera</MenuItem>
@@ -129,6 +172,7 @@ function UploadProduct() {
                     </Stack>
                     <Typography variant='body1' fontWeight={'bold'}>Description</Typography>
                     <TextField
+                    onChange={(description)=>{ setDescription(description.target.value)}}
                         id="outlined-multiline-static"
                         label=""
                         multiline
@@ -148,6 +192,8 @@ function UploadProduct() {
                             id="outlined-adornment-amount"
                             // value={values.amount}
                             // onChange={handleChange('amount')}
+                            
+                            onChange={(price)=>{ setprice(price.target.value)}}
                             type='number'
                             startAdornment={<InputAdornment position="start">$</InputAdornment>}
                             label=""
@@ -184,7 +230,7 @@ function UploadProduct() {
                     </Stack>
                     <Stack alignItems={'center'} width={'50%'} direction={'row'} justifyContent={'space-between'}>
 
-                        <Button onClick={() => { }} style={{ color: 'white', width: "100%", backgroundColor: '#CF3D2F', fontSize: '14px', padding: '12px 20px 12px 20px' }}>
+                        <Button onClick={handleUploadProduct} style={{ color: 'white', width: "100%", backgroundColor: '#CF3D2F', fontSize: '14px', padding: '12px 20px 12px 20px' }}>
                             START AUCTION
                         </Button>
                         {/* <FilledInput 

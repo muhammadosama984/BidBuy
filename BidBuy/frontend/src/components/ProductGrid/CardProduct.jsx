@@ -40,7 +40,7 @@ function CardProduct(props) {
             /> */}
             <CardMedia sx = {{position: 'relative'}}>
                 <FavoriteIcon sx = {{position: 'absolute', marginLeft: '90%', color: '#CF3D2F'}} />
-                <Img src={myImage}  >
+                <Img src={props.product.image}  >
 
                 </Img>
 

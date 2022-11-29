@@ -14,7 +14,7 @@ function UploadFile() {
         "https://api.cloudinary.com/v1_1/dumnaigxr/image/upload",
         formData
     ).then((response)=>{
-        console.log(response);
+        console.log(response.data.url);
     })
     }
   return (
