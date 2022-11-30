@@ -38,16 +38,16 @@ function CardGrid(props) {
 
     })
   }
-  // const [filteredProducts, setFillteredProducts] = useState([]);
+  // const [auctionProducts, setAuctionProducts] = useState([]);
 
 
   // const handleChange = (individualSpan) => {
   //   console.log("Filter")
-  //   console.log(filteredProducts)
+  //   console.log(auctionProducts)
   //   filterFunction(localStorage.getItem('userID'));
   // }
 
-  const [filteredProducts, setFillteredProducts] = useState([]);
+  const [auctionProducts, setAuctionProducts] = useState([]);
 
   const filterFunction = (userId) => {
     console.log("Hello")
@@ -57,9 +57,9 @@ function CardGrid(props) {
     // console.log(products.category === text)
     // console.log(products.filter((products) => products.id === localStorage.getItem('userID')))
     const filter = products.filter((products) => products.user_id === userId);
-    setFillteredProducts(filter);
+    setAuctionProducts(filter);
 
-    console.log('sdafa' + filteredProducts)
+    console.log('sdafa' + auctionProducts)
   }
 
 
@@ -69,7 +69,7 @@ function CardGrid(props) {
   useEffect(() => {
     getProducts()
     filterFunction(currentID)
-  }, [filteredProducts],);
+  }, [auctionProducts],);
 
   
   return (
@@ -78,7 +78,7 @@ function CardGrid(props) {
 
         <Stack direction="row" spacing={1} alignItems={"center"}>
         <ImageList sx={{padding: '50px'}} cols={4} rowHeight={164}>
-        {filteredProducts.map((product) => (
+        {auctionProducts.map((product) => (
 
           <CardProduct product={product} />
 
