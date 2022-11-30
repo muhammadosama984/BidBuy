@@ -12,14 +12,14 @@ export const getuser = async (req, res) => {
 
     try {
       const list = await User.findById(req.userId)
-        .select("password")
+        .select("-password")
         .populate([
           "firstname",
           "lastname",
           "username",
           "email",
           "date",
-          "password",
+
           "userRole",
         ])
         .exec();

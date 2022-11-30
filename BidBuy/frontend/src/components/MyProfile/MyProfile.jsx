@@ -123,7 +123,7 @@ function Header() {
               </div>
               <div>
                 <TextField onChange={(email)=>{setemailAddress(email.target.value)}} value={userProfile.email} required id="outlined-required" />
-                <TextField onChange={(password)=>{setPassword(password.target.value)}} value={userProfile.password} required id="outlined-required"  />
+                <TextField onChange={(password)=>{setPassword(password.target.value)}} value={userProfile.username} required id="outlined-required"  />
               </div>
               <div>
                 <TextField disabled={true} value={userProfile.userRole} required id="outlined-required"  />
