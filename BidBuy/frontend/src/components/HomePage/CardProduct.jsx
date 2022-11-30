@@ -10,15 +10,18 @@ import {
     IconButton,
     Stack,
     styled,
-    Fab
+    Fab,
+    CardActionArea
 
 } from '@mui/material';
 import myImage from '../../images/ip14.jpg';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
-
+import {useNavigate} from 'react-router-dom'
 function CardProduct(props) {
+    
+    let navigate = useNavigate();
     const Img = styled('img')({
         alignItems: "center",
         maxwidth: "100%",
@@ -29,49 +32,51 @@ function CardProduct(props) {
 
     });
     return (
-        <Card elevation={0} sx={{boxShadow: '0 8px 24px 0 rgba(0,0,0,0.15)', padding: 1, borderRadius: 1, border: "1px solid #e1e1e1", backgroundColor: '#FEFEFd', maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
-            {/* <Img  src = {myImage}/> */}
-            {/* <CardMedia
+        <CardActionArea onClick={() => { navigate(props.url) }}>
+            <Card elevation={0} sx={{ boxShadow: '0 8px 24px 0 rgba(0,0,0,0.15)', padding: 1, borderRadius: 1, border: "1px solid #e1e1e1", backgroundColor: '#FEFEFd', maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
+                {/* <Img  src = {myImage}/> */}
+                {/* <CardMedia
                 component="img"
                 height="150px"
                 width="100px"
                 // image={props.image}
                 image={myImage}
             /> */}
-            <CardMedia sx = {{position: 'relative'}}>
-                <FavoriteIcon sx = {{position: 'absolute', marginLeft: '90%', color: '#CF3D2F'}} />
-                <Img src={props.product.image}  >
+                <CardMedia sx={{ position: 'relative' }}>
+                    <FavoriteIcon sx={{ position: 'absolute', marginLeft: '90%', color: '#CF3D2F' }} />
+                    <Img src={props.product.image}  >
 
-                </Img>
-
-
-            </CardMedia>
-            <CardContent>
+                    </Img>
 
 
-                {/* <FavoriteIcon style={{ color: 'red' }} /> */}
-                <Typography variant="body2" color="black" sx={{ '&. MuiTypography-root': { color: 'black', padding: 2 } }} fontSize={14}>
-                    {props.product.name}
-                </Typography>
+                </CardMedia>
+                <CardContent>
 
-                <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                    <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                    {props.product.price}
+
+                    {/* <FavoriteIcon style={{ color: 'red' }} /> */}
+                    <Typography variant="body2" color="black" sx={{ '&. MuiTypography-root': { color: 'black', padding: 2 } }} fontSize={14}>
+                        {props.product.name}
                     </Typography>
-                    <Typography variant="body2" color="black" fontSize={12}>
-                        3 Bids
-                    </Typography>
-                </Stack>
-                <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
-                    <Typography variant="body2" color="black" fontSize={12}>
-                    {props.product.description}
-                    </Typography>
-                    <Typography variant="body2" color="black" fontSize={12}>
-                        2d 3h
-                    </Typography>
-                </Stack>
-            </CardContent>
-        </Card>
+
+                    <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
+                        <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
+                            {props.product.price}
+                        </Typography>
+                        <Typography variant="body2" color="black" fontSize={12}>
+                            3 Bids
+                        </Typography>
+                    </Stack>
+                    <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
+                        <Typography variant="body2" color="black" fontSize={12}>
+                            {props.product.description}
+                        </Typography>
+                        <Typography variant="body2" color="black" fontSize={12}>
+                            2d 3h
+                        </Typography>
+                    </Stack>
+                </CardContent>
+            </Card>
+        </CardActionArea>
     )
 }
 

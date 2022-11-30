@@ -44,21 +44,24 @@ function Header() {
           Categories
         </Button>
         <TextField
+        // onChange={(e) => this.setSearchTxt((e.target.value).toLowerCase())}
           label=""
           InputProps={{
             sx: { height: "35px", width:"350px", fontSize: '12px', margin: 0, textAlign: 'start', p:0},
             placeholder: "Search",
             endAdornment: (
               <InputAdornment>
-                <IconButton>
+                <IconButton 
+                // onClick={() => this.handleSearch(this.searchTxt)}
+                >
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>
             )
           }}
         />
-        <Button startIcon={<FeaturedPlayListRoundedIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
-          Orders
+        <Button onClick={() => { navigate('/home') }} startIcon={<FeaturedPlayListRoundedIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
+          All Products
         </Button>
         <Button onClick={() => { navigate('/myfavs') }} startIcon={<FavoriteIcon style={{ color: '#CF3D2F' }} />} style={{ color: 'black', fontSize:'10px' }}>
           Favourites

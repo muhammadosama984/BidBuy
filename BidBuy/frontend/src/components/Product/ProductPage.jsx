@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import {
     TextField,
     Typography,
@@ -24,8 +25,53 @@ import image2 from '../../images/bg_red.png'
 import { api } from '../../App.jsx';
 
 function ProductPage() {
-    const [userProfile, setuserProfile] = useState({})
+
+
+    // const getProducts = () => {
+    //     api.get('/getallproducts').then(res => {
+    //       //console.log(res.data.data);
+    //       setproducts(res.data.data);
     
+    //       // console.log(products);
+    //     })
+    // const [product, setproduct] = useState({})
+   
+    const { productId } = useParams();
+
+    const getSingleProduct = (id) => {
+        api.get(`/getsingleproduct?id=${id}`,
+        console.log('id inside ' + id),
+        {
+          headers:{
+            auth: localStorage.getItem("token")
+          }
+        })
+          .then(function (response) {
+            console.log(response.data.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+
+
+    // const getSingleProduct = (id) => {
+    //     api.get(`/getsingleproduct?id=${id}`)
+    //     .then(res => {
+    //         // console.log(res.data.data);
+    //         setproduct(res.data.data);
+    //         })
+    // }
+
+    
+    const product = getSingleProduct(productId);
+   
+    // console.log(product.name)
+    console.log('id is ' + productId);
+    // console.log(product.name);
+    
+    const [userProfile, setuserProfile] = useState({})
+
     // const getProfile = () => {
     //     api.get('/getprofile', {
     //       headers:{
@@ -70,8 +116,8 @@ function ProductPage() {
 
             <Stack direction={'row'} justifyContent={'center'} >
                 <Stack width={'50%'} justifyContent={'center'} >
-                    <Box width = "100%">
-                    <ProductImg src={image} />
+                    <Box width="100%">
+                        <ProductImg src={image} />
                     </Box>
                 </Stack>
                 <Stack paddingLeft={"5%"} width={'50%'} height={'700px'} direction={'column'} spacing={5} justifyContent={'center'} >
@@ -82,8 +128,8 @@ function ProductPage() {
                         label=""
                         multiline
                         rows={5}
-                        value = {userProfile.name}
-                        disabled = 'true'
+                        value={userProfile.name}
+                        disabled='true'
                         inputProps={fontColor}
                         sx={{ width: '50%', '& .MuiTextField-root': { color: 'black' } }}
                     />

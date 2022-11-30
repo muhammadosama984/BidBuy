@@ -38,7 +38,8 @@ function App() {
       <Route path="/myfavs" element={<MyFavorites />} />
       <Route path="/profile" element={<MyProfile/>} />
       <Route path="/upload" element={<UploadFile/>} />
-      <Route path="/product" element={<ProductPage/>} />
+      {/* <Route path="/product" element={<ProductPage/>} /> */}
+      <Route path="/product/:productId" element={<ProductPage/>} />
       <Route path="/uploadprod" element={<UploadProduct/>} />
       <Route path="/forgot" element={<Forgot/>}/>
       
