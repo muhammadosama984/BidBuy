@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
-import CardGrid from '../ProductGrid/CardGrid.jsx'
+import CardGrid from './CardGrid.jsx'
 import Heading from '../Text/Heading.jsx'
 import myImage from '../../images/ip14.jpg'
 import { Stack } from '@mui/system'
@@ -21,22 +21,30 @@ function MyAuctions() {
 
     })
   }
-  const postProducts = () => {
-    api.post('/login', {
-      username: "MuhammadOsamaAsif9844",
-      password: "osama123456"
-    })
-      .then(function (response) {
-        console.log(response.data.data.token);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  const [filteredProducts, setFillteredProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts()
+  }, [filteredProducts],);
+
+  const handleChange = (individualSpan) => {
+    console.log("Filter")
+    console.log(filteredProducts)
+    filterFunction(individualSpan.text);
   }
 
-  // useEffect(() => {
-  //  getProducts()
-  // }, [])
+
+  const filterFunction = (userId) => {
+    // console.log("Hello")
+    // console.log(products)
+    // console.log(products.category)
+    // console.log("Text " + text)
+    // console.log(products.category === text)
+    // console.log(products.filter((products) => products.id === localStorage.getItem('userID')))
+    const filter = products.filter((products) => products.id === localStorage.getItem('userID'));
+    setFillteredProducts(filter);
+    console.log(filteredProducts)
+  }
 
   return (
     <div>

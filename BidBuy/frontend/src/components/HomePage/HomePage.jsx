@@ -216,7 +216,7 @@ const searchFunction = (text)=>{
 
                 )}
                 {products.length < 1 && (
-                  <h1>No products to display</h1>
+                 <CircularProgress sx={{color: 'red', marginTop:'50px'}} />
                 )}
               </>
             )}
