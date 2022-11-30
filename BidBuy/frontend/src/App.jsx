@@ -17,6 +17,10 @@ import UploadFile from './components/Upload/upload.jsx';
 import ProductPage from './components/Product/ProductPage';
 import UploadProduct from './components/Product/UploadProduct';
 import Forgot from './components/Forgot/Forgot';
+import AdminMain from './components/AdminMain/AdminMain';
+import AdminList from './components/AdminList/AdminList';
+import AdminListDetail from './components/AdminListDetail/AdminListDetail';
+
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
 })
@@ -42,8 +46,10 @@ function App() {
       <Route path="/product/:productId" element={<ProductPage/>} />
       <Route path="/uploadprod" element={<UploadProduct/>} />
       <Route path="/forgot" element={<Forgot/>}/>
+      <Route path="/AdminMain" element={<AdminMain/>} />
+      <Route path="/AdminList" element={<AdminList/>} />
+      <Route path="/AdminListDetail" element={<AdminListDetail/>} />
       
-     
     </Routes>
   </Router>
   );
