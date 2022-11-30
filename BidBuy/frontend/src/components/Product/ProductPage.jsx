@@ -39,11 +39,14 @@ function ProductPage() {
     const { productId } = useParams();
 
     const getSingleProduct = (id) => {
-        api.get(`/getsingleproduct?id=${id}`,
-        console.log('id inside ' + id),
+        api.get(`/getsingleproduct`,
+        //console.log('id inside ' + id),
         {
           headers:{
             auth: localStorage.getItem("token")
+          },
+          params:{
+            id: id
           }
         })
           .then(function (response) {
@@ -63,8 +66,12 @@ function ProductPage() {
     //         })
     // }
 
+    useEffect(() => {
+     getSingleProduct(productId);
+    }, [])
     
-    const product = getSingleProduct(productId);
+    
+    
    
     // console.log(product.name)
     console.log('id is ' + productId);

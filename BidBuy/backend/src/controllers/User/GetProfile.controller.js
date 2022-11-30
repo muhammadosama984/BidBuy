@@ -19,7 +19,6 @@ export const getuser = async (req, res) => {
           "username",
           "email",
           "date",
-
           "userRole",
         ])
         .exec();
