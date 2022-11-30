@@ -10,7 +10,8 @@ export const updateProfile = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
     const newUser = {
-      name: req.body.name,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       username: req.body.username,
       password: hashPassword,
       email: req.body.email,

@@ -19,6 +19,7 @@ import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
 function CardProduct(props) {
+    console.log(props.product.name);
     const Img = styled('img')({
         alignItems: "center",
         maxwidth: "100%",

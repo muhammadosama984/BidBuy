@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 import Product from "./Product.js";
 
 const userSchema = mongoose.Schema({
-  name: {
+  firstname: {
+    type: String,
+  },
+  lastname: {
     type: String,
   },
   username: {

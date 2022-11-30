@@ -9,7 +9,8 @@ const Register = async (req, res) => {
   const error = validationResult(req);
 
   if (error.isEmpty()) {
-    const { name, username, password, email, userRole, image } = req.body;
+    const { firstname, lastname, username, password, email, userRole, image } =
+      req.body;
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
@@ -33,7 +34,8 @@ const Register = async (req, res) => {
 
     try {
       const result = await User.create({
-        name: name,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
         password: hashPassword,
         username: username,

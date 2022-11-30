@@ -12,8 +12,16 @@ export const getuser = async (req, res) => {
 
     try {
       const list = await User.findById(req.userId)
-        .select("-password")
-        .populate(["name", "username", "email", "date"])
+        .select("password")
+        .populate([
+          "firstname",
+          "lastname",
+          "username",
+          "email",
+          "date",
+          "password",
+          "userRole",
+        ])
         .exec();
 
       return res.json(
