@@ -29,7 +29,7 @@ function AdminNav() {
         
         <div style={{paddingRight: '20px'}}>
         <Button onClick={handleSignOut} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize:'10px', padding: '6px 10px 5px 13px'}}>
-          Sign Out
+        {(localStorage.getItem("token") === null) ? "Sign in": "Sign out "}
         </Button>
         </div>
         {/* <button className='btn_cat'>Sign Out</button> */}
