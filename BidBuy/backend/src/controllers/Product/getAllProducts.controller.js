@@ -14,6 +14,7 @@ const getAllProducts = async (req, res) => {
     try {
       const list = await Product.find({ active: true }).select([
         "name",
+        "user_id",
         "description",
         "price",
         "category",

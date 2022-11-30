@@ -14,6 +14,7 @@ const getSingleProduct = async (req, res) => {
     try {
       const data = await Product.findById(req.query.id).select([
         "name",
+        "user_id",
         "description",
         "price",
         "category",
