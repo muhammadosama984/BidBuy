@@ -9,14 +9,25 @@ import { jsonGenerate } from "../../utils/helpers.js";
 
 const myFavourites = async (req, res) => {
   const error = validationResult(req);
-  if (error.isEmpty()) {
-    const productArray = await User.findById(req.userId).select([
-      "myFavourites",
-    ]);
 
-    try {
-    } catch (error) {}
+  try {
+    if (error.isEmpty()) {
+      const productArray = await User.findById(req.userId).select([
+        "myFavourites",
+      ]);
+
+      return res.json(
+        jsonGenerate(statusCode.SUCCESS, "my favs", productArray)
+      );
+    }
+  } catch (error) {
+    res.json(
+      jsonGenerate(
+        statusCode.UNPROCESSABLE_ENTITY,
+        "Error is displaying my favs",
+        error
+      )
+    );
   }
 };
-
 export default myFavourites;
