@@ -24,11 +24,12 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import image from '../../images/ip14.png'
 import image2 from '../../images/bg_red.png'
-
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { api } from '../../App.jsx';
+import dayjs from 'dayjs';
 
 function UploadProduct() {
- 
+
 
     const [imageSelected, setimageSelected] = useState("");
     const [name, setname] = useState("");
@@ -36,7 +37,7 @@ function UploadProduct() {
     const [location, setlocation] = useState("")
     const [category, setcategory] = useState("")
     const [price, setprice] = useState("")
-
+    const [value, setValue] = React.useState(dayjs('2022-04-07'));
 
     const fontColor = {
         style: { color: 'black' }
@@ -59,18 +60,18 @@ function UploadProduct() {
     }
 
     const timeLeft = '2';
-  
+
     // String descrip = 'PTA Approved Very Good Excellent';
     const handleUploadProduct = async () => {
         let cloudinaryLink = "";
         const formData = new FormData();
         formData.append("file", imageSelected);
         formData.append("upload_preset", "drb3j96q");
-    
+
         await axios.post(
             "https://api.cloudinary.com/v1_1/dumnaigxr/image/upload",
             formData
-        ).then((response)=>{
+        ).then((response) => {
             console.log(response.data.url);
             cloudinaryLink = response.data.url;
         })
@@ -78,25 +79,25 @@ function UploadProduct() {
         // data to database 
 
         await api.post('/addproduct', {
-            name: name, 
-            description:description,
-            price:price,
+            name: name,
+            description: description,
+            price: price,
             category: category,
             location: location,
             image: cloudinaryLink
-          },
-          {
-            headers:{
-              auth: localStorage.getItem("token")
-            }
-          })
+        },
+            {
+                headers: {
+                    auth: localStorage.getItem("token")
+                }
+            })
             .then(function (response) {
-              console.log(response.data);
+                console.log(response.data);
             })
             .catch(function (error) {
-              console.log(error);
+                console.log(error);
             });
-            console.log("upload done")
+        console.log("upload done")
     }
     // useEffect(() => {
     //   console.log(name);
@@ -105,7 +106,7 @@ function UploadProduct() {
     //   console.log(category);
     //   console.log(description);
     // }, [name, price, location, category, description])
-    
+
     return (
         <div>
             <NavBar />
@@ -114,15 +115,15 @@ function UploadProduct() {
                 <Stack width={'50%'} justifyContent={'center'} >
                     <Box width="100%" height={'600px'} sx={{ padding: '2% 0% 0% 20%' }} >
                         {/* <ProductImg /> */}
-                        
-                        <input type = 'file' accept='image/*' onChange={(event)=>{setimageSelected(event.target.files[0])}}  />
+
+                        <input type='file' accept='image/*' onChange={(event) => { setimageSelected(event.target.files[0]) }} />
                     </Box>
                 </Stack>
                 <Stack paddingLeft={"5%"} width={'50%'} height={'700px'} direction={'column'} spacing={5} justifyContent={'center'} >
                     <Typography variant='h5' fontWeight={'bold'}>Title</Typography>
                     <TextField
-                    onChange={(title)=>{ setname(title.target.value)}}
-                    value={name}
+                        onChange={(title) => { setname(title.target.value) }}
+                        value={name}
                         id="OutlinedInput"
                         // value={values.amount}
                         // onChange={handleChange('amount')}
@@ -142,7 +143,7 @@ function UploadProduct() {
                                     // value={age}
                                     label="Location"
                                     // onChange={handleChange}
-                                    onChange={(location)=>{ setlocation(location.target.value)}}
+                                    onChange={(location) => { setlocation(location.target.value) }}
                                 >
                                     <MenuItem value={'karachi'}>Karachi</MenuItem>
                                     <MenuItem value={'lahore'}>Lahore</MenuItem>
@@ -159,7 +160,7 @@ function UploadProduct() {
                                     // value={age}
                                     label="Location"
                                     // onChange={handleChange}
-                                    onChange={(category)=>{ setcategory(category.target.value)}}
+                                    onChange={(category) => { setcategory(category.target.value) }}
                                 >
                                     <MenuItem value={'mobile'}>Mobile</MenuItem>
                                     <MenuItem value={'camera'}>Camera</MenuItem>
@@ -172,12 +173,12 @@ function UploadProduct() {
                     </Stack>
                     <Typography variant='body1' fontWeight={'bold'}>Description</Typography>
                     <TextField
-                    onChange={(description)=>{ setDescription(description.target.value)}}
+                        onChange={(description) => { setDescription(description.target.value) }}
                         id="outlined-multiline-static"
                         label=""
                         multiline
                         rows={5}
-                     
+
                         // disabled = 'true'
                         inputProps={fontColor}
                         InputProps={{
@@ -192,27 +193,54 @@ function UploadProduct() {
                             id="outlined-adornment-amount"
                             // value={values.amount}
                             // onChange={handleChange('amount')}
-                            
-                            onChange={(price)=>{ setprice(price.target.value)}}
+                            defaultValue={0}
+                            onChange={
+                                (price) =>
+                                    (price.target.value < 0 ? (price.target.value = 0) : price.target.value)
+
+                                        (setprice(price.target.value))
+
+
+                            }
                             type='number'
-                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                            startAdornment={<InputAdornment position="start"> $</InputAdornment>}
                             label=""
                             sx={{ width: '150px', '& .MuiTextField-root': { color: 'red' } }}
                         />
                     </Stack>
                     <Stack width={'50%'} alignItems={'center'} direction={'row'} justifyContent={'space-between'}>
-                        <Typography fontWeight={'bold'}>Time Period</Typography>
+                        <Typography fontWeight={'bold'}>Time Period (hours)</Typography>
 
                         {/* NEEDS TO BE DISCUSSED */}
                         <OutlinedInput
                             id="outlined-adornment-amount"
-                            // value={values.amount}
+                            defaultValue={3}
                             // onChange={handleChange('amount')}
-                            type='time'
+                            type='number'
+                            startAdornment={<InputAdornment position="start">H</InputAdornment>}
+                            onChange={(hours) =>
+                                (hours.target.value < 3
+                                    ? (hours.target.value = 3)
+                                    : hours.target.value)
+                                    (hours.target.value > 72
+                                        ? (hours.target.value = 72)
+                                        : hours.target.value)
+                            }
 
                             label=""
                             sx={{ width: '150px', '& .MuiTextField-root': { color: 'red' } }}
                         />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DateTimePicker
+                                renderInput={(props) => <TextField {...props} />}
+                                label="End Time"
+                                value={value}
+                                onChange={(newValue) => {
+                                    setValue(newValue);
+                                    console.log(newValue)
+                                }}
+                            />
+                        </LocalizationProvider>
                         {/* NEEDS TO BE DISCUSSED */}
 
                         {/* <LocalizationProvider dateAdapter={AdapterDayjs}>

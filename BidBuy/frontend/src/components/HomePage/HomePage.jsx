@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
 import CardGrid from './CardGrid.jsx'
@@ -18,14 +19,19 @@ import {
   ImageList,
   Stack,
   styled,
-  Grid,
-  MenuItem,
-  Select,
+  TextField,
+  IconButton,
+  InputAdornment,
   InputLabel,
   Divider
 
 } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
+
+
 function HomePage() {
+  let navigate = useNavigate();
   const Banner = styled('img')({
     alignItems: "center",
     maxwidth: "100%",
@@ -45,8 +51,6 @@ function HomePage() {
       setproducts(res.data.data);
 
       // console.log(products);
-
-
     })
   }
   const postProducts = () => {
@@ -70,30 +74,13 @@ function HomePage() {
       });
   }
 
-  const getSingleProduct = (id) => {
-    api.get(`/getsingleproduct?id=${id}`, {
-      name: "OLPplpl",
-      description: "This is best of the best",
-      price: "3000",
-      category: "mobile",
-      location: "karachi"
-    },
-      {
-        headers: {
-          auth: localStorage.getItem("token")
-        }
-      })
-      .then(function (response) {
-        console.log(response.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  
+
   const [filteredProducts, setFillteredProducts] = useState([]);
+
   useEffect(() => {
     getProducts()
-  }, [filteredProducts]);
+  }, [filteredProducts],);
 
   const [spans] = useState([
     { id: 'mobile', text: 'mobile' },
@@ -108,6 +95,9 @@ function HomePage() {
   //category state
   const [category, setCategory] = useState('')
 
+  //search text State
+  const [searchTxt, setSearchTxt] = useState('')
+
   const handleChange = (individualSpan) => {
     console.log("Filter")
     console.log(filteredProducts)
@@ -116,6 +106,14 @@ function HomePage() {
     filterFunction(individualSpan.text);
   }
 
+  const handleSearch = (text)=>{
+    console.log(text)
+    if(text != "") {  
+      searchFunction(text);
+    }
+
+
+  }
 
 
   // filter function
@@ -135,9 +133,12 @@ const filterFunction = (text) => {
     console.log(products.filter((products) => products.category === text))
     const filter = products.filter((products) => products.category === text);
     setFillteredProducts(filter);
-
-
   }
+
+const searchFunction = (text)=>{
+  const search = products.filter((products) => products.name.toLowerCase().includes(text) )
+  setFillteredProducts(search);
+}
 
 
 
@@ -151,7 +152,25 @@ const filterFunction = (text) => {
           className={individualSpan.id === active ? active : 'deactive'}
         >{individualSpan.text}</button>
       ))}
+
+      {/* Temporary search field */}
+      <TextField
+      onChange={(e) => setSearchTxt((e.target.value).toLowerCase())}
       
+          label=""
+          InputProps={{
+            sx: { height: "35px", width:"350px", fontSize: '12px', margin: 0, textAlign: 'start', p:0},
+            placeholder: "Search",
+            endAdornment: (
+              <InputAdornment>
+                <IconButton onClick={() => handleSearch(searchTxt)}>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
+        />
+
       <Stack direction="column" spacing={1} alignItems={"center"}>
         <Stack direction="row" spacing={1} alignItems={"center"}>
 
@@ -171,27 +190,33 @@ const filterFunction = (text) => {
                 <ImageList sx={{ padding: '50px' }} cols={4} rowHeight={164}>
                 {filteredProducts.map(IndividualFilteredProduct => (      
 
-                      <CardProduct product={IndividualFilteredProduct} />
+                      <CardProduct onClick={() => { navigate('/product') }} product={IndividualFilteredProduct} />
 
                       ))}   
                   </ImageList>
                
               </div>
             )}
+            
+            {filteredProducts.length < 1 && (searchTxt != "" || category != "") && (
+              <Typography variant='body1'>No Results Found</Typography>
+            )}
+            
             {filteredProducts.length < 1 && (
               <>
-                {products.length > 0 && (
+              
+                {products.length > 0 && searchTxt === "" && category === "" && (
                   <ImageList sx={{ padding: '50px' }} cols={4} rowHeight={164}>
-                    {products.map((product) => (
-
-                      <CardProduct product={product} />
+                    {products.map(product => (
+                      // console.log(product.id),
+                      <CardProduct url={`/product/${product._id}`} product={product} />
 
                     ))}
                   </ImageList>
 
                 )}
                 {products.length < 1 && (
-                  <CircularProgress color="inherit" />
+                  <h1>No products to display</h1>
                 )}
               </>
             )}
