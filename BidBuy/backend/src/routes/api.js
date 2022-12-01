@@ -11,6 +11,7 @@ import AddProduct from "../controllers/Product/AddProduct.controller.js";
 import deleteProduct from "../controllers/Product/deleteProduct.controller.js";
 import getAllProducts from "../controllers/Product/getAllProducts.controller.js";
 import getSingleProduct from "../controllers/Product/getSingleProduct.controller.js";
+import AddMyFav from "../controllers/User/AddtoMyFav.controller.js";
 import { deleteProfile } from "../controllers/User/deleteprofile.controller.js";
 import myOrders from "../controllers/User/getMyOrders.controllers.js";
 import { getuser } from "../controllers/User/GetProfile.controller.js";
@@ -33,6 +34,7 @@ apiProtected.get("/getprofile", getuser);
 apiProtected.post("/updateprofile", updateProfile);
 apiProtected.post("/deleteprofile", deleteProfile);
 apiProtected.get("/myfav", myFavourites);
+apiProtected.post("/addmyfav", AddMyFav);
 
 //Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);

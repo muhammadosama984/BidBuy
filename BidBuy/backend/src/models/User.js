@@ -32,14 +32,7 @@ const userSchema = mongoose.Schema({
     type: String,
     default: "",
   },
-  myFavourites: [
-    {
-      product_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Product,
-      },
-    },
-  ],
+  myFavourites: [],
   date: {
     type: Date,
     default: Date.now,
