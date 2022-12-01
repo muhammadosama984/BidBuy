@@ -38,7 +38,7 @@ function UploadProduct() {
     const [category, setcategory] = useState("")
     const [price, setprice] = useState("")
     const [value, setValue] = React.useState(Date.now());
-    const [productID, setproductID] = useState("")
+    const [productID, setproductID] = useState()
     const [endDate, setendDate] = useState(Date.now())
 
 
@@ -111,7 +111,10 @@ function UploadProduct() {
         
         var config = {
           method: 'post',
-          url: `http://localhost:3000/api/startbidding?product_id=${productID}`,
+          url: `http://localhost:3000/api/startbidding`,
+          params: {
+             product_id: productID
+          },
           headers: { 
             auth: localStorage.getItem("token")
             
@@ -119,7 +122,7 @@ function UploadProduct() {
           data : data
         };
         
-        axios(config)
+        await axios(config)
         .then(function (response) {
           console.log((response.data));
         })

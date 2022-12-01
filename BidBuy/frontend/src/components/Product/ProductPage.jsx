@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
+import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import {
     TextField,
@@ -26,6 +27,78 @@ import { api } from '../../App.jsx';
 
 function ProductPage() {
 
+    const [timeleft, settimeleft] = useState(Date.now());
+    const [newBid, setnewBid] = useState("");
+    const [biddingID, setbiddingID] = useState("")
+    const [productID, setproductID] = useState("")
+    const [Biddings, setBiddings] = useState([])
+
+    const updateBid = async() => {
+
+       await  api.get('/getallbiddings',
+         {headers : {
+            auth: localStorage.getItem("token")
+         }}
+        ).then(res => {
+            console.log(res.data.data);
+            setBiddings(res.data.data);
+      
+        
+      
+      
+          })
+    //     var config = {
+    //       method: 'get',
+    //       url: 'http://localhost:3000/api/getallbiddings',
+    //       headers: { 
+    //         auth: localStorage.getItem("token")
+    //       },
+          
+    //     };
+    //    await  axios(config)
+    //     .then(function (response) {
+    //     setallBiddings(response.data)
+    //     console.log(response.data.data)
+       
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+        
+        console.log(Biddings);
+
+      const filter = Biddings.filter((bids) => bids.product_id === productID);
+
+      console.log("filter one")
+      console.log(filter);
+
+      
+        var data = JSON.stringify({
+          "newBid": newBid
+        });
+        
+        var config = {
+          method: 'post',
+          url: `http://localhost:3000/api/updatebiddings`,
+          params:{
+            bidding_id: filter._id
+          },
+          headers: { 
+            auth: localStorage.getItem("token"), 
+          
+          },
+          data : data
+        };
+        
+        await axios(config)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+    }
 
     // const getProducts = () => {
     //     api.get('/getallproducts').then(res => {
@@ -49,7 +122,8 @@ function ProductPage() {
           }
         })
           .then(function (response) {
-            console.log(response.data.data);
+          //  console.log(response.data.data);
+            setproductID(response.data.data._id);
             setproduct(response.data.data)
           })
           .catch(function (error) {
@@ -76,7 +150,7 @@ function ProductPage() {
     
    
     // console.log(product.name)
-    console.log('id is ' + productId);
+   // console.log('id is ' + productId);
     // console.log(product.name);
     
     const [userProfile, setuserProfile] = useState({})
@@ -158,11 +232,12 @@ function ProductPage() {
                             // value={values.amount}
                             // onChange={handleChange('amount')}
                             type='number'
+                            onChange={(event)=>{setnewBid(event.target.value)}}
                             startAdornment={<InputAdornment position="start">$</InputAdornment>}
                             label=""
                             sx={{ width: '150px', '& .MuiTextField-root': { color: 'red' } }}
                         />
-                        <Button onClick={() => { }} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize: '14px', padding: '12px 20px 12px 20px' }}>
+                        <Button onClick={updateBid} style={{ color: 'white', backgroundColor: '#CF3D2F', fontSize: '14px', padding: '12px 20px 12px 20px' }}>
                             BID NOW
                         </Button>
                         {/* <FilledInput 
