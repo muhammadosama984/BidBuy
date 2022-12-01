@@ -11,7 +11,7 @@ import { jsonGenerate } from "../../utils/helpers.js";
 const updateBidding = async (req, res) => {
   const error = validationResult(req);
   const newUser = {
-    current_bid: req.body.newBid,
+    current_price: req.body.newBid,
   };
 
   if (error.isEmpty()) {
@@ -29,7 +29,24 @@ const updateBidding = async (req, res) => {
           )
         );
       }
-    } catch (error) {}
+
+      const neweeser = await bidding.findByIdAndUpdate(
+        req.query.bidding_id,
+        newUser,
+        {
+          new: true,
+          runValidators: true,
+          useFindAndModify: false,
+        }
+      );
+      return res.json(
+        jsonGenerate(statusCode.SUCCESS, "Bid Updated", neweeser)
+      );
+    } catch (error) {
+      return res.json(
+        jsonGenerate(statusCode.SUCCESS, "Bid not Updated", error)
+      );
+    }
   }
 };
 

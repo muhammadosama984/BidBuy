@@ -32,6 +32,7 @@ function ProductPage() {
     const [biddingID, setbiddingID] = useState("")
     const [productID, setproductID] = useState("")
     const [Biddings, setBiddings] = useState()
+    const [endtime, setendtime] = useState(Date.now())
 
     const updateBid = async() => {
 
@@ -45,8 +46,8 @@ function ProductPage() {
          }
          }
         ).then(res => {
-            console.log(res.data.data._id);
-           
+            console.log(res.data.data);
+           setendtime(res.data.data.end_time)
       
             // var data = JSON.stringify({
             //   "newBid": newBid
@@ -65,33 +66,33 @@ function ProductPage() {
             //   data : data
             // };
             
-            api.post("/updatebiddings",
-            {params:{
-              bidding_id: res.data.data._id
-            },
-            headers: { 
-              auth: localStorage.getItem('token'), 
+        //  api.post("/updatebiddings",
+        //  {
+        //   newBid: newBid,
+        // },
             
-            },
-            data :{
-              newBid: newBid,
-            }}
-            )
-            .then(function (response) {
-              console.log(response.data);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+        // params:{
+        //       bidding_id: res.data.data._id
+        //     },
+           
+            
+          
+        //     )
+        //     .then(function (response) {
+        //       console.log(response.data);
+        //     })
+        //     .catch(function (error) {
+        //       console.log(error);
+        //     });
         
            
 var data = JSON.stringify({
-  "newBid": newBid
+  newBid: newBid
 });
 
 var config = {
   method: 'post',
-  url: 'http://localhost:3000/api/updatebiddings',
+  url: `http://localhost:3000/api/updatebiddings`,
   params:{
       bidding_id : res.data.data._id
   },
@@ -289,7 +290,7 @@ axios(config)
                     </Stack>
                     <Stack width={'50%'} direction={'row'} justifyContent={'space-between'}>
                         <Typography fontWeight={'bold'}>Time Left</Typography>
-                        <Typography>{timeLeft} days</Typography>
+                        <Typography>{(Date.now()-endtime)/(1000*60*60)} hours</Typography>
                     </Stack>
                     <Stack alignItems={'center'} width={'50%'} direction={'row'} justifyContent={'space-between'}>
 

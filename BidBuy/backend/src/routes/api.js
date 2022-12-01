@@ -28,8 +28,6 @@ import { addProductSchema } from "../validationSchema/AddProductSchema.js";
 import { LoginSchema } from "../validationSchema/LoginSchema.js";
 import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
 
-
-
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
 
@@ -53,7 +51,7 @@ apiProtected.get("/getbiddingid", getBiddingID);
 
 // biddings
 apiProtected.post("/startbidding", startBidding);
-apiProtected.post("/updatebidding", updateBidding);
+apiRoute.post("/updatebidding", updateBidding);
 apiProtected.post("/cancelbidding", cancelBiddings);
 apiProtected.get("/getallbiddings", getAllBiddings);
 apiProtected.get("/getsinglebidding", getSingleBidding);
@@ -64,9 +62,7 @@ apiProtected.get("/getsingleorder", getSingleorder);
 apiProtected.get("/getallordercompleted", getAllOrdersCompleted);
 apiProtected.get("/myorder", myOrders);
 
-
 //forms
 
-
-apiRoute.post("/postForm", PostForm );
-apiRoute.get("/getForm", GetForm );
+apiRoute.post("/postForm", PostForm);
+apiRoute.get("/getForm", GetForm);
