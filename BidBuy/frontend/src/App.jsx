@@ -10,6 +10,7 @@ import HomePage from './components/HomePage/HomePage';
 import MyAuctions from './components/MyAuctions/MyAuctions';
 import MyBids from './components/MyBids/MyBids';
 import MyFavorites from './components/MyFavorites/MyFavorites';
+import ContactUs from './components/ContactUs/ContactUs';
 import axios from 'axios';
 import Cart from './components/Cart/cart';
 import Address from './components/Address/Address';
@@ -38,6 +39,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/address" element={<Address />} />
       <Route path="/myauctions" element={<MyAuctions />} />
+      <Route path="/contact" element={<ContactUs />} />
       <Route path="/mybids" element={<MyBids />} />
       <Route path="/myfavs" element={<MyFavorites />} />
       <Route path="/profile" element={<MyProfile/>} />
@@ -46,6 +48,7 @@ function App() {
       <Route path="/product/:productId" element={<ProductPage/>} />
       <Route path="/uploadprod" element={<UploadProduct/>} />
       <Route path="/forgot" element={<Forgot/>}/>
+      {/* <Route path="/Admin" element={<AdminMain/>} /> */}
       <Route path="/AdminMain" element={<AdminMain/>} />
       <Route path="/AdminList" element={<AdminList/>} />
       <Route path="/AdminListDetail" element={<AdminListDetail/>} />

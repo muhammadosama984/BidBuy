@@ -6,6 +6,10 @@ import {
     styled
 } from '@mui/material';
 import phone from '../../images/ip14.png'
+import camera from '../../images/camera-icon-60.png'
+import headphone from '../../images/headphone.png'
+import laptop from '../../images/laptop.png'
+import hardware from '../../images/hardware.png'
 
 import { useNavigate } from 'react-router-dom'; 
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -32,25 +36,25 @@ function CategoryCircle() {
 
                     <Box sx={{ bgcolor: '#DFC98A', height: '200px', width: '200px' }} borderRadius="200px">
                     <IconButton  sx={{width:'200px', height:'200px'}}>
-                            <Img src={phone}/>
+                            <Img src={headphone}/>
                         </IconButton>
                     </Box>
 
                     <Box sx={{ bgcolor: '#BDA55D', height: '200px', width: '200px' }} borderRadius="200px">
                     <IconButton  sx={{width:'200px', height:'200px'}}>
-                            <Img src={phone}/>
+                            <Img src={camera}/>
                         </IconButton>
                     </Box>
 
                     <Box sx={{ bgcolor: '#E3C565', height: '200px', width: '200px' }} borderRadius="200px">
                     <IconButton  sx={{width:'200px', height:'200px'}}>
-                            <Img src={phone}/>
+                            <Img src={laptop}/>
                         </IconButton>
                     </Box>
 
                     <Box sx={{ bgcolor: '#FDEFB2', height: '200px', width: '200px' }} borderRadius="200px">
                     <IconButton  sx={{width:'200px', height:'200px'}}>
-                            <Img src={phone}/>
+                            <Img src={hardware}/>
                         </IconButton>
                     </Box>
            </Stack>
