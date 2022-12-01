@@ -37,7 +37,10 @@ function UploadProduct() {
     const [location, setlocation] = useState("")
     const [category, setcategory] = useState("")
     const [price, setprice] = useState("")
-    const [value, setValue] = React.useState(dayjs('2022-04-07'));
+    const [value, setValue] = React.useState(Date.now());
+    const [productID, setproductID] = useState("")
+    const [endDate, setendDate] = useState(Date.now())
+
 
     const fontColor = {
         style: { color: 'black' }
@@ -78,6 +81,7 @@ function UploadProduct() {
 
         // data to database 
 
+       
         await api.post('/addproduct', {
             name: name,
             description: description,
@@ -92,12 +96,39 @@ function UploadProduct() {
                 }
             })
             .then(function (response) {
-                console.log(response.data);
+                console.log(response.data.data.product_id);
+                setproductID(response.data.data.product_id);
             })
             .catch(function (error) {
                 console.log(error);
             });
         console.log("upload done")
+       
+        var data = {
+          "start_price": price,
+          "end_time": endDate
+        };
+        
+        var config = {
+          method: 'post',
+          url: `http://localhost:3000/api/startbidding?product_id=${productID}`,
+          headers: { 
+            auth: localStorage.getItem("token")
+            
+          },
+          data : data
+        };
+        
+        axios(config)
+        .then(function (response) {
+          console.log((response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+
+
     }
     // useEffect(() => {
     //   console.log(name);
@@ -237,7 +268,11 @@ function UploadProduct() {
                                 value={value}
                                 onChange={(newValue) => {
                                     setValue(newValue);
-                                    console.log(newValue)
+                                    // console.log(newValue)
+                                   
+                                    setendDate(new Date(newValue.$d));
+                                    // console.log(d1);
+                                    // d1> Date.now()? console.log("bigger"): console.log("smaller")
                                 }}
                             />
                         </LocalizationProvider>

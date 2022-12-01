@@ -21,13 +21,13 @@ const startBidding = async (req, res) => {
         },
       ],
     });
-    if (new Date(req.body.end_time) < Date.now()) {
-      res.json(
-        jsonGenerate(statusCode.SUCCESS, "End time not correct", {
-          // bidding_id: bid._id,
-        })
-      );
-    }
+    // if (new Date(req.body.end_time) < Date.now()) {
+    //   res.json(
+    //     jsonGenerate(statusCode.SUCCESS, "End time not correct", {
+    //       // bidding_id: bid._id,
+    //     })
+    //   );
+    // }
     if (bidExist) {
       return res.json(
         jsonGenerate(statusCode.UNPROCESSABLE_ENTITY, "Bid already Exists")
@@ -41,7 +41,7 @@ const startBidding = async (req, res) => {
         start_price: req.body.start_price,
         end_price: req.body.end_price,
         current_price: req.body.start_price,
-        end_time: new Date(req.body.end_time),
+        end_time: req.body.end_time,
       });
 
       res.json(
