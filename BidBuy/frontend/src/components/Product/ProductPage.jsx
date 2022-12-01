@@ -31,19 +31,85 @@ function ProductPage() {
     const [newBid, setnewBid] = useState("");
     const [biddingID, setbiddingID] = useState("")
     const [productID, setproductID] = useState("")
-    const [Biddings, setBiddings] = useState([])
+    const [Biddings, setBiddings] = useState()
 
     const updateBid = async() => {
 
-       await  api.get('/getallbiddings',
+      
+       await  api.get('/getbiddingid',
          {headers : {
             auth: localStorage.getItem("token")
-         }}
+         },
+         params:{
+          product_id: productId
+         }
+         }
         ).then(res => {
-            console.log(res.data.data);
-            setBiddings(res.data.data);
+            console.log(res.data.data._id);
+           
       
+            // var data = JSON.stringify({
+            //   "newBid": newBid
+            // });
+            
+            // var config = {
+            //   method: 'post',
+            //   url: `http://localhost:3000/api/updatebiddings`,
+            //   params:{
+            //     bidding_id: res.data.data._id
+            //   },
+            //   headers: { 
+            //     auth: localStorage.getItem("token"), 
+              
+            //   },
+            //   data : data
+            // };
+            
+            api.post("/updatebiddings",
+            {params:{
+              bidding_id: res.data.data._id
+            },
+            headers: { 
+              auth: localStorage.getItem('token'), 
+            
+            },
+            data :{
+              newBid: newBid,
+            }}
+            )
+            .then(function (response) {
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         
+           
+var data = JSON.stringify({
+  "newBid": newBid
+});
+
+var config = {
+  method: 'post',
+  url: 'http://localhost:3000/api/updatebiddings',
+  params:{
+      bidding_id : res.data.data._id
+  },
+  headers: { 
+    auth: localStorage.getItem('token'), 
+   
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
       
       
           })
@@ -65,38 +131,38 @@ function ProductPage() {
     //       console.log(error);
     //     });
         
-        console.log(Biddings);
+       // console.log(Biddings);
 
-      const filter = Biddings.filter((bids) => bids.product_id === productID);
+      // const filter = Biddings.filter((bids) => bids.product_id === productId);
 
-      console.log("filter one")
-      console.log(filter);
+      // console.log("filter one")
+      // console.log(filter);
 
       
-        var data = JSON.stringify({
-          "newBid": newBid
-        });
+        // var data = JSON.stringify({
+        //   "newBid": newBid
+        // });
         
-        var config = {
-          method: 'post',
-          url: `http://localhost:3000/api/updatebiddings`,
-          params:{
-            bidding_id: filter._id
-          },
-          headers: { 
-            auth: localStorage.getItem("token"), 
+        // var config = {
+        //   method: 'post',
+        //   url: `http://localhost:3000/api/updatebiddings`,
+        //   params:{
+        //     bidding_id: Biddings
+        //   },
+        //   headers: { 
+        //     auth: localStorage.getItem("token"), 
           
-          },
-          data : data
-        };
+        //   },
+        //   data : data
+        // };
         
-        await axios(config)
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        // await axios(config)
+        // .then(function (response) {
+        //   console.log(response.data);
+        // })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
         
     }
 
@@ -123,7 +189,7 @@ function ProductPage() {
         })
           .then(function (response) {
           //  console.log(response.data.data);
-            setproductID(response.data.data._id);
+           // setproductID(id);
             setproduct(response.data.data)
           })
           .catch(function (error) {

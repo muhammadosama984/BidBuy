@@ -10,6 +10,7 @@ import postOrderCompleted from "../controllers/Orders/postOrderCompleted.control
 import AddProduct from "../controllers/Product/AddProduct.controller.js";
 import deleteProduct from "../controllers/Product/deleteProduct.controller.js";
 import getAllProducts from "../controllers/Product/getAllProducts.controller.js";
+import getBiddingID from "../controllers/Product/getBiddingID.controller.js";
 import getSingleProduct from "../controllers/Product/getSingleProduct.controller.js";
 import AddMyFav from "../controllers/User/AddtoMyFav.controller.js";
 import { deleteProfile } from "../controllers/User/deleteprofile.controller.js";
@@ -44,6 +45,7 @@ apiProtected.post("/deleteproduct", deleteProduct);
 apiRoute.get("/getallproducts", getAllProducts);
 apiProtected.get("/getsingleproduct", getSingleProduct);
 apiProtected.get("/myproduct", myProducts);
+apiProtected.get("/getbiddingid", getBiddingID);
 
 // biddings
 apiProtected.post("/startbidding", startBidding);
