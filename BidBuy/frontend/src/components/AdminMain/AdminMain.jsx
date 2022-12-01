@@ -23,12 +23,40 @@ import {
 
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import NotAuthorised from '../NotAuthorised/notAuthorised.jsx'
 
 function AdminMain() {
-
     let navigate = useNavigate();
+    const [userRole, setuserRole] = useState("")
+
+    const getUserRole = ()=>{
+
+
+        api.get('/getuserrole',
+        {headers : {
+            auth: localStorage.getItem("token")
+         }}
+        ).then(res => {
+            console.log(res.data.data.userRole);
+            setuserRole(res.data.data.userRole);
+          })
+
+          if(userRole === "User"){
+            return(
+                <NotAuthorised/>
+            );
+          // navigate('/notauthorised')
+          }
+    }
+    
           
+    useEffect(() => {
+      getUserRole();
+    }, [])
+    
+    
 return (
+    userRole === "User"? <NotAuthorised/>:
     <div>
       <AdminNav />
 

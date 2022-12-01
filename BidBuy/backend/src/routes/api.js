@@ -15,6 +15,7 @@ import AddMyFav from "../controllers/User/AddtoMyFav.controller.js";
 import { deleteProfile } from "../controllers/User/deleteprofile.controller.js";
 import myOrders from "../controllers/User/getMyOrders.controllers.js";
 import { getuser } from "../controllers/User/GetProfile.controller.js";
+import getUserRole from "../controllers/User/getUserRole.controller.js";
 import { Login } from "../controllers/User/LogIn.controller.js";
 import myFavourites from "../controllers/User/myFavourites.controller.js";
 import myProducts from "../controllers/User/myPrdoucts.controller.js";
@@ -35,6 +36,7 @@ apiProtected.post("/updateprofile", updateProfile);
 apiProtected.post("/deleteprofile", deleteProfile);
 apiProtected.get("/myfav", myFavourites);
 apiProtected.post("/addmyfav", AddMyFav);
+apiProtected.get("/getuserrole", getUserRole);
 
 //Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);

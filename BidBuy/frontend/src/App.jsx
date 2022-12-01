@@ -21,6 +21,8 @@ import Forgot from './components/Forgot/Forgot';
 import AdminMain from './components/AdminMain/AdminMain';
 import AdminList from './components/AdminList/AdminList';
 import AdminListDetail from './components/AdminListDetail/AdminListDetail';
+import ProtectedRoute from './components/protectedRoutes.jsx';
+import NotAuthorised from './components/NotAuthorised/notAuthorised.jsx';
 
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
@@ -47,11 +49,13 @@ function App() {
       {/* <Route path="/product" element={<ProductPage/>} /> */}
       <Route path="/product/:productId" element={<ProductPage/>} />
       <Route path="/uploadprod" element={<UploadProduct/>} />
-      <Route path="/forgot" element={<Forgot/>}/>
+      {/* <Route path="/forgot" element={<Forgot/>}/> */}
       {/* <Route path="/Admin" element={<AdminMain/>} /> */}
       <Route path="/AdminMain" element={<AdminMain/>} />
+      <Route path="/notauthorised" element={<NotAuthorised/>} />
       <Route path="/AdminList" element={<AdminList/>} />
       <Route path="/AdminListDetail" element={<AdminListDetail/>} />
+     
       
     </Routes>
   </Router>
