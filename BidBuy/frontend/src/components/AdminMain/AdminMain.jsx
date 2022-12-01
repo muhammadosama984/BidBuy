@@ -11,6 +11,7 @@ import {
   CardContent,
   Typography,
   Button,
+  Grid,
   FormControl,
   ImageList,
   Stack,
@@ -59,23 +60,25 @@ return (
     userRole === "User"? <NotAuthorised/>:
     <div>
       <AdminNav />
+      <Grid display="flex" sx={{justifyContent:'space-evenly'}}>
 
-      <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                  <Button onClick={() => { navigate('/login') }} style={{ width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Users
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Biddings
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Orders
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Products
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}
+                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}
                 >
                     Complaints
                 </Button>
+                </Grid>
     </div>
   )
         }

@@ -1,5 +1,7 @@
 import express from "express";
 import cancelBiddings from "../controllers/Biddings/cancelBidding.controller.js";
+import PostForm from "../controllers/Forms/postForm.js";
+import GetForm from "../controllers/Forms/getForm.js";
 import getAllBiddings from "../controllers/Biddings/getAllBiddings.controller.js";
 import getSingleBidding from "../controllers/Biddings/getSingleBidding.controller.js";
 import startBidding from "../controllers/Biddings/startBidding.controller.js";
@@ -24,6 +26,8 @@ import { updateProfile } from "../controllers/User/updateProfile.controller.js";
 import { addProductSchema } from "../validationSchema/AddProductSchema.js";
 import { LoginSchema } from "../validationSchema/LoginSchema.js";
 import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
+
+
 
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
@@ -57,3 +61,10 @@ apiProtected.post("/ordercompleted", postOrderCompleted);
 apiProtected.get("/getsingleorder", getSingleorder);
 apiProtected.get("/getallordercompleted", getAllOrdersCompleted);
 apiProtected.get("/myorder", myOrders);
+
+
+//forms
+
+
+apiRoute.post("/postForm", PostForm );
+apiRoute.get("/getForm", GetForm );
