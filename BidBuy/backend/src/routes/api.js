@@ -29,6 +29,7 @@ import { LoginSchema } from "../validationSchema/LoginSchema.js";
 import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
 import updateProductPrice from "../controllers/Product/UpdateProductPrice.controller.js";
 import getSingleorderbyUser from "../controllers/Orders/getSingleOrderbyUser.controller.js";
+import getAllUsers from "../controllers/User/getAllUsers.controller.js";
 
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
@@ -42,8 +43,7 @@ apiProtected.post("/deleteprofile", deleteProfile);
 apiProtected.get("/myfav", myFavourites);
 apiProtected.post("/addmyfav", AddMyFav);
 apiProtected.get("/getuserrole", getUserRole);
-apiProtected.get("/getAllUsers", getAllU);
-
+apiProtected.get("/getAllUsers", getAllUsers);
 
 //Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);
