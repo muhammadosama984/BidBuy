@@ -114,8 +114,6 @@ function HomePage() {
     if(text != "") {  
       searchFunction(text);
     }
-
-
   }
 
 
@@ -141,6 +139,7 @@ const filterFunction = (text) => {
 const searchFunction = (text)=>{
   const search = products.filter((products) => products.name.toLowerCase().includes(text) )
   setFillteredProducts(search);
+  console.log(filteredProducts)
 }
 
 
@@ -214,7 +213,7 @@ const searchFunction = (text)=>{
                 <ImageList sx={{ padding: '50px' }} cols={4} rowHeight={164}>
                 {filteredProducts.map(IndividualFilteredProduct => (      
 
-                      <CardProduct onClick={() => { navigate('/product') }} product={IndividualFilteredProduct} />
+                      <CardProduct url={`/product/${filteredProducts && filteredProducts._id}`} product={IndividualFilteredProduct} />
 
                       ))}   
                   </ImageList>

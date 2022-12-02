@@ -105,7 +105,7 @@ function Header() {
           My Bids
         </Button>
 
-        <Button style={{ color: 'black', fontSize: '12px', }}>
+        <Button onClick={() => { navigate('/contact') }} style={{ color: 'black', fontSize: '12px', }}>
           Contact Us
         </Button>
 

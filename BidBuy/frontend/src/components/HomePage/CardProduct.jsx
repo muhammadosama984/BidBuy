@@ -19,8 +19,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 import {useNavigate} from 'react-router-dom'
-function CardProduct(props) {
-    
+
+function CardProduct(props) {    
     let navigate = useNavigate();
     const Img = styled('img')({
         alignItems: "center",
@@ -43,7 +43,7 @@ function CardProduct(props) {
                 image={myImage}
             /> */}
                 <CardMedia sx={{ position: 'relative' }}>
-                    <FavoriteIcon sx={{ position: 'absolute', marginLeft: '90%', color: '#CF3D2F' }} />
+                    {/* <FavoriteIcon sx={{ position: 'absolute', marginLeft: '90%', color: '#CF3D2F' }} /> */}
                     <Img src={props.product.image}  >
 
                     </Img>
@@ -60,7 +60,7 @@ function CardProduct(props) {
 
                     <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
                         <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                            {props.product.price}
+                            $ {props.product.price}
                         </Typography>
                         <Typography variant="body2" color="black" fontSize={12}>
                             3 Bids

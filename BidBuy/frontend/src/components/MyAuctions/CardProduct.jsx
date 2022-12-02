@@ -10,15 +10,18 @@ import {
     IconButton,
     Stack,
     styled,
-    Fab
+    Fab,
+    CardActionArea
 
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import myImage from '../../images/ip14.jpg';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { maxHeight } from '@mui/system';
 // import { Stack } from '@mui/system';
 
 function CardProduct(props) {
+    let navigate = useNavigate();
     console.log(props.product.name);
     const Img = styled('img')({
         alignItems: "center",
@@ -30,6 +33,7 @@ function CardProduct(props) {
 
     });
     return (
+        <CardActionArea onClick={() => { navigate(props.url) }}>
         <Card elevation={0} sx={{boxShadow: '0 8px 24px 0 rgba(0,0,0,0.15)', padding: 1, borderRadius: 1, border: "1px solid #e1e1e1", backgroundColor: '#FEFEFd', maxWidth: 250, backgroundColor: 'white', maxHeight: 240, width: 250 }}>
             {/* <Img  src = {myImage}/> */}
             {/* <CardMedia
@@ -40,7 +44,7 @@ function CardProduct(props) {
                 image={myImage}
             /> */}
             <CardMedia sx = {{position: 'relative'}}>
-                <FavoriteIcon sx = {{position: 'absolute', marginLeft: '90%', color: '#CF3D2F'}} />
+                {/* <FavoriteIcon sx = {{position: 'absolute', marginLeft: '90%', color: '#CF3D2F'}} /> */}
                 <Img src={props.product.image}  >
 
                 </Img>
@@ -57,7 +61,7 @@ function CardProduct(props) {
 
                 <Stack direction="row" spacing={2} justifyContent='space-between' alignItems={"center"}>
                     <Typography variant="body2" color="black" fontWeight={"bold"} fontSize={14}>
-                    {props.product.price}
+                    $ {props.product.price}
                     </Typography>
                     <Typography variant="body2" color="black" fontSize={12}>
                         3 Bids
@@ -73,6 +77,7 @@ function CardProduct(props) {
                 </Stack>
             </CardContent>
         </Card>
+        </CardActionArea>
     )
 }
 

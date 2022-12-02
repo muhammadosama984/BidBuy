@@ -57,6 +57,7 @@ function CardGrid(props) {
     // console.log(products.category === text)
     // console.log(products.filter((products) => products.id === localStorage.getItem('userID')))
     const filter = products.filter((products) => products.user_id === userId);
+    console.log(filter);
     setAuctionProducts(filter);
 
     console.log('sdafa' + auctionProducts)
@@ -80,7 +81,7 @@ function CardGrid(props) {
         <ImageList sx={{padding: '50px'}} cols={4} rowHeight={164}>
         {auctionProducts.map((product) => (
 
-          <CardProduct product={product} />
+          <CardProduct url={`/product/${auctionProducts._id}`} product={product} />
 
         ))}
       </ImageList>
