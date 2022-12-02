@@ -5,6 +5,7 @@ import { api } from '../../App.jsx'
 import NavBar from '../NavBar/NavBar'
 import CardGrid from './CardGrid.jsx'
 import CardProduct from './CardProduct.jsx'
+// import Heading from '../Text/Heading'
 import HeadingText from './HeadingText.jsx'
 import bannerOne from '../../images/iphone-x-banner.png'
 import IndividualFilteredProduct from './IndividualFilteredProduct.jsx'
@@ -12,6 +13,8 @@ import {
   Box,
   Card,
   CircularProgress,
+  Select,
+  MenuItem,
   CardContent,
   Typography,
   Button,
@@ -99,11 +102,11 @@ function HomePage() {
   const [searchTxt, setSearchTxt] = useState('')
 
   const handleChange = (individualSpan) => {
-    console.log("Filter")
+    console.log(individualSpan)
     console.log(filteredProducts)
     setActive(individualSpan.id);
-    setCategory(individualSpan.text);
-    filterFunction(individualSpan.text);
+    setCategory(individualSpan);
+    filterFunction(individualSpan);
   }
 
   const handleSearch = (text)=>{
@@ -145,16 +148,37 @@ const searchFunction = (text)=>{
   return (
     <div>
       <NavBar />
-
-      {spans.map((individualSpan, index) => (
+      {/* <Heading first='All' second='Products'></Heading> */}
+      <FormControl sx={{width:'120px',height: '50px' ,marginRight: '50px', marginLeft:'10%'}}>
+                                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                                <Select
+                                  
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    // value={age}
+                                    label="Category"
+                                    // onChange={handleChange}
+                                             >
+                                    <MenuItem onClick={() => handleChange('')}>All</MenuItem>          
+                                    <MenuItem onClick={() => handleChange('mobile')}>Phones</MenuItem>
+                                    <MenuItem onClick={() => handleChange('laptop')}>Laptop</MenuItem>
+                                    <MenuItem onClick={() => handleChange('camera')}>Camera</MenuItem>
+                                    <MenuItem onClick={() => handleChange('computerhardware')}>PC</MenuItem>
+                                    <MenuItem onClick={() => handleChange('speaker')}>Speaker</MenuItem>
+                                    {/* <MenuItem onClick={() => handleChange(value)} value={'speaker'}>Speaker</MenuItem> */}
+                                </Select>
+                            </FormControl>
+      {/* {spans.map((individualSpan, index) => (
         <button key={index} id={individualSpan.id}
           onClick={() => handleChange(individualSpan)}
           className={individualSpan.id === active ? active : 'deactive'}
         >{individualSpan.text}</button>
-      ))}
+      ))} */}
 
       {/* Temporary search field */}
+      
       <TextField
+      sx={{width:'120px',height: '50px' ,marginRight: '50px', marginLeft:'42%'}}
       onChange={(e) => setSearchTxt((e.target.value).toLowerCase())}
       
           label=""
