@@ -28,6 +28,7 @@ import { addProductSchema } from "../validationSchema/AddProductSchema.js";
 import { LoginSchema } from "../validationSchema/LoginSchema.js";
 import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
 import updateProductPrice from "../controllers/Product/UpdateProductPrice.controller.js";
+import getSingleorderbyUser from "../controllers/Orders/getSingleOrderbyUser.controller.js";
 
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
@@ -61,6 +62,7 @@ apiProtected.get("/getsinglebidding", getSingleBidding);
 // orders
 apiProtected.post("/ordercompleted", postOrderCompleted);
 apiProtected.get("/getsingleorder", getSingleorder);
+apiProtected.get("/getsingleorderbyuser", getSingleorderbyUser);
 apiProtected.get("/getallordercompleted", getAllOrdersCompleted);
 apiProtected.get("/myorder", myOrders);
 
