@@ -3,7 +3,6 @@ import { api } from '../../App.jsx'
 import { useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
-
 import {
     Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination,
     TableRow, TabelSortLabel, Toolbar, Typography, Paper, IconButton, Button, Grid,
@@ -18,8 +17,6 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
-
-
 import React, { Fragment, useEffect, useState } from 'react'
 
 
@@ -31,7 +28,6 @@ rows.splice(0, 1)
 
 function TablePaginationActions(props) {
     const theme = useTheme();
-
 
     const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -85,35 +81,41 @@ function TablePaginationActions(props) {
     );
 }
 
-function FormList() {
+function ProductList() {
   
-const [complains, setComplains] = useState([])
+const [product, setproduct] = useState([])
   
-  const getForms = () => {
-    api.get('/getForm').then(res => {
+  const getallproducts = () => {
+    api.get('/getallproducts').then(res => {
       //console.log(res.data.data);
-      setComplains(res.data.data);
-
+      setproduct(res.data.data);
 
       // console.log(products);
     })
   }
  
   useEffect(() => {
-    getForms()
+    getallproducts()
   }, [],);
    
-    const [page, setPage] = eact.useState(0);
+    const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
 
-    complains.forEach(complain => {
+    product.forEach(complain => {
         rows.push({
             id: complain._id,
             name: complain.name,
             phonenumber: complain.phonenumber,
             email: complain.email,
             message: complain.message,
+            name:name,
+        user_id:user_id,
+        description:description,
+        price:price,
+        category:category,
+        location:location,
+        image:image,
         })
     })
 
@@ -142,7 +144,7 @@ const [complains, setComplains] = useState([])
            
             <Grid display='flex' sx={{ alignItems: 'center', paddingTop: 2 }}>
                 <Typography variant="h4" component="div" sx={{ fontWeight: 'bold', flexGrow: 1, }}>
-                    All complains
+                    All Products
                 </Typography>
                 <Grid item sx={{ paddingRight: 9, }}>
                    
@@ -204,7 +206,6 @@ const [complains, setComplains] = useState([])
                                 </TableBody>
 
 
-
                                 <TableFooter>
                                     <TableRow>
                                         <TablePagination
@@ -240,4 +241,4 @@ const [complains, setComplains] = useState([])
     )
 }
 
-export default FormList
+export default ProductList
