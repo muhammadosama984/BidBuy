@@ -21,6 +21,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 import React, { Fragment, useEffect, useState } from 'react'
+import AdminNav from '../AdminNavBar/AdminNavBar.jsx';
 
 
 const rows = [
@@ -139,7 +140,7 @@ const [complains, setComplains] = useState([])
 
     return (
         <>
-           
+           <AdminNav/>
             <Grid display='flex' sx={{ alignItems: 'center', paddingTop: 2 }}>
                 <Typography variant="h4" component="div" sx={{ fontWeight: 'bold', flexGrow: 1, }}>
                     All complains

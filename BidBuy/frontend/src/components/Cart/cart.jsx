@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Card,
@@ -16,8 +16,18 @@ import NavBar from '../NavBar/NavBar';
 import CardCart from './CardCart';
 import Heading from '../Text/Heading';
 import CardBill from './CardBill';
+import { api } from '../../App.jsx';
 
 function Cart() {
+
+  const BringOrders = async () => {
+    
+  }
+
+  useEffect(() => {
+    BringOrders();
+  }, [])
+  
 
 
   return (
