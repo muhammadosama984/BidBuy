@@ -8,7 +8,7 @@ import { jsonGenerate } from "../../utils/helpers.js";
 const Register = async (req, res) => {
   const error = validationResult(req);
 
-  if (error.isEmpty()) {
+
     const { firstname, lastname, username, password, email, userRole, image } =
       req.body;
 
@@ -53,6 +53,6 @@ const Register = async (req, res) => {
       console.log(error);
     }
   }
-};
+;
 
 export default Register;
