@@ -227,7 +227,7 @@ let navigate = useNavigate()
     <div>
       <NavBar />
 
-      <Stack direction={'row'} justifyContent={'center'} >
+      <Stack direction={'row'}  justifyContent={'center'} >
         <Stack width={'60%'} justifyContent={'left'} >
           <Box width="100%">
             <ProductImg src={product.image} />

@@ -149,7 +149,7 @@ function UploadProduct() {
         <div>
             <NavBar />
 
-            <Stack direction={'row'} justifyContent={'center'} >
+            <Stack direction={'row'} marginTop={'50px'} marginBottom={'100px'} justifyContent={'center'} >
                 <Stack width={'50%'} justifyContent={'center'} >
                     <Box width="100%" height={'600px'} sx={{ padding: '2% 0% 0% 20%' }} >
                         {/* <ProductImg /> */}
@@ -250,7 +250,7 @@ function UploadProduct() {
                         <Typography fontWeight={'bold'}>Time Period (hours)</Typography>
 
                         {/* NEEDS TO BE DISCUSSED */}
-                        <OutlinedInput
+                        {/* <OutlinedInput
                             id="outlined-adornment-amount"
                             defaultValue={3}
                             // onChange={handleChange('amount')}
@@ -267,7 +267,7 @@ function UploadProduct() {
 
                             label=""
                             sx={{ width: '150px', '& .MuiTextField-root': { color: 'red' } }}
-                        />
+                        /> */}
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DateTimePicker
                                 renderInput={(props) => <TextField {...props} />}
