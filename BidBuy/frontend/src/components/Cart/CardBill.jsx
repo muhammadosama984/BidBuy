@@ -51,10 +51,10 @@ function CardBill(props) {
                 </Stack>
 
                 {/* <BigRedbtn name="Checkout"/> */}
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                <Button onClick={() => { navigate('/address') }} style={{border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
                     Check Out
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{border: '1px solid black' ,color: 'black', backgroundColor: '#ffffff', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
+                <Button onClick={() => { navigate('/home') }} style={{border: '1px solid black' ,color: 'black', backgroundColor: '#ffffff', fontSize: '16px', padding: '20px 10px 20px 13px' }}>
                     Continue Shopping
                 </Button>
             </Stack>
