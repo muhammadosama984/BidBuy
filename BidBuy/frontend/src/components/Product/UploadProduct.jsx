@@ -27,10 +27,11 @@ import image2 from '../../images/bg_red.png'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { api } from '../../App.jsx';
 import dayjs from 'dayjs';
+import {useNavigate} from 'react-router-dom'
 
 function UploadProduct() {
 
-
+    let navigate = useNavigate()
     const [imageSelected, setimageSelected] = useState("");
     const [name, setname] = useState("");
     const [description, setDescription] = useState("")
@@ -125,6 +126,9 @@ function UploadProduct() {
         await axios(config)
         .then(function (response) {
           console.log((response.data));
+          if (response.data.statusCode === 200) {
+            navigate('/myauctions');
+          }
         })
         .catch(function (error) {
           console.log(error);

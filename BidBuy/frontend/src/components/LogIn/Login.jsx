@@ -80,7 +80,7 @@ console.log(password)
           //console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('userID', response.data.data.userId);
-          navigate('/profile');
+          navigate('/home');
         }
         if (response.data.statusCode !== 200) {
           setshowError(true);

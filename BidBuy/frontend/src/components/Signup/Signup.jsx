@@ -40,7 +40,7 @@ function Signup() {
         name: firstname,
         username: username,
         password: confirmpassword,
-         email: emailAddress,
+        email: emailAddress,
         userRole: 'User'
     }
     //console.log(sendData.email)
@@ -52,6 +52,10 @@ function Signup() {
      )
     .then(function (response) {
       console.log(response.data);
+      
+      if (response.data.statusCode === 200) {
+        navigate('/login');
+      }
 
       if (response.data.statusCode !== 200){
         console.log("there error ")
