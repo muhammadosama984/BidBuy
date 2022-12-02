@@ -23,7 +23,7 @@ const postOrderCompleted = async (req, res) => {
       const result = await OrdersCompleted.create({
         bidding_id: req.query.bidding_id,
         seller_id: list.seller_id,
-        buyer_id: list.highestBidder,
+        buyer_id: req.userId, // list.highestBidder,
         price_soldIn: req.body.price_soldIn,
         payment: req.body.payment,
       });

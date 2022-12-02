@@ -42,6 +42,8 @@ apiProtected.post("/deleteprofile", deleteProfile);
 apiProtected.get("/myfav", myFavourites);
 apiProtected.post("/addmyfav", AddMyFav);
 apiProtected.get("/getuserrole", getUserRole);
+apiProtected.get("/getAllUsers", getAllU);
+
 
 //Products
 apiProtected.post("/addproduct", addProductSchema, AddProduct);

@@ -62,19 +62,19 @@ return (
       <AdminNav />
       <Grid display="flex" sx={{justifyContent:'space-evenly'}}>
 
-                  <Button onClick={() => { navigate('/login') }} style={{ width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
+                  <Button onClick={() => { navigate('/UserList') }} style={{ width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Users
                 </Button>
                 <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Biddings
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
+                <Button onClick={() => { navigate('/OrderList') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Orders
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
+                <Button onClick={() => { navigate('/ProductList') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Products
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}
+                <Button onClick={() => { navigate('/formlist') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}
                 >
                     Complaints
                 </Button>

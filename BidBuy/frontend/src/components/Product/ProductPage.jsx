@@ -128,14 +128,29 @@ let navigate = useNavigate()
 
   const addtoFav = ()=>{
   
-    api.post('/addmyfav', {
-      headers: {
-        auth: localStorage.getItem("token")
-      },
-      params: {
+   
+    //var data = '';
+    
+    var config = {
+      method: 'post',
+      url: 'http://localhost:3000/api/addmyfav',
+      params:{
         product_id: productId
-      } 
+      },
+      headers: { 
+        auth: localStorage.getItem('token'),
+      },
+      data : ''
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
     })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
   
   }
 
