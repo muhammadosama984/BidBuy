@@ -27,6 +27,7 @@ import { updateProfile } from "../controllers/User/updateProfile.controller.js";
 import { addProductSchema } from "../validationSchema/AddProductSchema.js";
 import { LoginSchema } from "../validationSchema/LoginSchema.js";
 import { RegisterSchema } from "../validationSchema/RegisterSchema.js";
+import updateProductPrice from "../controllers/Product/UpdateProductPrice.controller.js";
 
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
@@ -48,10 +49,11 @@ apiRoute.get("/getallproducts", getAllProducts);
 apiProtected.get("/getsingleproduct", getSingleProduct);
 apiProtected.get("/myproduct", myProducts);
 apiProtected.get("/getbiddingid", getBiddingID);
+apiProtected.post("/updateproductprice", updateProductPrice);
 
 // biddings
 apiProtected.post("/startbidding", startBidding);
-apiRoute.post("/updatebidding", updateBidding);
+apiProtected.post("/updatebidding", updateBidding);
 apiProtected.post("/cancelbidding", cancelBiddings);
 apiProtected.get("/getallbiddings", getAllBiddings);
 apiProtected.get("/getsinglebidding", getSingleBidding);

@@ -46,54 +46,20 @@ let navigate = useNavigate()
           product_id: productId
         }
       }
-    ).then(res => {
+    ).then(async res => {
       console.log(res.data.data);
       setendtime(res.data.data.end_time)
 
-      // var data = JSON.stringify({
-      //   "newBid": newBid
-      // });
+    
 
-      // var config = {
-      //   method: 'post',
-      //   url: `http://localhost:3000/api/updatebiddings`,
-      //   params:{
-      //     bidding_id: res.data.data._id
-      //   },
-      //   headers: { 
-      //     auth: localStorage.getItem("token"), 
-
-      //   },
-      //   data : data
-      // };
-
-      //  api.post("/updatebiddings",
-      //  {
-      //   newBid: newBid,
-      // },
-
-      // params:{
-      //       bidding_id: res.data.data._id
-      //     },
-
-
-
-      //     )
-      //     .then(function (response) {
-      //       console.log(response.data);
-      //     })
-      //     .catch(function (error) {
-      //       console.log(error);
-      //     });
-
-
+  console.log(res.data.data._id);
       var data = JSON.stringify({
         newBid: newBid
       });
 
       var config = {
         method: 'post',
-        url: `http://localhost:3000/api/updatebiddings`,
+        url: `http://localhost:3000/api/updatebidding`,
         params: {
           bidding_id: res.data.data._id
         },
@@ -101,70 +67,51 @@ let navigate = useNavigate()
           auth: localStorage.getItem('token'),
 
         },
-        data: data
+        data: {
+          newBid: newBid
+        }
       };
 
-      axios(config)
+      await axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          console.log((response.data));
+          var data1 = JSON.stringify({
+            price: newBid
+          });
+          console.log(newBid);
+          var config1 = {
+            method: 'post',
+            url: `http://localhost:3000/api/updateproductprice`,
+            params:{
+              product_id: res.data.data.product_id
+            },
+            headers: { 
+              auth: localStorage.getItem('token'), 
+            
+            },
+            data : {
+              price: newBid
+            }
+          };
+          
+          axios(config1)
+          .then(function (response) {
+            console.log((response.data));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         })
         .catch(function (error) {
           console.log(error);
         });
 
-
+       
+       
+        
 
     })
-    //     var config = {
-    //       method: 'get',
-    //       url: 'http://localhost:3000/api/getallbiddings',
-    //       headers: { 
-    //         auth: localStorage.getItem("token")
-    //       },
-
-    //     };
-    //    await  axios(config)
-    //     .then(function (response) {
-    //     setallBiddings(response.data)
-    //     console.log(response.data.data)
-
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-
-    // console.log(Biddings);
-
-    // const filter = Biddings.filter((bids) => bids.product_id === productId);
-
-    // console.log("filter one")
-    // console.log(filter);
-
-
-    // var data = JSON.stringify({
-    //   "newBid": newBid
-    // });
-
-    // var config = {
-    //   method: 'post',
-    //   url: `http://localhost:3000/api/updatebiddings`,
-    //   params:{
-    //     bidding_id: Biddings
-    //   },
-    //   headers: { 
-    //     auth: localStorage.getItem("token"), 
-
-    //   },
-    //   data : data
-    // };
-
-    // await axios(config)
-    // .then(function (response) {
-    //   console.log(response.data);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+   
 
   }
 
@@ -180,7 +127,7 @@ let navigate = useNavigate()
   const [product, setproduct] = useState({})
 
   const addtoFav = ()=>{
-    console.log('wtf Hello')
+  
     api.post('/addmyfav', {
       headers: {
         auth: localStorage.getItem("token")
@@ -205,7 +152,7 @@ let navigate = useNavigate()
         }
       })
       .then(function (response) {
-        //  console.log(response.data.data);
+         console.log(response.data.data);
         // setproductID(id);
         setproduct(response.data.data)
       })
@@ -313,7 +260,7 @@ let navigate = useNavigate()
           </Stack>
           <Stack width={'50%'} direction={'row'} justifyContent={'space-between'}>
             <Typography fontWeight={'bold'}>Time Left</Typography>
-            <Typography>{(Date.now() - endtime) / (1000 * 60 * 60)} hours</Typography>
+            <Typography>{Math.round((Date.now() - endtime) / (1000 * 60 * 60))} hours</Typography>
           </Stack>
           <Stack alignItems={'center'} width={'50%'} direction={'row'} justifyContent={'space-between'}>
 
