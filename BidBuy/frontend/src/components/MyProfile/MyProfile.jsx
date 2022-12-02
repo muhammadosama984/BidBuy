@@ -20,7 +20,7 @@ import { textAlign } from '@mui/system';
 import Logo from '../Logo/Logo.jsx';
 import NavBar from '../NavBar/NavBar'
 import { api } from '../../App.jsx';
-
+import image from '../../images/userProfile.png'
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   // backgroundColor: 'pink',
@@ -81,10 +81,18 @@ function Header() {
   const handleDelete = () => {
     
   }
+  const ProductImg = styled('img')({
+    // alignItems: "center",
+    // maxwidth: "100%",
+    width: "100%",
+    objectFit: 'contain'
+    // paddingLeft: "25%"
+  });
+
   return (
     <>
       <NavBar />
-      <Grid  display='flex'  container direction='column' sx={{ p: 5 }} xs={12}>
+      <Grid  display='flex' alignItems={'center'}  container direction='column' sx={{ p: 5 }} xs={12}>
         <Grid display='flex' sx={{ flexDirection: 'column', p: 1, marginLeft: 7 }} xs={8}>
           <Box container display='flex'
             component="form"
@@ -97,8 +105,10 @@ function Header() {
           >
             <Stack direction="row">
               <Box
+              //lhdledlie
               sx={{ height: '100px', width: '100px', backgroundColor: '#e0e0e0', borderRadius: '10vw' }}
               >
+                <ProductImg src={image}/>
               </Box>
               <Stack direction="column">
               <Box sx={{ height: '15px' }}></Box>
@@ -117,16 +127,21 @@ function Header() {
                 '& .MuiTextField-root': { m: 1, width: '35ch' },
               }} noValidate autoComplete="off"
             >
-              <div>
+              {/* <div>
                 <TextField onChange={(FirstName)=>{setFirstName(FirstName.target.value)}} value={userProfile.name} required id="outlined-required"  />
                 <TextField onChange={(lastName)=>{setLastName(lastName.target.value)}} required id="outlined-required" />
-              </div>
+              </div> */}
               <div>
+                <Typography>Email</Typography>
                 <TextField onChange={(email)=>{setemailAddress(email.target.value)}} value={userProfile.email} required id="outlined-required" />
+                <Typography>Username</Typography>
+               
                 <TextField onChange={(password)=>{setPassword(password.target.value)}} value={userProfile.username} required id="outlined-required"  />
               </div>
               <div>
-                <TextField disabled={true} value={userProfile.userRole} required id="outlined-required"  />
+              <Typography>User Role</Typography>
+               
+                <TextField value={userProfile.userRole} required id="outlined-required"  />
                 {/* <TextField required id="outlined-required" label="User Role" /> */}
               </div>
               {/* <div>
@@ -138,12 +153,12 @@ function Header() {
         </Grid>
       </Grid>
 
-      <Button onClick={handleEdit}>
+      {/* <Button onClick={handleEdit}>
         Update Information
       </Button>
       <Button onClick={handleDelete}>
         Delete 
-      </Button>
+      </Button> */}
     </>
   )
 }
