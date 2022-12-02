@@ -81,36 +81,34 @@ function TablePaginationActions(props) {
     );
 }
 
-function ProductList() {
+function UserList() {
   
-const [product, setproduct] = useState([])
+const [user, setuser] = useState([])
   
-  const getallproducts = () => {
-    api.get('/getallproducts').then(res => {
+  const getallusers = () => {
+    api.get('/getAllUsers').then(res => {
       //console.log(res.data.data);
-      setproduct(res.data.data);
+      setuser(res.data.data);
 
       // console.log(products);
     })
   }
  
   useEffect(() => {
-    getallproducts()
+    getallusers()
   }, [],);
    
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
 
-    product.forEach(products => {
+    user.forEach(users => {
         rows.push({
-            user_id:products.user_id,
-            name:products.name,
-            description:products.description,
-            price:products.price,
-            category:products.category,
-            location:products.location,
-            image:products.image,
+            firstname:users.firstname,
+            lastname:users.lastname,
+            email:users.email,
+            date:users.date,
+            password:users.password,
         })
     })
 
@@ -156,10 +154,10 @@ const [product, setproduct] = useState([])
                                 <TableHead>
                                     <TableRow sx={{ backgroundColor: "#E5E4E2", }}>
 
-                                        <TableCell align="left" sx={{ fontWeight: 'bold'}}>User Id</TableCell>
-                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Name</TableCell>
-                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Description</TableCell>
-                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Price</TableCell>
+                                        <TableCell align="left" sx={{ fontWeight: 'bold'}}>First Name</TableCell>
+                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Last Name</TableCell>
+                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Email</TableCell>
+                                        <TableCell align="left" sx={{ fontWeight: 'bold', }}>Date</TableCell>
                                      
                                     </TableRow>
                                 </TableHead>
@@ -169,24 +167,24 @@ const [product, setproduct] = useState([])
                                         ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         : rows
                                     ).map((row) => (
-                                        <TableRow key={row.name} >
+                                        <TableRow key={row.firstname} >
 
                                             <TableCell component="th" scope="row">
-                                                {row.user_id}
+                                                {row.firstname}
 
                                             </TableCell>
 
                                             <TableCell component="th" scope="row">
-                                                {row.name}
+                                                {row.lastname}
 
                                             </TableCell>
 
                                             <TableCell component="th" scope="row">
-                                                {row.description}
+                                                {row.email}
 
                                             </TableCell>
                                             <TableCell component="th" scope="row">
-                                                {row.price}
+                                                {row.date}
 
                                             </TableCell>
                                             
@@ -236,4 +234,4 @@ const [product, setproduct] = useState([])
     )
 }
 
-export default ProductList
+export default UserList

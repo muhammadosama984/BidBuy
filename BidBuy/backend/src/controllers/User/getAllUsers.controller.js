@@ -30,3 +30,6 @@ export const getAllUsers = async (req, res) => {
     }
   }
 };
+
+export default getAllUsers
+
