@@ -23,6 +23,7 @@ import AdminList from './components/AdminList/AdminList';
 import AdminListDetail from './components/AdminListDetail/AdminListDetail';
 import ProtectedRoute from './components/protectedRoutes.jsx';
 import NotAuthorised from './components/NotAuthorised/notAuthorised.jsx';
+import FormList from './components/FormList/formlist.jsx';
 
 export const api = axios.create({
   baseURL: `http://localhost:3000/api/`
@@ -55,6 +56,7 @@ function App() {
       <Route path="/notauthorised" element={<NotAuthorised/>} />
       <Route path="/AdminList" element={<AdminList/>} />
       <Route path="/AdminListDetail" element={<AdminListDetail/>} />
+      <Route path="/formlist" element={<FormList/>} />
      
       
     </Routes>

@@ -74,7 +74,7 @@ return (
                 <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}>
                     Products
                 </Button>
-                <Button onClick={() => { navigate('/login') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}
+                <Button onClick={() => { navigate('/formlist') }} style={{width:150, border: '1px solid #CF3D2F' , color: 'white', backgroundColor: '#CF3D2F', fontSize: '16px', padding: '10px 10px 10px 10px' }}
                 >
                     Complaints
                 </Button>
