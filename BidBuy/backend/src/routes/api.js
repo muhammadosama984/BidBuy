@@ -31,7 +31,7 @@ import updateProductPrice from "../controllers/Product/UpdateProductPrice.contro
 import getSingleorderbyUser from "../controllers/Orders/getSingleOrderbyUser.controller.js";
 import getAllUsers from "../controllers/User/getAllUsers.controller.js";
 
-import getAllUsers from "../controllers/User/getAllUsers.controller.js";
+// import getAllUsers from "../controllers/User/getAllUsers.controller.js";
 export const apiRoute = express.Router();
 export const apiProtected = express.Router();
 
