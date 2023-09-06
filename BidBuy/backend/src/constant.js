@@ -9,3 +9,5 @@
 //     "mongodb+srv://osama:osama123@cluster0.xwgpbcb.mongodb.net/bid?retryWrites=true&w=majority",
 //   JWT_TOKEN_SECRET: "sdsdsjcdfef",
 // };
+
+export const MONGOURL = "mongodb+srv://osama:osama123@cluster0.xwgpbcb.mongodb.net/bid?retryWrites=true&w=majority"

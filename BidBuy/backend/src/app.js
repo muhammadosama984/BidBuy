@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { apiRoute, apiProtected } from "./routes/api.js";
 import AuthMiddleware from "./middleware/Authentication.js";
+import { MONGOURL } from "./constant.js";
 
 import dotenv from "dotenv";
 
@@ -13,9 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(
-  "mongodb+srv://osama:osama123@cluster0.xwgpbcb.mongodb.net/bid?retryWrites=true&w=majority",
+  MONGOURL,
   { useNewUrlParser: true },
-   (e) => console.log(e)
+   (e) => console.log("Database is connected")
 );
 
 app.use(cors());
